@@ -39,3 +39,6 @@ __pycache__/
 costestimator/
 *.md
 .claude/
+
+# Keep the customer lookup file for the app
+!ContractsCustomersAddresses.xlsx
