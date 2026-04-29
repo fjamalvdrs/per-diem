@@ -1,0 +1,1807 @@
+{
+  "by_distance_jobtype": {
+    "1000-1500": {
+      "Installation": {
+        "p_overnight": 0.9944,
+        "n": 177,
+        "n_overnight": 176
+      },
+      "Service": {
+        "p_overnight": 0.9538,
+        "n": 130,
+        "n_overnight": 124
+      }
+    },
+    "1500-2000": {
+      "Installation": {
+        "p_overnight": 0.9789,
+        "n": 95,
+        "n_overnight": 93
+      },
+      "Service": {
+        "p_overnight": 0.9703,
+        "n": 101,
+        "n_overnight": 98
+      }
+    },
+    "2000+": {
+      "Installation": {
+        "p_overnight": 0.9847,
+        "n": 131,
+        "n_overnight": 129
+      },
+      "Service": {
+        "p_overnight": 0.974,
+        "n": 77,
+        "n_overnight": 75
+      }
+    },
+    "300-500": {
+      "Installation": {
+        "p_overnight": 0.9907,
+        "n": 216,
+        "n_overnight": 214
+      },
+      "Service": {
+        "p_overnight": 0.964,
+        "n": 333,
+        "n_overnight": 321
+      }
+    },
+    "500-750": {
+      "Installation": {
+        "p_overnight": 0.9813,
+        "n": 214,
+        "n_overnight": 210
+      },
+      "Service": {
+        "p_overnight": 0.9543,
+        "n": 328,
+        "n_overnight": 313
+      }
+    },
+    "750-1000": {
+      "Installation": {
+        "p_overnight": 0.9815,
+        "n": 162,
+        "n_overnight": 159
+      },
+      "Service": {
+        "p_overnight": 0.9719,
+        "n": 178,
+        "n_overnight": 173
+      }
+    },
+    "Under 300": {
+      "Installation": {
+        "p_overnight": 0.7614,
+        "n": 725,
+        "n_overnight": 552
+      },
+      "Service": {
+        "p_overnight": 0.3972,
+        "n": 2102,
+        "n_overnight": 835
+      }
+    }
+  },
+  "by_distance_only": {
+    "1000-1500": {
+      "p_overnight": 0.9772,
+      "n": 307,
+      "n_overnight": 300
+    },
+    "1500-2000": {
+      "p_overnight": 0.9745,
+      "n": 196,
+      "n_overnight": 191
+    },
+    "2000+": {
+      "p_overnight": 0.9808,
+      "n": 208,
+      "n_overnight": 204
+    },
+    "300-500": {
+      "p_overnight": 0.9745,
+      "n": 549,
+      "n_overnight": 535
+    },
+    "500-750": {
+      "p_overnight": 0.9649,
+      "n": 542,
+      "n_overnight": 523
+    },
+    "750-1000": {
+      "p_overnight": 0.9765,
+      "n": 340,
+      "n_overnight": 332
+    },
+    "Under 300": {
+      "p_overnight": 0.4906,
+      "n": 2827,
+      "n_overnight": 1387
+    }
+  },
+  "by_customer": {
+    "C02000": {
+      "p_overnight": 0.8947,
+      "n": 19,
+      "n_overnight": 17,
+      "customer_name": "WM AKRON"
+    },
+    "C02001": {
+      "p_overnight": 0.9545,
+      "n": 22,
+      "n_overnight": 21,
+      "customer_name": "WM ALAMEDA COUNTY"
+    },
+    "C02002": {
+      "p_overnight": 0.8,
+      "n": 10,
+      "n_overnight": 8,
+      "customer_name": "WM ALLENTOWN"
+    },
+    "C02003": {
+      "p_overnight": 0.2,
+      "n": 5,
+      "n_overnight": 1,
+      "customer_name": "WM ARLINGTON"
+    },
+    "C02004": {
+      "p_overnight": 0.8333,
+      "n": 54,
+      "n_overnight": 45,
+      "customer_name": "WM AVON"
+    },
+    "C02005": {
+      "p_overnight": 0.5431,
+      "n": 116,
+      "n_overnight": 63,
+      "customer_name": "WM AZUSA"
+    },
+    "C02006": {
+      "p_overnight": 0.1111,
+      "n": 9,
+      "n_overnight": 1,
+      "customer_name": "WM BALTIMORE"
+    },
+    "C02008": {
+      "p_overnight": 0.8824,
+      "n": 51,
+      "n_overnight": 45,
+      "customer_name": "WM BILLERICA"
+    },
+    "C02009": {
+      "p_overnight": 0.6,
+      "n": 30,
+      "n_overnight": 18,
+      "customer_name": "WM BQE"
+    },
+    "C02010": {
+      "p_overnight": 0.9592,
+      "n": 49,
+      "n_overnight": 47,
+      "customer_name": "WM BREVARD"
+    },
+    "C02011": {
+      "p_overnight": 0.704,
+      "n": 125,
+      "n_overnight": 88,
+      "customer_name": "WM CHICAGO"
+    },
+    "C02013": {
+      "p_overnight": 0.4167,
+      "n": 12,
+      "n_overnight": 5,
+      "customer_name": "WM CHICAGO RSI"
+    },
+    "C02014": {
+      "p_overnight": 1.0,
+      "n": 30,
+      "n_overnight": 30,
+      "customer_name": "WM CLEVELAND"
+    },
+    "C02016": {
+      "p_overnight": 0.6,
+      "n": 5,
+      "n_overnight": 3,
+      "customer_name": "WM DENVER 48TH AVENUE"
+    },
+    "C02018": {
+      "p_overnight": 0.6667,
+      "n": 42,
+      "n_overnight": 28,
+      "customer_name": "WM DENVER FRANKLIN STREET"
+    },
+    "C02019": {
+      "p_overnight": 1.0,
+      "n": 8,
+      "n_overnight": 8,
+      "customer_name": "WM DETROIT"
+    },
+    "C02020": {
+      "p_overnight": 0.4667,
+      "n": 15,
+      "n_overnight": 7,
+      "customer_name": "WM DULLES"
+    },
+    "C02021": {
+      "p_overnight": 0.6897,
+      "n": 58,
+      "n_overnight": 40,
+      "customer_name": "WM ELKRIDGE"
+    },
+    "C02023": {
+      "p_overnight": 0.8378,
+      "n": 37,
+      "n_overnight": 31,
+      "customer_name": "WM GERMANTOWN"
+    },
+    "C02025": {
+      "p_overnight": 0.6364,
+      "n": 11,
+      "n_overnight": 7,
+      "customer_name": "WM INDIANAPOLIS E 56 ST"
+    },
+    "C02026": {
+      "p_overnight": 0.25,
+      "n": 4,
+      "n_overnight": 1,
+      "customer_name": ""
+    },
+    "C02027": {
+      "p_overnight": 0.875,
+      "n": 8,
+      "n_overnight": 7,
+      "customer_name": "WM HOUSTON CLAY ROAD"
+    },
+    "C02028": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "WM HOUSTON GASMER"
+    },
+    "C02029": {
+      "p_overnight": 0.9796,
+      "n": 49,
+      "n_overnight": 48,
+      "customer_name": "WM HOUSTON WESTSIDE"
+    },
+    "C02031": {
+      "p_overnight": 0.6731,
+      "n": 52,
+      "n_overnight": 35,
+      "customer_name": "WM JMK FIBERS"
+    },
+    "C02032": {
+      "p_overnight": 0.6364,
+      "n": 11,
+      "n_overnight": 7,
+      "customer_name": "WM JULIA ST"
+    },
+    "C02033": {
+      "p_overnight": 1.0,
+      "n": 26,
+      "n_overnight": 26,
+      "customer_name": "WM KANSAS CITY"
+    },
+    "C02034": {
+      "p_overnight": 0.5,
+      "n": 8,
+      "n_overnight": 4,
+      "customer_name": "WM LARIMER COUNTY"
+    },
+    "C02035": {
+      "p_overnight": 1.0,
+      "n": 18,
+      "n_overnight": 18,
+      "customer_name": "WM LITTLE ROCK"
+    },
+    "C02036": {
+      "p_overnight": 0.7027,
+      "n": 37,
+      "n_overnight": 26,
+      "customer_name": "WM LIVERPOOL"
+    },
+    "C02037": {
+      "p_overnight": 0.7778,
+      "n": 9,
+      "n_overnight": 7,
+      "customer_name": "WM LODI"
+    },
+    "C02038": {
+      "p_overnight": 0.1,
+      "n": 10,
+      "n_overnight": 1,
+      "customer_name": "WM LOS ANGELES"
+    },
+    "C02039": {
+      "p_overnight": 0.8571,
+      "n": 14,
+      "n_overnight": 12,
+      "customer_name": "WM MENASHA"
+    },
+    "C02040": {
+      "p_overnight": 0.9231,
+      "n": 26,
+      "n_overnight": 24,
+      "customer_name": "WM MESQUITE CREEK"
+    },
+    "C02042": {
+      "p_overnight": 0.9796,
+      "n": 49,
+      "n_overnight": 48,
+      "customer_name": "WM MINNEAPOLIS"
+    },
+    "C02043": {
+      "p_overnight": 0.8095,
+      "n": 21,
+      "n_overnight": 17,
+      "customer_name": "WM MONROE COUNTY"
+    },
+    "C02044": {
+      "p_overnight": 1.0,
+      "n": 29,
+      "n_overnight": 29,
+      "customer_name": "WM NASHVILLE RIVER HILLS"
+    },
+    "C02045": {
+      "p_overnight": 0.55,
+      "n": 20,
+      "n_overnight": 11,
+      "customer_name": "WM NEWARK"
+    },
+    "C02046": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "WM OKLAHOMA CITY"
+    },
+    "C02047": {
+      "p_overnight": 0.6571,
+      "n": 35,
+      "n_overnight": 23,
+      "customer_name": ""
+    },
+    "C02049": {
+      "p_overnight": 0.6897,
+      "n": 87,
+      "n_overnight": 60,
+      "customer_name": "WM PHILADELPHIA"
+    },
+    "C02050": {
+      "p_overnight": 0.9722,
+      "n": 36,
+      "n_overnight": 35,
+      "customer_name": "WM PITTSBURGH"
+    },
+    "C02051": {
+      "p_overnight": 0.9286,
+      "n": 14,
+      "n_overnight": 13,
+      "customer_name": "WM PORTLAND"
+    },
+    "C02052": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "WM RENO MRF"
+    },
+    "C02053": {
+      "p_overnight": 0.7647,
+      "n": 17,
+      "n_overnight": 13,
+      "customer_name": "WM REUTERS"
+    },
+    "C02054": {
+      "p_overnight": 0.75,
+      "n": 36,
+      "n_overnight": 27,
+      "customer_name": "WM SACRAMENTO"
+    },
+    "C02055": {
+      "p_overnight": 0.9512,
+      "n": 41,
+      "n_overnight": 39,
+      "customer_name": "WM SALT LAKE CITY"
+    },
+    "C02056": {
+      "p_overnight": 1.0,
+      "n": 16,
+      "n_overnight": 16,
+      "customer_name": "WM SAN ANTONIO"
+    },
+    "C02057": {
+      "p_overnight": 1.0,
+      "n": 18,
+      "n_overnight": 18,
+      "customer_name": "WM SPOKANE"
+    },
+    "C02058": {
+      "p_overnight": 0.7778,
+      "n": 9,
+      "n_overnight": 7,
+      "customer_name": "WM SPRINGFIELD"
+    },
+    "C02059": {
+      "p_overnight": 0.3333,
+      "n": 15,
+      "n_overnight": 5,
+      "customer_name": "WM SUN VALLEY"
+    },
+    "C02060": {
+      "p_overnight": 0.975,
+      "n": 80,
+      "n_overnight": 78,
+      "customer_name": "WM SURPRISE"
+    },
+    "C02061": {
+      "p_overnight": 0.8718,
+      "n": 39,
+      "n_overnight": 34,
+      "customer_name": "WM TAMPA"
+    },
+    "C02062": {
+      "p_overnight": 0.8571,
+      "n": 7,
+      "n_overnight": 6,
+      "customer_name": "WM TOPEKA"
+    },
+    "C02063": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "WM TORONTO"
+    },
+    "C02064": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "WM TVWR"
+    },
+    "C02066": {
+      "p_overnight": 0.5,
+      "n": 10,
+      "n_overnight": 5,
+      "customer_name": "WM WINSTON-SALEM"
+    },
+    "C02067": {
+      "p_overnight": 0.9032,
+      "n": 31,
+      "n_overnight": 28,
+      "customer_name": "WM WOODINVILLE"
+    },
+    "C02069": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "WM RCI ENVIRONNEMENT"
+    },
+    "C02070": {
+      "p_overnight": 0.75,
+      "n": 8,
+      "n_overnight": 6,
+      "customer_name": "WM INDIANAPOLIS STOUT FIELD"
+    },
+    "C02072": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "BOLLEGRAAF RECYCLING MACHINERY"
+    },
+    "C02080": {
+      "p_overnight": 1.0,
+      "n": 18,
+      "n_overnight": 18,
+      "customer_name": "GFL ENVIRONMENTAL EDMONTON"
+    },
+    "C02083": {
+      "p_overnight": 0.9057,
+      "n": 53,
+      "n_overnight": 48,
+      "customer_name": "BALCONES RESOURCES, INC. PHOEN"
+    },
+    "C02085": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "BIO PAPPEL INTERNATIONAL"
+    },
+    "C02087": {
+      "p_overnight": 1.0,
+      "n": 10,
+      "n_overnight": 10,
+      "customer_name": "FRIEDMAN RECYCLING CO. PHOENIX"
+    },
+    "C02088": {
+      "p_overnight": 0.9231,
+      "n": 13,
+      "n_overnight": 12,
+      "customer_name": "REPUBLIC SERVICES CITY OF PHOENIX"
+    },
+    "C02089": {
+      "p_overnight": 0.6,
+      "n": 5,
+      "n_overnight": 3,
+      "customer_name": ""
+    },
+    "C02096": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "ECOWASTE INDUSTRIES"
+    },
+    "C02097": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "EMTERRA ENVIRONMENTAL SURREY"
+    },
+    "C02103": {
+      "p_overnight": 0.8947,
+      "n": 19,
+      "n_overnight": 17,
+      "customer_name": "URBAN IMPACT RECYCLING, LTD"
+    },
+    "C02105": {
+      "p_overnight": 0.4737,
+      "n": 19,
+      "n_overnight": 9,
+      "customer_name": "ALPHA RECYCLING"
+    },
+    "C02106": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "AMCP INDUSTRIAL SUPPLY"
+    },
+    "C02107": {
+      "p_overnight": 0.2889,
+      "n": 45,
+      "n_overnight": 13,
+      "customer_name": "ANGELUS WESTERN PAPER FIBERS"
+    },
+    "C02109": {
+      "p_overnight": 0.0,
+      "n": 4,
+      "n_overnight": 0,
+      "customer_name": "ATHENS SERVICE, INC."
+    },
+    "C02114": {
+      "p_overnight": 0.6667,
+      "n": 6,
+      "n_overnight": 4,
+      "customer_name": "CAMSTON WRATHER"
+    },
+    "C02115": {
+      "p_overnight": 0.25,
+      "n": 24,
+      "n_overnight": 6,
+      "customer_name": "CITY FIBERS, INC. DOWNTOWN"
+    },
+    "C02117": {
+      "p_overnight": 1.0,
+      "n": 17,
+      "n_overnight": 17,
+      "customer_name": "CITY OF SUNNYVALE"
+    },
+    "C02119": {
+      "p_overnight": 0.8,
+      "n": 5,
+      "n_overnight": 4,
+      "customer_name": "CR&R INCORPORATED"
+    },
+    "C02121": {
+      "p_overnight": 0.6883,
+      "n": 77,
+      "n_overnight": 53,
+      "customer_name": "EDCO DISPOSAL CORP LEMON GROVE"
+    },
+    "C02123": {
+      "p_overnight": 0.4,
+      "n": 5,
+      "n_overnight": 2,
+      "customer_name": "EDCO WASTE SAN MARCOS"
+    },
+    "C02125": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "EVERGREEN PLASTICS RIVERSIDE"
+    },
+    "C02126": {
+      "p_overnight": 0.8824,
+      "n": 17,
+      "n_overnight": 15,
+      "customer_name": "FCC ENVIRONMENTAL PLACER"
+    },
+    "C02130": {
+      "p_overnight": 0.4643,
+      "n": 28,
+      "n_overnight": 13,
+      "customer_name": "GRAND CENTRAL RECYCLING"
+    },
+    "C02131": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "GREIF SAN JOSE"
+    },
+    "C02134": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "LA COUNTY SANITATION"
+    },
+    "C02135": {
+      "p_overnight": 0.5455,
+      "n": 11,
+      "n_overnight": 6,
+      "customer_name": "MADISON MATERIALS, INC."
+    },
+    "C02136": {
+      "p_overnight": 0.7353,
+      "n": 34,
+      "n_overnight": 25,
+      "customer_name": "MARBORG RECOVERY"
+    },
+    "C02137": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "MARIN RESOURCE RECOVERY"
+    },
+    "C02139": {
+      "p_overnight": 0.3125,
+      "n": 16,
+      "n_overnight": 5,
+      "customer_name": "POTENTIAL INDUSTRIES, INC."
+    },
+    "C02141": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "RECOLOGY BLOSSOM VALLEY ORGANI"
+    },
+    "C02142": {
+      "p_overnight": 1.0,
+      "n": 9,
+      "n_overnight": 9,
+      "customer_name": "RECOLOGY SAN FRANCISCO PIER 96"
+    },
+    "C02145": {
+      "p_overnight": 0.7,
+      "n": 10,
+      "n_overnight": 7,
+      "customer_name": "REPUBLIC SERVICES - NORTH HIGHLANDS"
+    },
+    "C02146": {
+      "p_overnight": 0.6316,
+      "n": 19,
+      "n_overnight": 12,
+      "customer_name": "REPET INC."
+    },
+    "C02147": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "REVOLUTION PLASTICS"
+    },
+    "C02148": {
+      "p_overnight": 0.5857,
+      "n": 70,
+      "n_overnight": 41,
+      "customer_name": "SANCO SERVICES"
+    },
+    "C02149": {
+      "p_overnight": 0.0909,
+      "n": 11,
+      "n_overnight": 1,
+      "customer_name": "SOUTH COAST RECYCLING"
+    },
+    "C02150": {
+      "p_overnight": 0.3333,
+      "n": 3,
+      "n_overnight": 1,
+      "customer_name": "SUN VALLEY ALLAN COMPANY"
+    },
+    "C02151": {
+      "p_overnight": 0.2857,
+      "n": 7,
+      "n_overnight": 2,
+      "customer_name": "TALCO PLASTICS, INC."
+    },
+    "C02152": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "TRI-CED COMMUNITY RECYCLING"
+    },
+    "C02154": {
+      "p_overnight": 0.3333,
+      "n": 12,
+      "n_overnight": 4,
+      "customer_name": "WESTERN PACIFIC PULP AND PAPER"
+    },
+    "C02156": {
+      "p_overnight": 0.5,
+      "n": 16,
+      "n_overnight": 8,
+      "customer_name": "WESTERN WAY RECYCLING, INC."
+    },
+    "C02158": {
+      "p_overnight": 0.3333,
+      "n": 3,
+      "n_overnight": 1,
+      "customer_name": "ECO-CYCLE, INC."
+    },
+    "C02160": {
+      "p_overnight": 0.6364,
+      "n": 11,
+      "n_overnight": 7,
+      "customer_name": "REPUBLIC SERVICES DENVER"
+    },
+    "C02161": {
+      "p_overnight": 0.2609,
+      "n": 23,
+      "n_overnight": 6,
+      "customer_name": "CASELLA WASTE WILLAMANTIC"
+    },
+    "C02163": {
+      "p_overnight": 0.4262,
+      "n": 61,
+      "n_overnight": 26,
+      "customer_name": "MARCUS PAPER COMPANY"
+    },
+    "C02164": {
+      "p_overnight": 0.325,
+      "n": 40,
+      "n_overnight": 13,
+      "customer_name": "TH-CC ASSET HOLDINGS LLC"
+    },
+    "C02165": {
+      "p_overnight": 0.6279,
+      "n": 86,
+      "n_overnight": 54,
+      "customer_name": "MURPHY ROAD RECYCLING BERLIN"
+    },
+    "C02166": {
+      "p_overnight": 0.4286,
+      "n": 21,
+      "n_overnight": 9,
+      "customer_name": "MURPHY ROAD RECYCLING BRIDGEPORT"
+    },
+    "C02167": {
+      "p_overnight": 0.5,
+      "n": 8,
+      "n_overnight": 4,
+      "customer_name": "MURPHY ROAD RECYCLING HARTFORD"
+    },
+    "C02168": {
+      "p_overnight": 0.6667,
+      "n": 6,
+      "n_overnight": 4,
+      "customer_name": "MURPHY ROAD RECYCLING STRATFORD"
+    },
+    "C02171": {
+      "p_overnight": 0.4667,
+      "n": 15,
+      "n_overnight": 7,
+      "customer_name": "REPUBLIC SERVICES DELAWARE"
+    },
+    "C02172": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "ACCURATE PAPER RECYCLING TAMPA"
+    },
+    "C02173": {
+      "p_overnight": 0.8,
+      "n": 20,
+      "n_overnight": 16,
+      "customer_name": "BALCONES RESOURCES, INC. FORT"
+    },
+    "C02174": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "BALCONES RESOURCES, INC. WEST"
+    },
+    "C02176": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "FLORIDA PLASTIC RECYCLING"
+    },
+    "C02182": {
+      "p_overnight": 1.0,
+      "n": 7,
+      "n_overnight": 7,
+      "customer_name": "GREIF DALTON"
+    },
+    "C02184": {
+      "p_overnight": 0.9524,
+      "n": 21,
+      "n_overnight": 20,
+      "customer_name": "MOHAWK INDUSTRIES, INC."
+    },
+    "C02185": {
+      "p_overnight": 1.0,
+      "n": 7,
+      "n_overnight": 7,
+      "customer_name": "PREMIER SURPLUS INC."
+    },
+    "C02186": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "RDS ATHENS MRF"
+    },
+    "C02188": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "WESTROCK MARIETTA"
+    },
+    "C02190": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "KAL SERVICES, INC."
+    },
+    "C02194": {
+      "p_overnight": 0.4375,
+      "n": 16,
+      "n_overnight": 7,
+      "customer_name": "ALAN JOSEPHSEN CO., INC."
+    },
+    "C02195": {
+      "p_overnight": 0.5584,
+      "n": 77,
+      "n_overnight": 43,
+      "customer_name": "DIVERSIFIED RECYCLING"
+    },
+    "C02196": {
+      "p_overnight": 0.88,
+      "n": 25,
+      "n_overnight": 22,
+      "customer_name": "GROOT PLAINFIELD"
+    },
+    "C02198": {
+      "p_overnight": 0.3333,
+      "n": 3,
+      "n_overnight": 1,
+      "customer_name": "MIDWEST FIBER INC."
+    },
+    "C02199": {
+      "p_overnight": 0.5,
+      "n": 4,
+      "n_overnight": 2,
+      "customer_name": "PAPER TIGERS"
+    },
+    "C02200": {
+      "p_overnight": 0.7895,
+      "n": 19,
+      "n_overnight": 15,
+      "customer_name": "PIONEER ELK GROVE"
+    },
+    "C02205": {
+      "p_overnight": 0.5,
+      "n": 4,
+      "n_overnight": 2,
+      "customer_name": "ELECTRONIC RECYCLERS INT'L INC PLAINFIELD"
+    },
+    "C02208": {
+      "p_overnight": 1.0,
+      "n": 10,
+      "n_overnight": 10,
+      "customer_name": "NOVOLEX"
+    },
+    "C02210": {
+      "p_overnight": 0.3704,
+      "n": 27,
+      "n_overnight": 10,
+      "customer_name": "QUINCY RECYCLE INDIANAPOLIS"
+    },
+    "C02211": {
+      "p_overnight": 0.2,
+      "n": 25,
+      "n_overnight": 5,
+      "customer_name": "QUINCY RECYCLE NEW HAVEN"
+    },
+    "C02217": {
+      "p_overnight": 1.0,
+      "n": 10,
+      "n_overnight": 10,
+      "customer_name": "RUMPKE RECYCLING LEXINTGON"
+    },
+    "C02218": {
+      "p_overnight": 0.9545,
+      "n": 22,
+      "n_overnight": 21,
+      "customer_name": "WESTROCK LOUISVILLE"
+    },
+    "C02222": {
+      "p_overnight": 0.5862,
+      "n": 29,
+      "n_overnight": 17,
+      "customer_name": "CASELLA WASTE AUBURN"
+    },
+    "C02223": {
+      "p_overnight": 0.8667,
+      "n": 15,
+      "n_overnight": 13,
+      "customer_name": "CASELLA WASTE CHARLESTOWN"
+    },
+    "C02227": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "NEW ENGLAND RECYCLING"
+    },
+    "C02228": {
+      "p_overnight": 0.6,
+      "n": 15,
+      "n_overnight": 9,
+      "customer_name": "OFFICE PAPER RECOVERY SYSTEMS"
+    },
+    "C02229": {
+      "p_overnight": 0.5,
+      "n": 6,
+      "n_overnight": 3,
+      "customer_name": "PARALLEL PRODUCTS"
+    },
+    "C02230": {
+      "p_overnight": 0.4286,
+      "n": 7,
+      "n_overnight": 3,
+      "customer_name": "REPUBLIC SERVICES BROCKTON"
+    },
+    "C02231": {
+      "p_overnight": 0.8421,
+      "n": 19,
+      "n_overnight": 16,
+      "customer_name": "REPUBLIC SERVICES PEABODY"
+    },
+    "C02233": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "USA RECYCLING WILBRAHAM"
+    },
+    "C02236": {
+      "p_overnight": 0.5556,
+      "n": 36,
+      "n_overnight": 20,
+      "customer_name": "BALTIMORE COUNTY, MD"
+    },
+    "C02237": {
+      "p_overnight": 0.4783,
+      "n": 23,
+      "n_overnight": 11,
+      "customer_name": "CANUSA HERSHMAN BALTIMORE"
+    },
+    "C02238": {
+      "p_overnight": 0.25,
+      "n": 12,
+      "n_overnight": 3,
+      "customer_name": "ENCORE RECYCLING"
+    },
+    "C02240": {
+      "p_overnight": 0.2222,
+      "n": 9,
+      "n_overnight": 2,
+      "customer_name": "KLINE PAPER MILL SUPPLIES, INC"
+    },
+    "C02241": {
+      "p_overnight": 0.7632,
+      "n": 38,
+      "n_overnight": 29,
+      "customer_name": "MARYLAND ENVIRONMENTAL SERVICE"
+    },
+    "C02242": {
+      "p_overnight": 0.5,
+      "n": 22,
+      "n_overnight": 11,
+      "customer_name": "OLIVE STREET PROCESSING LLC."
+    },
+    "C02243": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "ECO MAINE"
+    },
+    "C02244": {
+      "p_overnight": 0.8696,
+      "n": 23,
+      "n_overnight": 20,
+      "customer_name": "CLEAN TECH INC."
+    },
+    "C02245": {
+      "p_overnight": 0.7619,
+      "n": 21,
+      "n_overnight": 16,
+      "customer_name": "EMTERRA ENVIRONMENTAL LANSING"
+    },
+    "C02246": {
+      "p_overnight": 0.8529,
+      "n": 34,
+      "n_overnight": 29,
+      "customer_name": "GFL ENVIRONMENTAL HURON"
+    },
+    "C02248": {
+      "p_overnight": 0.5,
+      "n": 22,
+      "n_overnight": 11,
+      "customer_name": "REPUBLIC SERVICES SOUTHFIELD"
+    },
+    "C02252": {
+      "p_overnight": 0.5,
+      "n": 4,
+      "n_overnight": 2,
+      "customer_name": "TAYLOR RECYCLING"
+    },
+    "C02254": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "PIONEER MINNEAPOLIS"
+    },
+    "C02255": {
+      "p_overnight": 0.8333,
+      "n": 12,
+      "n_overnight": 10,
+      "customer_name": "REPUBLIC SERVICES MINNEAPOLIS"
+    },
+    "C02258": {
+      "p_overnight": 1.0,
+      "n": 13,
+      "n_overnight": 13,
+      "customer_name": "PIONEER KANSAS CITY"
+    },
+    "C02259": {
+      "p_overnight": 0.9231,
+      "n": 13,
+      "n_overnight": 12,
+      "customer_name": "QUINCY RECYCLE ST LOUIS"
+    },
+    "C02260": {
+      "p_overnight": 0.9375,
+      "n": 16,
+      "n_overnight": 15,
+      "customer_name": "REPUBLIC SERVICES HAZELWOOD"
+    },
+    "C02263": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "AMERICAN RECYCLING OF WNC"
+    },
+    "C02265": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "COLT RECYCLING SOUTHEAST LLC"
+    },
+    "C02268": {
+      "p_overnight": 0.5714,
+      "n": 7,
+      "n_overnight": 4,
+      "customer_name": "GREIF CHARLOTTE"
+    },
+    "C02269": {
+      "p_overnight": 0.6667,
+      "n": 15,
+      "n_overnight": 10,
+      "customer_name": "MECKLENBURG COUNTY"
+    },
+    "C02270": {
+      "p_overnight": 0.8125,
+      "n": 16,
+      "n_overnight": 13,
+      "customer_name": "REPUBLIC SERVICES CONOVER"
+    },
+    "C02273": {
+      "p_overnight": 0.25,
+      "n": 4,
+      "n_overnight": 1,
+      "customer_name": "SONOCO PRODUCTS COMPANY"
+    },
+    "C02274": {
+      "p_overnight": 0.3333,
+      "n": 3,
+      "n_overnight": 1,
+      "customer_name": "UNIFI MANUFACTURING INC."
+    },
+    "C02278": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "COLT RECYCLING HUDSON"
+    },
+    "C02282": {
+      "p_overnight": 0.6216,
+      "n": 37,
+      "n_overnight": 23,
+      "customer_name": "ALL AMERICAN RECYCLING"
+    },
+    "C02283": {
+      "p_overnight": 0.3617,
+      "n": 47,
+      "n_overnight": 17,
+      "customer_name": "ALL COUNTY RECYCLING"
+    },
+    "C02284": {
+      "p_overnight": 0.5362,
+      "n": 69,
+      "n_overnight": 37,
+      "customer_name": "ATLANTIC COAST RECYCLING LAKEW"
+    },
+    "C02285": {
+      "p_overnight": 0.68,
+      "n": 50,
+      "n_overnight": 34,
+      "customer_name": "WASTE CONNECTIONS PASSAIC"
+    },
+    "C02286": {
+      "p_overnight": 0.5556,
+      "n": 72,
+      "n_overnight": 40,
+      "customer_name": "BALCONES RESOURCES, INC. JERSE"
+    },
+    "C02287": {
+      "p_overnight": 0.3333,
+      "n": 3,
+      "n_overnight": 1,
+      "customer_name": "BAYSHORE RESOURCE RECOVERY"
+    },
+    "C02288": {
+      "p_overnight": 0.4035,
+      "n": 57,
+      "n_overnight": 23,
+      "customer_name": "ALLIED WASTE SYSTEM INC. - LE13"
+    },
+    "C02289": {
+      "p_overnight": 0.2222,
+      "n": 9,
+      "n_overnight": 2,
+      "customer_name": "GLOBAL RECYCLING SOLUTIONS"
+    },
+    "C02290": {
+      "p_overnight": 0.525,
+      "n": 40,
+      "n_overnight": 21,
+      "customer_name": "GP HARMON RECYCLING LLC"
+    },
+    "C02291": {
+      "p_overnight": 0.5455,
+      "n": 33,
+      "n_overnight": 18,
+      "customer_name": "GREIF NEWARK"
+    },
+    "C02293": {
+      "p_overnight": 0.5806,
+      "n": 62,
+      "n_overnight": 36,
+      "customer_name": "MAZZA RECYCLING LTD"
+    },
+    "C02294": {
+      "p_overnight": 0.2903,
+      "n": 31,
+      "n_overnight": 9,
+      "customer_name": "PATSY RAGONESE & SONS INC."
+    },
+    "C02295": {
+      "p_overnight": 0.3529,
+      "n": 17,
+      "n_overnight": 6,
+      "customer_name": "RELIABLE PAPER RECYCLING, INC."
+    },
+    "C02296": {
+      "p_overnight": 0.4615,
+      "n": 13,
+      "n_overnight": 6,
+      "customer_name": "REPUBLIC SERVICES CAMDEN"
+    },
+    "C02298": {
+      "p_overnight": 0.5455,
+      "n": 11,
+      "n_overnight": 6,
+      "customer_name": "TRINITY RECYCLING OF N.J."
+    },
+    "C02299": {
+      "p_overnight": 0.5283,
+      "n": 53,
+      "n_overnight": 28,
+      "customer_name": "YES RECYCLING"
+    },
+    "C02301": {
+      "p_overnight": 0.8,
+      "n": 5,
+      "n_overnight": 4,
+      "customer_name": "TOWN RECYCLING"
+    },
+    "C02302": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "WASTE CONNECTIONS ALBUQERQUE"
+    },
+    "C02304": {
+      "p_overnight": 1.0,
+      "n": 9,
+      "n_overnight": 9,
+      "customer_name": "FULCRUM BIOENERGY INC."
+    },
+    "C02306": {
+      "p_overnight": 1.0,
+      "n": 18,
+      "n_overnight": 18,
+      "customer_name": "REPUBLIC SERVICES LAS VEGAS"
+    },
+    "C02307": {
+      "p_overnight": 0.5484,
+      "n": 31,
+      "n_overnight": 17,
+      "customer_name": "BALCONES RESOURCES, INC. BROOKLYN"
+    },
+    "C02309": {
+      "p_overnight": 0.8,
+      "n": 10,
+      "n_overnight": 8,
+      "customer_name": "BUFFALO RECYCLING ENTERPRISES"
+    },
+    "C02311": {
+      "p_overnight": 0.5,
+      "n": 4,
+      "n_overnight": 2,
+      "customer_name": "EMPIRE STATE CARDBOARD PAPER"
+    },
+    "C02312": {
+      "p_overnight": 0.5094,
+      "n": 106,
+      "n_overnight": 54,
+      "customer_name": "GREAT NORTHERN FIBERS, LLC."
+    },
+    "C02313": {
+      "p_overnight": 0.4194,
+      "n": 31,
+      "n_overnight": 13,
+      "customer_name": "INTERSTATE WASTE SERVICES"
+    },
+    "C02314": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "OMNI RECYCLING OF WESTBURY INC"
+    },
+    "C02318": {
+      "p_overnight": 0.36,
+      "n": 25,
+      "n_overnight": 9,
+      "customer_name": "RC ENVIRONMENTAL LLC"
+    },
+    "C02319": {
+      "p_overnight": 0.5714,
+      "n": 35,
+      "n_overnight": 20,
+      "customer_name": "BALCONES RESOURCES, INC. ROCKLAND"
+    },
+    "C02320": {
+      "p_overnight": 0.4789,
+      "n": 71,
+      "n_overnight": 34,
+      "customer_name": "ROYAL WASTE BRONX"
+    },
+    "C02325": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "WINTERS BROTHERS WASTE SYSTEMS"
+    },
+    "C02328": {
+      "p_overnight": 0.9412,
+      "n": 17,
+      "n_overnight": 16,
+      "customer_name": "EVERGREEN PLASTICS CLYDE"
+    },
+    "C02329": {
+      "p_overnight": 0.9688,
+      "n": 32,
+      "n_overnight": 31,
+      "customer_name": "FREEPOINT ECOSYSTEMS, LLC HEBR"
+    },
+    "C02331": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "GREIF MORAINE"
+    },
+    "C02336": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "RUMPKE RECYCLING COLUMBUS"
+    },
+    "C02337": {
+      "p_overnight": 1.0,
+      "n": 11,
+      "n_overnight": 11,
+      "customer_name": "PIONEER OKLAHOMA CITY"
+    },
+    "C02338": {
+      "p_overnight": 1.0,
+      "n": 9,
+      "n_overnight": 9,
+      "customer_name": "BLUE MOUNTAIN PLASTICS"
+    },
+    "C02339": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "CORPORATION OF CITY OF GUELPH"
+    },
+    "C02340": {
+      "p_overnight": 0.8182,
+      "n": 11,
+      "n_overnight": 9,
+      "customer_name": "EMTERRA ENVIRONMENTAL BURLINGT"
+    },
+    "C02341": {
+      "p_overnight": 0.8462,
+      "n": 13,
+      "n_overnight": 11,
+      "customer_name": "EMTERRA ENVIRONMENTAL NIAGARA"
+    },
+    "C02344": {
+      "p_overnight": 0.9062,
+      "n": 32,
+      "n_overnight": 29,
+      "customer_name": "GFL ENVIRONMENTAL TORONTO"
+    },
+    "C02347": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "U-PAK RECYCLING ETOBICOKE"
+    },
+    "C02351": {
+      "p_overnight": 0.4286,
+      "n": 14,
+      "n_overnight": 6,
+      "customer_name": "ENVIRONMENTAL FIBERS INTL, INC"
+    },
+    "C02354": {
+      "p_overnight": 0.5,
+      "n": 12,
+      "n_overnight": 6,
+      "customer_name": "REPUBLIC SERVICES, INC. SALEM"
+    },
+    "C02355": {
+      "p_overnight": 0.3333,
+      "n": 6,
+      "n_overnight": 2,
+      "customer_name": "PIONEER RECYCLING SERVICES, LLC"
+    },
+    "C02356": {
+      "p_overnight": 0.7,
+      "n": 10,
+      "n_overnight": 7,
+      "customer_name": "WESTROCK PORTLAND"
+    },
+    "C02357": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "ACCURATE RECYCLING CORP."
+    },
+    "C02358": {
+      "p_overnight": 0.7647,
+      "n": 17,
+      "n_overnight": 13,
+      "customer_name": "ALPEK POLYESTER USA READING"
+    },
+    "C02360": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "GORDON RECYCLING SERVICES, LLC"
+    },
+    "C02361": {
+      "p_overnight": 0.7333,
+      "n": 15,
+      "n_overnight": 11,
+      "customer_name": "LEHIGH VALLEY RECYCLING"
+    },
+    "C02363": {
+      "p_overnight": 0.7143,
+      "n": 14,
+      "n_overnight": 10,
+      "customer_name": "PENN WASTE INC."
+    },
+    "C02364": {
+      "p_overnight": 1.0,
+      "n": 10,
+      "n_overnight": 10,
+      "customer_name": "REPUBLIC SERVICES PITTSBURGH"
+    },
+    "C02365": {
+      "p_overnight": 0.5455,
+      "n": 11,
+      "n_overnight": 6,
+      "customer_name": "REPUBLIC SERVICES KING OF PRUSSIA"
+    },
+    "C02367": {
+      "p_overnight": 0.6957,
+      "n": 92,
+      "n_overnight": 64,
+      "customer_name": "TOTAL RECYCLE INC."
+    },
+    "C02376": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "RECUPERACTION CENTRE DU QUEBEC"
+    },
+    "C02384": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "MILLENNIUM RECYCLING"
+    },
+    "C02385": {
+      "p_overnight": 1.0,
+      "n": 11,
+      "n_overnight": 11,
+      "customer_name": "CROWN SHRED & RECYCLING"
+    },
+    "C02390": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "GREIF NASHVILLE"
+    },
+    "C02391": {
+      "p_overnight": 0.8571,
+      "n": 14,
+      "n_overnight": 12,
+      "customer_name": "SIMS METAL LAVERGNE"
+    },
+    "C02392": {
+      "p_overnight": 1.0,
+      "n": 8,
+      "n_overnight": 8,
+      "customer_name": "WESTROCK CHATTANOOGA"
+    },
+    "C02394": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "ALEN DEL NORTE S.A. DE C.V."
+    },
+    "C02395": {
+      "p_overnight": 0.75,
+      "n": 8,
+      "n_overnight": 6,
+      "customer_name": "BALCONES RESOURCES, INC. AUSTI"
+    },
+    "C02398": {
+      "p_overnight": 0.5294,
+      "n": 34,
+      "n_overnight": 18,
+      "customer_name": "FCC ENVIRONMENTAL SERVICES DALLAS"
+    },
+    "C02399": {
+      "p_overnight": 0.8852,
+      "n": 61,
+      "n_overnight": 54,
+      "customer_name": "FCC ENVIRONMENTAL HOUSTON"
+    },
+    "C02401": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "GREIF TEXARKANA"
+    },
+    "C02403": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "INDEPENDENT TEXAS RECYCLER"
+    },
+    "C02406": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "PIONEER DALLAS"
+    },
+    "C02407": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "PRO-FAJ HIDRO LIMPIEZA S.A C.V"
+    },
+    "C02409": {
+      "p_overnight": 0.8182,
+      "n": 11,
+      "n_overnight": 9,
+      "customer_name": "REPUBLIC SERVICES DFW"
+    },
+    "C02410": {
+      "p_overnight": 0.6667,
+      "n": 3,
+      "n_overnight": 2,
+      "customer_name": "REPUBLIC SERVICES HOUSTON"
+    },
+    "C02411": {
+      "p_overnight": 0.7627,
+      "n": 59,
+      "n_overnight": 45,
+      "customer_name": "REPUBLIC SERVICES PLANO"
+    },
+    "C02413": {
+      "p_overnight": 1.0,
+      "n": 24,
+      "n_overnight": 24,
+      "customer_name": "RIISA"
+    },
+    "C02414": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "TEXAS DISPOSAL SYSTEMS"
+    },
+    "C02415": {
+      "p_overnight": 0.5714,
+      "n": 7,
+      "n_overnight": 4,
+      "customer_name": "UNIVERSAL RECYCLING TECH FORT"
+    },
+    "C02417": {
+      "p_overnight": 0.7778,
+      "n": 18,
+      "n_overnight": 14,
+      "customer_name": "WASTE CONNECTIONS MCKINNEY"
+    },
+    "C02421": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "ROCKY MOUNTAIN RECYCLING SOUTH"
+    },
+    "C02422": {
+      "p_overnight": 0.6667,
+      "n": 9,
+      "n_overnight": 6,
+      "customer_name": "BAY DISPOSAL"
+    },
+    "C02423": {
+      "p_overnight": 0.8333,
+      "n": 6,
+      "n_overnight": 5,
+      "customer_name": "BUTLER PAPER RECYCLING, INC."
+    },
+    "C02424": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "INTERNATIONAL PAPER RICHMOND"
+    },
+    "C02427": {
+      "p_overnight": 0.875,
+      "n": 16,
+      "n_overnight": 14,
+      "customer_name": "RDS PORTSMOUTH"
+    },
+    "C02428": {
+      "p_overnight": 0.7045,
+      "n": 88,
+      "n_overnight": 62,
+      "customer_name": "REPUBLIC SERVICES MANASSAS"
+    },
+    "C02430": {
+      "p_overnight": 0.878,
+      "n": 41,
+      "n_overnight": 36,
+      "customer_name": "TFC RECYCLING CHESAPEAKE"
+    },
+    "C02432": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "RDS ROANOKE ENON DR"
+    },
+    "C02433": {
+      "p_overnight": 0.9167,
+      "n": 12,
+      "n_overnight": 11,
+      "customer_name": "RDS ROANOKE KORTE ST"
+    },
+    "C02436": {
+      "p_overnight": 0.1667,
+      "n": 6,
+      "n_overnight": 1,
+      "customer_name": "INTERNATIONAL PAPER KENT"
+    },
+    "C02438": {
+      "p_overnight": 0.913,
+      "n": 23,
+      "n_overnight": 21,
+      "customer_name": "REPUBLIC SERVICES SEATTLE"
+    },
+    "C02439": {
+      "p_overnight": 0.5,
+      "n": 4,
+      "n_overnight": 2,
+      "customer_name": "SEADRUNAR RECYCLING"
+    },
+    "C02443": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "GREIF GREEN BAY"
+    },
+    "C02444": {
+      "p_overnight": 0.8,
+      "n": 10,
+      "n_overnight": 8,
+      "customer_name": "PLACON CORPORATION"
+    },
+    "C02445": {
+      "p_overnight": 1.0,
+      "n": 10,
+      "n_overnight": 10,
+      "customer_name": "QUINCY RECYCLE GREEN BAY"
+    },
+    "C02446": {
+      "p_overnight": 1.0,
+      "n": 4,
+      "n_overnight": 4,
+      "customer_name": "REPUBLIC SERVICES MILWAUKEE"
+    },
+    "C02452": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "CELLMARK RECYCLING"
+    },
+    "C02487": {
+      "p_overnight": 0.738,
+      "n": 229,
+      "n_overnight": 169,
+      "customer_name": "VAN DYK BALER CORP."
+    },
+    "C02491": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "WASTE CONNECTIONS DENVER"
+    },
+    "C02493": {
+      "p_overnight": 0.4,
+      "n": 10,
+      "n_overnight": 4,
+      "customer_name": "ALLIED PRINTING SERVICES, INC"
+    },
+    "C02502": {
+      "p_overnight": 0.625,
+      "n": 16,
+      "n_overnight": 10,
+      "customer_name": "E.L. HARVEY & SONS, INC. WESTB"
+    },
+    "C02503": {
+      "p_overnight": 0.6,
+      "n": 20,
+      "n_overnight": 12,
+      "customer_name": "RHODE ISLAND RESOURCE RECOVERY"
+    },
+    "C02506": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "TOMRA CANADA"
+    },
+    "C02514": {
+      "p_overnight": 0.5714,
+      "n": 14,
+      "n_overnight": 8,
+      "customer_name": "REPUBLIC SERVICES ANAHEIM"
+    },
+    "C02515": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "GFL ENVIRONMENTAL TRAVERSE CITY"
+    },
+    "C02517": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "BALCONES RESOURCES, INC. TAYLOR"
+    },
+    "C02518": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "REPUBLIC SERVICES BRAMPTON"
+    },
+    "C02519": {
+      "p_overnight": 1.0,
+      "n": 12,
+      "n_overnight": 12,
+      "customer_name": "NOVA CIRCULAR SOLUTIONS"
+    },
+    "C02520": {
+      "p_overnight": 0.9167,
+      "n": 24,
+      "n_overnight": 22,
+      "customer_name": "WM FORT WORTH"
+    },
+    "C02522": {
+      "p_overnight": 1.0,
+      "n": 12,
+      "n_overnight": 12,
+      "customer_name": "WM ONTARIO NAPANEE"
+    },
+    "C02528": {
+      "p_overnight": 0.6,
+      "n": 5,
+      "n_overnight": 3,
+      "customer_name": "VALEMI INC."
+    },
+    "C02533": {
+      "p_overnight": 0.8,
+      "n": 5,
+      "n_overnight": 4,
+      "customer_name": "INNOFUEL ENERGY SOLUTIONS"
+    },
+    "C02537": {
+      "p_overnight": 0.75,
+      "n": 4,
+      "n_overnight": 3,
+      "customer_name": "COUNTY OF SANTA BARBARA, RRWMD"
+    },
+    "C02544": {
+      "p_overnight": 1.0,
+      "n": 8,
+      "n_overnight": 8,
+      "customer_name": "GFL ENVIRONMENTAL - HARRISONVILLE"
+    },
+    "C02558": {
+      "p_overnight": 1.0,
+      "n": 3,
+      "n_overnight": 3,
+      "customer_name": "BLT ENTERPRISES FREMONT"
+    },
+    "C02559": {
+      "p_overnight": 1.0,
+      "n": 6,
+      "n_overnight": 6,
+      "customer_name": "SOCIETE V.I.A. INC. QUEBEC CITY"
+    },
+    "C02569": {
+      "p_overnight": 1.0,
+      "n": 8,
+      "n_overnight": 8,
+      "customer_name": "REPUBLIC SERVICES BOISE"
+    },
+    "C02592": {
+      "p_overnight": 1.0,
+      "n": 5,
+      "n_overnight": 5,
+      "customer_name": "COMMUNITY WASTE DISPOSAL"
+    }
+  },
+  "global": {
+    "p_overnight": 0.698,
+    "n": 5679,
+    "n_overnight": 3964
+  },
+  "confidence_thresholds": {
+    "customer_min_n": 3,
+    "distance_jobtype_min_n_medium": 10,
+    "distance_jobtype_min_n_fallback": 5,
+    "distance_min_n_fallback": 1,
+    "p_overnight_high_threshold": 0.9
+  }
+}

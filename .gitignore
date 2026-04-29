@@ -1,0 +1,41 @@
+# Raw source data — not needed to run the app
+Tickets.xlsx
+ExpAllocation.xlsx
+TimeClock.xlsx
+UserHomeAddress.xlsx
+ContractsCustomersAddresses.xlsx
+
+# Intermediate / old files
+master_trips.csv
+master_trips_v3.csv
+rate_table.json
+rate_table_v2.json
+rate_table_v3.json
+backtest_results.csv
+missing_data_review.xlsx
+zero_expense_review.xlsx
+~$*
+
+# Build / analysis scripts
+build_master.py
+build_v3.py
+build_v4.py
+fit_rates.py
+fit_rates_v2.py
+overnight_classifier.py
+missing_data_analysis.py
+analysis.ipynb
+
+# Cleaned data workbooks
+*.xlsx
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Misc
+costestimator/
+*.md
+.claude/
