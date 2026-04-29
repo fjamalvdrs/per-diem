@@ -42,3 +42,4 @@ costestimator/
 
 # Keep the customer lookup file for the app
 !ContractsCustomersAddresses.xlsx
+!UserHomeAddress.xlsx
