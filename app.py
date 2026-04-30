@@ -1149,41 +1149,281 @@ JOB_TYPES = [
     "Rebuild / Overhaul",
 ]
 
-def main():
-    # Inject global CSS once
-    st.markdown(_GLOBAL_CSS, unsafe_allow_html=True)
+AUDIT_LOG = os.path.join(BASE_DIR, "audit_log.csv")
 
-    # ── Header ──────────────────────────────────────────────────────────────
-    st.markdown(
-        '<h2 style="margin-bottom:2px;color:#e5e7eb;">Per Diem Cost Estimator</h2>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<p style="color:#6b7280;margin-top:0;font-size:14px;">'
-        'Hotel · meals · local transport per technician per day. '
-        'Supplies and tools are pass-through actuals and not included.</p>',
-        unsafe_allow_html=True,
-    )
+# ---------------------------------------------------------------------------
+# Audit log helpers
+# ---------------------------------------------------------------------------
 
-    # ── Load data ────────────────────────────────────────────────────────────
+def append_audit_entry(row):
+    df_new = pd.DataFrame([row])
+    if os.path.exists(AUDIT_LOG):
+        df_new.to_csv(AUDIT_LOG, mode="a", header=False, index=False)
+    else:
+        df_new.to_csv(AUDIT_LOG, mode="w", header=True, index=False)
+
+def load_audit_log():
+    if os.path.exists(AUDIT_LOG):
+        try:
+            return pd.read_csv(AUDIT_LOG)
+        except Exception:
+            return pd.DataFrame()
+    return pd.DataFrame()
+
+
+def _compute_estimate(customers, techs, rates,
+                      tech_label, cust_label, month_num,
+                      trip_type_sel, travel_mode_sel, n_days):
+    """Re-run model lookup for audit comparison. Returns dict or None on failure."""
     try:
-        customers  = load_customers()
-        techs      = load_techs()
-        rates      = load_rates()
-        classifier = load_classifier()
-    except Exception as e:
-        st.error(f"Failed to load data files: {e}")
-        st.stop()
+        tech_row   = techs[techs["label"] == tech_label].iloc[0]
+        cust_row   = customers[customers["label"] == cust_label].iloc[0]
+        dist_miles = haversine(
+            float(tech_row["Latitude"]), float(tech_row["Longitude"]),
+            float(cust_row["latitude"]),  float(cust_row["longitude"]),
+        )
+        band        = distance_band(dist_miles)
+        seas_val    = season(month_num)
+        auto_fly    = dist_miles >= 300
+        is_fly      = auto_fly if travel_mode_sel == "Auto" else (travel_mode_sel == "Flight")
+        customer_id = str(cust_row["CustomerIDAcu"])
+        cust_state  = str(cust_row.get("State", "")).strip() or None
 
-    master_df = load_master()   # soft-load — explain modal degrades gracefully if missing
+        if trip_type_sel == "Overnight":
+            cell  = lookup_overnight_rate(rates, band, seas_val, is_fly,
+                                          customer_id, cust_state, dist_miles)
+            if not cell:
+                return None
+            daily = (cell.get("total_rate")
+                     or (cell.get("hotel_rate", 0) + cell.get("meals_rate", 0)
+                         + cell.get("transport_rate", 0)))
+        else:
+            cell  = lookup_day_trip_rate(rates, band, seas_val)
+            if not cell:
+                return None
+            daily = (cell.get("total_rate")
+                     or (cell.get("meals_rate", 0) + cell.get("transport_rate", 0)))
 
+        if is_fly:
+            af  = lookup_airfare(rates, band, seas_val)
+            fee = (af.get("model_rate") or af.get("median", 0)) if af else 0
+        else:
+            dr  = lookup_drive(rates, band)
+            fee = (dr.get("model_rate") or dr.get("mean", 0)) if dr else 0
+
+        est_total = (daily * n_days + fee) if (daily and n_days) else None
+        return {
+            "daily":     daily,
+            "fee":       fee,
+            "est_total": est_total,
+            "dist_miles": dist_miles,
+            "band":      band,
+            "seas":      seas_val,
+            "is_fly":    is_fly,
+            "conf":      rate_confidence(cell),
+        }
+    except Exception:
+        return None
+
+
+# ---------------------------------------------------------------------------
+# Audit tab
+# ---------------------------------------------------------------------------
+
+def render_audit_tab(customers, techs, rates):
+    st.markdown(
+        '<h3 style="color:#e5e7eb;margin-bottom:4px;">How Did We Do?</h3>'
+        '<p style="color:#6b7280;font-size:14px;margin-top:0;">'
+        'Log post-trip actuals to track model accuracy over time. '
+        'Enter what the trip actually cost for hotel, meals, and local transport — '
+        'the model estimate is computed automatically for comparison.</p>',
+        unsafe_allow_html=True,
+    )
+
+    with st.form("audit_form", clear_on_submit=True):
+        col1, col2, col3 = st.columns(3)
+        ticket_num   = col1.text_input("Ticket Number", placeholder="e.g. 2024VDU\\01")
+        cust_label_a = col2.selectbox(
+            "Customer Site", ["— select —"] + customers["label"].tolist()
+        )
+        tech_label_a = col3.selectbox(
+            "Technician", ["— select —"] + techs["label"].tolist()
+        )
+
+        col4, col5, col6, col7 = st.columns(4)
+        month_name_a  = col4.selectbox("Month of Travel", MONTHS)
+        month_num_a   = MONTHS.index(month_name_a) + 1
+        trip_type_a   = col5.selectbox("Trip Type", ["Overnight", "Day Trip"])
+        travel_mode_a = col6.selectbox("Travel Mode", ["Auto", "Flight", "Car"])
+        days_a        = col7.number_input("Days on Site", min_value=1, value=1, step=1)
+
+        actual_total = st.number_input(
+            "Actual Per Diem Total ($) — hotel + meals + local transport only",
+            min_value=0.0,
+            value=None,
+            step=10.0,
+            placeholder="Do NOT include supplies, tools, or labor",
+            help="Enter the actual total per diem cost. Same scope as the model: "
+                 "lodging + meals + local transport only.",
+        )
+        notes_a = st.text_input(
+            "Notes (optional)",
+            placeholder="e.g. conference in town drove hotel rate up",
+        )
+
+        submitted = st.form_submit_button("Log This Trip", use_container_width=True)
+
+    if submitted:
+        errors = []
+        if not ticket_num.strip():
+            errors.append("Enter a ticket number.")
+        if cust_label_a == "— select —":
+            errors.append("Select a customer site.")
+        if tech_label_a == "— select —":
+            errors.append("Select a technician.")
+        if actual_total is None or actual_total <= 0:
+            errors.append("Enter the actual per diem total (must be > $0).")
+
+        if errors:
+            for e in errors:
+                st.error(e)
+        else:
+            result = _compute_estimate(
+                customers, techs, rates,
+                tech_label_a, cust_label_a, month_num_a,
+                trip_type_a, travel_mode_a, days_a,
+            )
+
+            if result and result["est_total"]:
+                est   = result["est_total"]
+                err_a = actual_total - est
+                err_p = err_a / est * 100
+
+                col_e, col_a, col_d = st.columns(3)
+                sign = "+" if err_a >= 0 else ""
+                col_e.metric("Model Estimated", f"${est:,.0f}")
+                col_a.metric("Actual Cost",      f"${actual_total:,.0f}")
+                col_d.metric("Difference",        f"{sign}${err_a:,.0f}",
+                             delta=f"{sign}{err_p:.1f}%",
+                             delta_color="inverse")
+
+                if abs(err_p) <= 30:
+                    st.success(f"Within ±30% — good estimate for this trip.")
+                elif err_a > 0:
+                    st.warning(
+                        f"Outside ±30% — model underestimated by {abs(err_p):.0f}%. "
+                        "Actual cost was higher than predicted."
+                    )
+                else:
+                    st.info(
+                        f"Outside ±30% — model overestimated by {abs(err_p):.0f}%. "
+                        "Actual cost was lower than predicted."
+                    )
+            else:
+                err_a = err_p = None
+                st.warning(
+                    "Could not compute model estimate for this route "
+                    "(lookup returned no data). Actual cost logged without comparison."
+                )
+
+            row = {
+                "logged_at":    pd.Timestamp.now().strftime("%Y-%m-%d %H:%M"),
+                "ticket":       ticket_num.strip(),
+                "customer":     cust_label_a,
+                "technician":   tech_label_a,
+                "month":        month_name_a,
+                "season":       season(month_num_a),
+                "trip_type":    trip_type_a,
+                "travel_mode":  travel_mode_a,
+                "days":         days_a,
+                "dist_miles":   round(result["dist_miles"], 1) if result else "",
+                "band":         result["band"]      if result else "",
+                "confidence":   result["conf"]      if result else "",
+                "est_daily":    round(result["daily"], 0)     if result else "",
+                "est_fee":      round(result["fee"], 0)       if result else "",
+                "est_total":    round(result["est_total"], 0) if (result and result["est_total"]) else "",
+                "actual_total": round(actual_total, 0),
+                "error_abs":    round(err_a, 0) if err_a is not None else "",
+                "error_pct":    round(err_p, 1) if err_p is not None else "",
+                "notes":        notes_a,
+            }
+            append_audit_entry(row)
+            if not (result and result["est_total"]):
+                pass  # warning already shown above
+            else:
+                st.success("Logged successfully.")
+
+    # ── Summary + log ─────────────────────────────────────────────────────────
+    st.markdown(
+        '<div style="border-top:1px solid #e5e7eb;margin:20px 0 16px 0;"></div>',
+        unsafe_allow_html=True,
+    )
+
+    audit_df = load_audit_log()
+
+    if audit_df.empty:
+        st.info("No trips logged yet. Submit your first post-trip actual above.")
+        return
+
+    n_total = len(audit_df)
+
+    # Compute stats on rows that have error_pct
+    df_err = audit_df.copy()
+    df_err["error_pct"] = pd.to_numeric(df_err["error_pct"], errors="coerce")
+    df_err["error_abs"] = pd.to_numeric(df_err["error_abs"], errors="coerce")
+    df_err = df_err.dropna(subset=["error_pct"])
+
+    col_n, col_30, col_mae, col_med = st.columns(4)
+    col_n.metric("Trips Logged", n_total)
+    if not df_err.empty:
+        within30 = (df_err["error_pct"].abs() <= 30).mean() * 100
+        mae      = df_err["error_abs"].abs().mean()
+        med_err  = df_err["error_pct"].median()
+        sign_m   = "+" if med_err >= 0 else ""
+        col_30.metric("Within ±30%",      f"{within30:.0f}%")
+        col_mae.metric("Mean Abs Error",  f"${mae:,.0f}")
+        col_med.metric(
+            "Median Error %", f"{sign_m}{med_err:.1f}%",
+            help="Positive = model underestimated (actual > estimate)"
+        )
+
+    csv_bytes = audit_df.to_csv(index=False).encode()
+    st.download_button(
+        "Download Audit Log (CSV)",
+        data=csv_bytes,
+        file_name="per_diem_audit_log.csv",
+        mime="text/csv",
+    )
+
+    st.markdown(
+        '<p style="color:#9ca3af;font-size:12px;margin:14px 0 4px 0;">'
+        'Most recent entries first:</p>',
+        unsafe_allow_html=True,
+    )
+
+    disp = audit_df.iloc[::-1].copy()
+    for col in ["est_total", "actual_total", "error_abs"]:
+        if col in disp.columns:
+            disp[col] = pd.to_numeric(disp[col], errors="coerce").apply(
+                lambda x: f"${x:,.0f}" if pd.notna(x) else "—"
+            )
+    if "error_pct" in disp.columns:
+        disp["error_pct"] = pd.to_numeric(disp["error_pct"], errors="coerce").apply(
+            lambda x: f"{x:+.1f}%" if pd.notna(x) else "—"
+        )
+    st.dataframe(disp, use_container_width=True, hide_index=True)
+
+
+# ---------------------------------------------------------------------------
+# Estimate tab (extracted from main so st.return works alongside the audit tab)
+# ---------------------------------------------------------------------------
+
+def render_estimate_tab(customers, techs, rates, classifier, master_df):
     meta    = rates.get("metadata", {})
-    n_trips = meta.get("n_overnight_trips", 0) + meta.get("n_day_trips", 0)
 
     # ── STEP 1 — Trip Details ────────────────────────────────────────────────
     _section_label("Step 1 — Trip Details")
 
-    # Customer + Tech row
     col_cust, col_tech = st.columns(2)
 
     manual_mode = col_cust.checkbox(
@@ -1214,7 +1454,6 @@ def main():
         key="tech_sel",
     )
 
-    # Month + Job Type + Days row
     col_month, col_jtype, col_days = st.columns(3)
 
     with col_month:
@@ -1240,22 +1479,22 @@ def main():
     # ── Validate inputs ──────────────────────────────────────────────────────
     if tech_label == "— select —":
         st.info("Select a technician above to continue.")
-        st.stop()
+        return
     if not manual_mode and cust_label == "— select —":
         st.info("Select a customer site above — or check 'New / unlisted customer' to enter manually.")
-        st.stop()
+        return
     if manual_mode and not locals().get("manual_name", "").strip():
         st.info("Enter a site name to continue.")
-        st.stop()
+        return
 
     # ── Resolve distance + customer identity ─────────────────────────────────
     tech_row = techs[techs["label"] == tech_label].iloc[0]
 
     if manual_mode:
-        dist_miles  = float(manual_dist)
-        band        = distance_band(dist_miles)
-        customer_id = None
-        cust_state  = str(manual_state).strip()
+        dist_miles   = float(manual_dist)
+        band         = distance_band(dist_miles)
+        customer_id  = None
+        cust_state   = str(manual_state).strip()
         cust_display = {"name": manual_name, "city": manual_city, "state": manual_state}
         cust_row     = None
     else:
@@ -1312,7 +1551,6 @@ def main():
             classifier, customer_id, dist_miles, job_type_internal
         )
 
-        # Determine suggestion
         if on_confidence == "HIGH":
             suggestion = "overnight" if p_overnight >= 0.75 else "day_trip"
         elif on_confidence == "MEDIUM":
@@ -1334,7 +1572,6 @@ def main():
             else ("overnight" if override == "Overnight" else "day_trip")
         )
 
-        # Probability pill
         pill_pct  = p_overnight if final_trip != "day_trip" else (1 - p_overnight)
         pill_text = "overnight" if final_trip != "day_trip" else "day trip"
         pill_css  = (
@@ -1362,7 +1599,6 @@ def main():
             "Verify before using this estimate."
         )
 
-    # ── Route summary card ───────────────────────────────────────────────────
     st.markdown(_route_card_html(dist_miles, band, seas, mode_label), unsafe_allow_html=True)
 
     # ── STEP 3 — Estimate ────────────────────────────────────────────────────
@@ -1420,6 +1656,17 @@ def main():
         st.caption("Select 'Overnight' or 'Day Trip' in the Trip Type field above to confirm.")
         exp_cell_type, exp_cell = "overnight", on_cell
 
+    # ── LOW confidence warning ────────────────────────────────────────────────
+    if exp_cell and rate_confidence(exp_cell) == "LOW":
+        st.markdown(
+            '<div style="background:#fff7ed;border:1px solid #fdba74;border-radius:8px;'
+            'padding:10px 16px;margin:8px 0 0 0;font-size:13px;color:#9a3412;">'
+            '<strong>Limited data</strong> — few historical records for this route. '
+            'Estimate is based on broad averages; actual cost may vary significantly. '
+            'Consider adding a buffer when quoting.</div>',
+            unsafe_allow_html=True,
+        )
+
     # ── Explain button + disclaimer ───────────────────────────────────────────
     st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
     _, btn_col, _ = st.columns([1.5, 1, 1.5])
@@ -1442,6 +1689,44 @@ def main():
         'These figures exclude supplies, tools, and labor.</p>',
         unsafe_allow_html=True,
     )
+
+
+# ---------------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------------
+
+def main():
+    st.markdown(_GLOBAL_CSS, unsafe_allow_html=True)
+
+    st.markdown(
+        '<h2 style="margin-bottom:2px;color:#e5e7eb;">Per Diem Cost Estimator</h2>',
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<p style="color:#6b7280;margin-top:0;font-size:14px;">'
+        'Hotel · meals · local transport per technician per day. '
+        'Supplies and tools are pass-through actuals and not included.</p>',
+        unsafe_allow_html=True,
+    )
+
+    try:
+        customers  = load_customers()
+        techs      = load_techs()
+        rates      = load_rates()
+        classifier = load_classifier()
+    except Exception as e:
+        st.error(f"Failed to load data files: {e}")
+        st.stop()
+
+    master_df = load_master()
+
+    tab_est, tab_audit = st.tabs(["Estimate", "How Did We Do?"])
+
+    with tab_est:
+        render_estimate_tab(customers, techs, rates, classifier, master_df)
+
+    with tab_audit:
+        render_audit_tab(customers, techs, rates)
 
 
 if __name__ == "__main__":
