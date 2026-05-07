@@ -96,24 +96,33 @@ def lookup_drive(rates, band):
 # ── Core evaluation function ──────────────────────────────────────────────────
 def run_evaluation(df, rates, label):
     """
-    Takes a prepared DataFrame (overnight trips, non-zero expenses, valid days + distance).
+    Handles overnight and day trips. Rows with no distance_band get prediction=None.
     Returns DataFrame with predicted, actual, error columns.
     """
     rows = []
     for _, r in df.iterrows():
-        band  = r.get("distance_band")
-        seas  = r.get("season")
-        fly   = bool(r.get("is_fly_trip",0) == 1)
-        cust  = str(r.get("CustomerIDAcu","")).strip()
-        cust  = cust if cust not in ("","nan","None") else None
-        state = r.get("State")
-        dist  = r.get("distance_miles")
-        days  = float(r["total_trip_days"])
+        band      = r.get("distance_band")
+        seas      = r.get("season")
+        fly       = bool(r.get("is_fly_trip", 0) == 1)
+        cust      = str(r.get("CustomerIDAcu", "")).strip()
+        cust      = cust if cust not in ("", "nan", "None") else None
+        state     = r.get("State")
+        dist      = r.get("distance_miles")
+        days      = float(r["total_trip_days"]) if pd.notna(r["total_trip_days"]) and r["total_trip_days"] > 0 else None
+        is_overn  = bool(r.get("is_overnight", 0))
 
-        rate, basis = lookup_overnight(rates, band, seas, fly, cust, state, dist)
-        fee = lookup_airfare(rates, band, seas) if fly else lookup_drive(rates, band)
+        if days is None:
+            rate, fee, basis = None, 0.0, "No Days"
+        elif band is None or (isinstance(band, float) and np.isnan(band)):
+            rate, fee, basis = None, 0.0, "No Band"
+        elif is_overn:
+            rate, basis = lookup_overnight(rates, band, seas, fly, cust, state, dist)
+            fee = lookup_airfare(rates, band, seas) if fly else lookup_drive(rates, band)
+        else:
+            rate, basis = lookup_day(rates, band, seas)
+            fee = 0.0
 
-        pred_total = (rate * days + fee) if rate is not None else None
+        pred_total = (rate * days + fee) if (rate is not None and days is not None) else None
 
         sf = lambda x: float(x) if pd.notna(x) else 0.0
         act_daily = sf(r["exp_hotel"]) + sf(r["exp_meals"]) + sf(r["exp_local_transport"])
@@ -121,23 +130,43 @@ def run_evaluation(df, rates, label):
         act_total_nominal = act_daily + act_fee
         act_total_cpi     = act_total_nominal * cpi(r["year"])
 
+        cf = cpi(r["year"])
         rows.append({
-            "predicted_daily_rate": rate,
-            "predicted_trip_fee":   fee,
-            "predicted_total":      pred_total,
-            "actual_total_cpi":     act_total_cpi,
-            "lookup_basis":         basis,
+            "predicted_daily_rate":    rate,
+            "predicted_trip_fee":      fee,
+            "predicted_daily_total":   rate * days if (rate is not None and days is not None) else None,
+            "predicted_total":         pred_total,
+            "act_hotel_cpi":           sf(r["exp_hotel"])           * cf,
+            "act_meals_cpi":           sf(r["exp_meals"])           * cf,
+            "act_local_transport_cpi": sf(r["exp_local_transport"]) * cf,
+            "act_airfare_cpi":         sf(r["exp_airfare"])         * cf,
+            "act_fuel_tolls_cpi":      sf(r["exp_fuel_tolls"])      * cf,
+            "actual_total_cpi":        act_total_cpi,
+            "lookup_basis":            basis,
         })
 
     pred_df = pd.DataFrame(rows, index=df.index)
     out = pd.concat([df, pred_df], axis=1)
-    out = out[out["predicted_total"].notna() & (out["actual_total_cpi"] > 0)].copy()
+    # Keep all rows — even those with no prediction (missing band) or no expense data
+    out = pd.concat([df, pred_df], axis=1).copy()
 
-    out["error_dollars"]  = out["predicted_total"] - out["actual_total_cpi"]
-    out["error_pct"]      = out["error_dollars"]   / out["actual_total_cpi"] * 100
-    out["abs_error_pct"]  = out["error_pct"].abs()
-    out["over_under"]     = np.where(out["error_dollars"] > 0, "Over", "Under")
-    out["is_long_trip"]   = out["total_trip_days"] > LONG_TRIP_THRESHOLD
+    out["error_dollars"] = np.where(
+        out["predicted_total"].notna() & (out["actual_total_cpi"] > 0),
+        out["predicted_total"] - out["actual_total_cpi"],
+        np.nan
+    )
+    # error_pct undefined when actual = $0 or no prediction
+    out["error_pct"] = np.where(
+        out["actual_total_cpi"] > 0,
+        out["error_dollars"] / out["actual_total_cpi"] * 100,
+        np.nan
+    )
+    out["abs_error_pct"] = out["error_pct"].abs()
+    out["over_under"]    = np.where(
+        out["error_dollars"].notna() & (out["error_dollars"] > 0), "Over",
+        np.where(out["error_dollars"].notna(), "Under", "")
+    )
+    out["is_long_trip"]  = out["is_overnight"].astype(bool) & (out["total_trip_days"] > LONG_TRIP_THRESHOLD)
     return out
 
 
@@ -187,19 +216,17 @@ def base_filter(df):
 print("Running 2026 evaluation...")
 raw_2026 = df[df["year"] == 2026].copy()
 
-# All overnight 2026 (not just E_complete) for per-ticket sheet
-all_2026_overnight = df[
-    (df["year"] == 2026) &
-    df["is_overnight"].astype(bool) &
-    (df["exp_total_non_labor"] > 0) &
-    (df["total_trip_days"] > 0) &
-    df["distance_band"].notna()
-].copy()
+# All 2026 rows — overnight + day trips, with or without expenses, even missing band/days
+all_2026_overnight = df[df["year"] == 2026].copy()
 
 # Data quality flag
 def quality_flag(row):
+    if not bool(row.get("is_overnight", 0)):
+        return "Day Trip"
     if row["total_trip_days"] > LONG_TRIP_THRESHOLD:
         return "Long Project (>21 days)"
+    if row.get("exp_total_non_labor", 0) == 0:
+        return "No Expense Data (company card?)"
     if row["data_category"] == "E_complete":
         return "Clean"
     if row["data_category"] == "F_meals_only":
@@ -361,19 +388,30 @@ print("\nWriting model_eval_2026.xlsx...")
 ticket_cols = [
     "Title", "CustomerName", "State", "distance_band", "season",
     "total_trip_days",
-    "actual_total_cpi", "predicted_total",
+    "act_hotel_cpi", "act_meals_cpi", "act_local_transport_cpi",
+    "act_airfare_cpi", "act_fuel_tolls_cpi",
+    "actual_total_cpi",
+    "predicted_daily_total", "predicted_trip_fee", "predicted_total",
     "error_dollars", "error_pct", "over_under",
     "Data Quality", "lookup_basis",
 ]
 ticket_cols = [c for c in ticket_cols if c in eval_2026.columns]
 ticket_df = eval_2026[ticket_cols].copy()
-ticket_df.columns = [
+col_names = [
     "Ticket", "Customer", "State", "Distance Band", "Season",
     "Total Trip Days",
-    "Actual ($, 2025$)", "Predicted ($)",
+    "Actual Hotel ($)", "Actual Meals ($)", "Actual Local Transport ($)",
+    "Actual Airfare ($)", "Actual Fuel/Tolls ($)",
+    "Actual Total ($, 2025$)",
+    "Predicted Daily Cost ($)", "Predicted Trip Fee ($)", "Predicted Total ($)",
     "Error ($)", "Error %", "Over/Under",
     "Data Quality", "Lookup Basis",
-][:len(ticket_cols)]
+]
+ticket_df.columns = col_names[:len(ticket_cols)]
+
+# Track which expense columns to check for zero-highlighting
+EXPENSE_COLS = ["Actual Hotel ($)", "Actual Meals ($)", "Actual Local Transport ($)",
+                "Actual Airfare ($)", "Actual Fuel/Tolls ($)"]
 
 # Sheet 2: Error Summary — stacked sections
 def stacked_summary(eval_df, insample_df):
@@ -426,9 +464,29 @@ def stacked_summary(eval_df, insample_df):
 
 summary_df = stacked_summary(eval_2026, eval_insample)
 
+from openpyxl.styles import PatternFill
+ZERO_FILL = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")  # amber yellow
+ZERO_CELL_FILL = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")  # red for the zero cell itself
+
 with pd.ExcelWriter(PROJECT / "model_eval_2026.xlsx", engine="openpyxl") as w:
     ticket_df.to_excel(w, sheet_name="Per Ticket 2026", index=False)
     summary_df.to_excel(w, sheet_name="Error Summary", index=False)
+
+    # Highlight rows with zero/missing expenses
+    ws = w.sheets["Per Ticket 2026"]
+    headers = [cell.value for cell in ws[1]]
+    exp_col_indices = [headers.index(c) + 1 for c in EXPENSE_COLS if c in headers]
+
+    for row in ws.iter_rows(min_row=2, max_row=ws.max_row):
+        zero_cells = [row[i - 1] for i in exp_col_indices
+                      if row[i - 1].value is None or row[i - 1].value == 0]
+        if zero_cells:
+            # Tint the entire row amber
+            for cell in row:
+                cell.fill = ZERO_FILL
+            # Extra red on the specific zero cells
+            for cell in zero_cells:
+                cell.fill = ZERO_CELL_FILL
 
 print("  Saved model_eval_2026.xlsx")
 
