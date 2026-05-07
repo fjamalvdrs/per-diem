@@ -1,0 +1,6996 @@
+{
+  "national_avg_lodging": 145.18,
+  "standard_rate": 110,
+  "by_customer": {
+    "C00104": {
+      "multiplier": 1.174198,
+      "city": "Greeley",
+      "state": "CO",
+      "gsa_rate": 170.47,
+      "source": "state_avg"
+    },
+    "C02000": {
+      "multiplier": 0.923956,
+      "city": "AKRON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02001": {
+      "multiplier": 1.141893,
+      "city": "SAN LEANDRO",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02002": {
+      "multiplier": 0.79212,
+      "city": "NORTHAMPTON",
+      "state": "PA",
+      "gsa_rate": 115.0,
+      "source": "city_partial"
+    },
+    "C02003": {
+      "multiplier": 1.246728,
+      "city": "ARLINGTON",
+      "state": "TX",
+      "gsa_rate": 181.0,
+      "source": "city_partial"
+    },
+    "C02004": {
+      "multiplier": 1.175988,
+      "city": "AVON",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02005": {
+      "multiplier": 1.141893,
+      "city": "AZUSA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02006": {
+      "multiplier": 1.0332,
+      "city": "BALTIMORE",
+      "state": "MD",
+      "gsa_rate": 150.0,
+      "source": "city_partial"
+    },
+    "C02007": {
+      "multiplier": 0.942623,
+      "city": "BEAUMONT",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02008": {
+      "multiplier": 1.175988,
+      "city": "NORTH BILLERICA",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02010": {
+      "multiplier": 1.191624,
+      "city": "Cocoa",
+      "state": "FL",
+      "gsa_rate": 173.0,
+      "source": "city_partial"
+    },
+    "C02011": {
+      "multiplier": 0.942623,
+      "city": "HODGKINS",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02012": {
+      "multiplier": 1.344882,
+      "city": "CHICAGO",
+      "state": "IL",
+      "gsa_rate": 195.25,
+      "source": "city_exact"
+    },
+    "C02013": {
+      "multiplier": 1.344882,
+      "city": "CHICAGO",
+      "state": "IL",
+      "gsa_rate": 195.25,
+      "source": "city_exact"
+    },
+    "C02014": {
+      "multiplier": 0.923956,
+      "city": "OAKWOOD VILLAGE",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02015": {
+      "multiplier": 0.924714,
+      "city": "COLORADO SPRINGS",
+      "state": "CO",
+      "gsa_rate": 134.25,
+      "source": "city_exact"
+    },
+    "C02016": {
+      "multiplier": 1.337443,
+      "city": "DENVER",
+      "state": "CO",
+      "gsa_rate": 194.17,
+      "source": "city_partial"
+    },
+    "C02017": {
+      "multiplier": 1.337443,
+      "city": "AURORA",
+      "state": "CO",
+      "gsa_rate": 194.17,
+      "source": "city_partial"
+    },
+    "C02018": {
+      "multiplier": 1.337443,
+      "city": "DENVER",
+      "state": "CO",
+      "gsa_rate": 194.17,
+      "source": "city_partial"
+    },
+    "C02019": {
+      "multiplier": 1.046976,
+      "city": "DETROIT",
+      "state": "MI",
+      "gsa_rate": 152.0,
+      "source": "city_exact"
+    },
+    "C02020": {
+      "multiplier": 0.954608,
+      "city": "STERLING",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02021": {
+      "multiplier": 1.00675,
+      "city": "Elkridge",
+      "state": "MD",
+      "gsa_rate": 146.16,
+      "source": "state_avg"
+    },
+    "C02022": {
+      "multiplier": 0.942623,
+      "city": "GARLAND",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02023": {
+      "multiplier": 0.84991,
+      "city": "GERMANTOWN",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02024": {
+      "multiplier": 0.942623,
+      "city": "GRAYSLAKE",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02025": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02027": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02028": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02029": {
+      "multiplier": 0.881664,
+      "city": "Houston",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02030": {
+      "multiplier": 1.141893,
+      "city": "IRVINE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02031": {
+      "multiplier": 0.936768,
+      "city": "TACOMA",
+      "state": "WA",
+      "gsa_rate": 136.0,
+      "source": "city_exact"
+    },
+    "C02032": {
+      "multiplier": 0.940419,
+      "city": "ELIZABETH",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02033": {
+      "multiplier": 0.92988,
+      "city": "KANSAS CITY",
+      "state": "KS",
+      "gsa_rate": 135.0,
+      "source": "city_partial"
+    },
+    "C02034": {
+      "multiplier": 0.80934,
+      "city": "FORT COLLINS",
+      "state": "CO",
+      "gsa_rate": 117.5,
+      "source": "city_partial"
+    },
+    "C02035": {
+      "multiplier": 0.771456,
+      "city": "LITTLE ROCK",
+      "state": "AR",
+      "gsa_rate": 112.0,
+      "source": "state_avg"
+    },
+    "C02036": {
+      "multiplier": 0.968315,
+      "city": "LIVERPOOL",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02037": {
+      "multiplier": 1.141893,
+      "city": "LODI",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02038": {
+      "multiplier": 1.315608,
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "gsa_rate": 191.0,
+      "source": "city_exact"
+    },
+    "C02039": {
+      "multiplier": 0.84991,
+      "city": "MENASHA",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02040": {
+      "multiplier": 0.942623,
+      "city": "New Braunfels",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02041": {
+      "multiplier": 0.96432,
+      "city": "MILWAUKEE",
+      "state": "WI",
+      "gsa_rate": 140.0,
+      "source": "city_exact"
+    },
+    "C02042": {
+      "multiplier": 1.019424,
+      "city": "MINNEAPOLIS",
+      "state": "MN",
+      "gsa_rate": 148.0,
+      "source": "city_partial"
+    },
+    "C02043": {
+      "multiplier": 0.909216,
+      "city": "ROCHESTER",
+      "state": "NY",
+      "gsa_rate": 132.0,
+      "source": "city_exact"
+    },
+    "C02044": {
+      "multiplier": 1.530307,
+      "city": "NASHVILLE",
+      "state": "TN",
+      "gsa_rate": 222.17,
+      "source": "city_exact"
+    },
+    "C02045": {
+      "multiplier": 1.074528,
+      "city": "NEWARK",
+      "state": "NJ",
+      "gsa_rate": 156.0,
+      "source": "city_exact"
+    },
+    "C02046": {
+      "multiplier": 0.799008,
+      "city": "OKLAHOMA CITY",
+      "state": "OK",
+      "gsa_rate": 116.0,
+      "source": "city_exact"
+    },
+    "C02048": {
+      "multiplier": 1.014258,
+      "city": "ORLANDO",
+      "state": "FL",
+      "gsa_rate": 147.25,
+      "source": "city_exact"
+    },
+    "C02049": {
+      "multiplier": 1.270285,
+      "city": "PHILADELPHIA",
+      "state": "PA",
+      "gsa_rate": 184.42,
+      "source": "city_exact"
+    },
+    "C02050": {
+      "multiplier": 0.950544,
+      "city": "PITTSBURGH",
+      "state": "PA",
+      "gsa_rate": 138.0,
+      "source": "city_exact"
+    },
+    "C02051": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02052": {
+      "multiplier": 1.003375,
+      "city": "RENO",
+      "state": "NV",
+      "gsa_rate": 145.67,
+      "source": "city_partial"
+    },
+    "C02053": {
+      "multiplier": 1.130665,
+      "city": "PEMBROKE PINES",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02054": {
+      "multiplier": 1.0332,
+      "city": "SACRAMENTO",
+      "state": "CA",
+      "gsa_rate": 150.0,
+      "source": "city_exact"
+    },
+    "C02055": {
+      "multiplier": 0.978096,
+      "city": "SALT LAKE CITY",
+      "state": "UT",
+      "gsa_rate": 142.0,
+      "source": "city_exact"
+    },
+    "C02056": {
+      "multiplier": 0.971208,
+      "city": "SAN ANTONIO",
+      "state": "TX",
+      "gsa_rate": 141.0,
+      "source": "city_exact"
+    },
+    "C02057": {
+      "multiplier": 0.867888,
+      "city": "SPOKANE",
+      "state": "WA",
+      "gsa_rate": 126.0,
+      "source": "city_exact"
+    },
+    "C02058": {
+      "multiplier": 0.881664,
+      "city": "SPRINGFIELD",
+      "state": "MA",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02059": {
+      "multiplier": 1.141893,
+      "city": "SUN VALLEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02060": {
+      "multiplier": 1.018942,
+      "city": "SURPRISE",
+      "state": "AZ",
+      "gsa_rate": 147.93,
+      "source": "state_avg"
+    },
+    "C02061": {
+      "multiplier": 1.108968,
+      "city": "TAMPA",
+      "state": "FL",
+      "gsa_rate": 161.0,
+      "source": "city_partial"
+    },
+    "C02062": {
+      "multiplier": 0.84378,
+      "city": "TOPEKA",
+      "state": "KS",
+      "gsa_rate": 122.5,
+      "source": "state_avg"
+    },
+    "C02063": {
+      "multiplier": 1.0,
+      "city": "ETOBICOKE",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02064": {
+      "multiplier": 0.952611,
+      "city": "HILLSBORO",
+      "state": "OR",
+      "gsa_rate": 138.3,
+      "source": "state_avg"
+    },
+    "C02065": {
+      "multiplier": 1.130665,
+      "city": "WEST PALM BEACH",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02066": {
+      "multiplier": 0.908183,
+      "city": "WINSTON-SALEM",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02067": {
+      "multiplier": 0.965009,
+      "city": "WOODINVILLE",
+      "state": "WA",
+      "gsa_rate": 140.1,
+      "source": "state_avg"
+    },
+    "C02068": {
+      "multiplier": 0.885659,
+      "city": "YORK",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02069": {
+      "multiplier": 1.0,
+      "city": "LAVAL",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02070": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02071": {
+      "multiplier": 0.940419,
+      "city": "ROCHESTER",
+      "state": "NH",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02072": {
+      "multiplier": 1.0,
+      "city": "APPINGEDAM",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02073": {
+      "multiplier": 1.907976,
+      "city": "NEW YORK",
+      "state": "NY",
+      "gsa_rate": 277.0,
+      "source": "city_partial"
+    },
+    "C02074": {
+      "multiplier": 0.892685,
+      "city": "STAMFORD",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02075": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02076": {
+      "multiplier": 1.0,
+      "city": "CALGARY",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02077": {
+      "multiplier": 1.0,
+      "city": "EDMONTON",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02078": {
+      "multiplier": 1.0,
+      "city": "CALGARY",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02079": {
+      "multiplier": 1.0,
+      "city": "CALGARY",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02080": {
+      "multiplier": 1.0,
+      "city": "EDMONTON",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02081": {
+      "multiplier": 1.0,
+      "city": "CALGARY",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02082": {
+      "multiplier": 1.0,
+      "city": "EDMONTON",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02083": {
+      "multiplier": 1.101529,
+      "city": "PHOENIX",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02084": {
+      "multiplier": 1.101529,
+      "city": "SCOTTSDALE",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02085": {
+      "multiplier": 1.101529,
+      "city": "PHOENIX",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02086": {
+      "multiplier": 1.101529,
+      "city": "PHOENIX",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02087": {
+      "multiplier": 1.101529,
+      "city": "PHOENIX",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02088": {
+      "multiplier": 1.101529,
+      "city": "PHOENIX",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02090": {
+      "multiplier": 0.92988,
+      "city": "TUCSON",
+      "state": "AZ",
+      "gsa_rate": 135.0,
+      "source": "city_exact"
+    },
+    "C02091": {
+      "multiplier": 1.018942,
+      "city": "YUMA",
+      "state": "AZ",
+      "gsa_rate": 147.93,
+      "source": "state_avg"
+    },
+    "C02092": {
+      "multiplier": 1.0,
+      "city": "SURREY",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02093": {
+      "multiplier": 1.0,
+      "city": "WILLIAMS LAKE",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02094": {
+      "multiplier": 1.0,
+      "city": "CHILLIWACK",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02095": {
+      "multiplier": 1.0,
+      "city": "RICHMOND",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02096": {
+      "multiplier": 1.0,
+      "city": "RICHMOND",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02097": {
+      "multiplier": 1.0,
+      "city": "SURREY",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02098": {
+      "multiplier": 1.0,
+      "city": "RICHMOND",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02099": {
+      "multiplier": 1.0,
+      "city": "RICHMOND",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02100": {
+      "multiplier": 1.0,
+      "city": "PORT ALBERNI",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02101": {
+      "multiplier": 1.0,
+      "city": "NEW WESTMINSTER",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02102": {
+      "multiplier": 1.0,
+      "city": "LANGLEY CITY",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02103": {
+      "multiplier": 1.0,
+      "city": "NEW WESTMINSTER",
+      "state": "BC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02104": {
+      "multiplier": 1.414313,
+      "city": "SAN DIEGO",
+      "state": "CA",
+      "gsa_rate": 205.33,
+      "source": "city_exact"
+    },
+    "C02105": {
+      "multiplier": 1.141893,
+      "city": "NORTH HOLLYWOOD",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02106": {
+      "multiplier": 1.141893,
+      "city": "Chula Vista",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02107": {
+      "multiplier": 1.315608,
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "gsa_rate": 191.0,
+      "source": "city_exact"
+    },
+    "C02108": {
+      "multiplier": 1.141893,
+      "city": "SUN VALLEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02109": {
+      "multiplier": 1.141893,
+      "city": "CITY OF INDUSTRY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02110": {
+      "multiplier": 1.141893,
+      "city": "ROSEVILLE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02111": {
+      "multiplier": 1.141893,
+      "city": "FONTANA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02112": {
+      "multiplier": 1.141893,
+      "city": "MATHER",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02113": {
+      "multiplier": 1.322496,
+      "city": "SAN JOSE",
+      "state": "CA",
+      "gsa_rate": 192.0,
+      "source": "city_partial"
+    },
+    "C02114": {
+      "multiplier": 1.141893,
+      "city": "CARLSBAD",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02115": {
+      "multiplier": 1.315608,
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "gsa_rate": 191.0,
+      "source": "city_exact"
+    },
+    "C02116": {
+      "multiplier": 1.141893,
+      "city": "NORTH HILLS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02117": {
+      "multiplier": 1.322496,
+      "city": "SUNNYVALE",
+      "state": "CA",
+      "gsa_rate": 192.0,
+      "source": "city_partial"
+    },
+    "C02118": {
+      "multiplier": 1.168687,
+      "city": "SAN LUIS OBISPO",
+      "state": "CA",
+      "gsa_rate": 169.67,
+      "source": "city_exact"
+    },
+    "C02119": {
+      "multiplier": 1.141893,
+      "city": "PERRIS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02120": {
+      "multiplier": 0.909216,
+      "city": "Stockton",
+      "state": "CA",
+      "gsa_rate": 132.0,
+      "source": "city_exact"
+    },
+    "C02121": {
+      "multiplier": 1.141893,
+      "city": "LEMON GROVE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02122": {
+      "multiplier": 1.141893,
+      "city": "SIGNAL HILL",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02123": {
+      "multiplier": 1.141893,
+      "city": "SAN MARCOS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02124": {
+      "multiplier": 0.888552,
+      "city": "FRESNO",
+      "state": "CA",
+      "gsa_rate": 129.0,
+      "source": "city_exact"
+    },
+    "C02125": {
+      "multiplier": 0.923956,
+      "city": "RIVERSIDE",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02126": {
+      "multiplier": 1.141893,
+      "city": "ROSEVILLE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02127": {
+      "multiplier": 1.141893,
+      "city": "FONTANA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02128": {
+      "multiplier": 1.141893,
+      "city": "COMMERCE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02129": {
+      "multiplier": 1.141893,
+      "city": "MOUNTAIN VIEW",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02130": {
+      "multiplier": 1.141893,
+      "city": "CITY OF INDUSTRY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02131": {
+      "multiplier": 1.322496,
+      "city": "SAN JOSE",
+      "state": "CA",
+      "gsa_rate": 192.0,
+      "source": "city_partial"
+    },
+    "C02132": {
+      "multiplier": 1.141893,
+      "city": "ELK GROVE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02133": {
+      "multiplier": 1.141893,
+      "city": "HANFORD",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02134": {
+      "multiplier": 1.141893,
+      "city": "DOWNEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02135": {
+      "multiplier": 1.141893,
+      "city": "SANTA ANA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02136": {
+      "multiplier": 1.141893,
+      "city": "GOLETA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02137": {
+      "multiplier": 1.104353,
+      "city": "SAN RAFAEL",
+      "state": "CA",
+      "gsa_rate": 160.33,
+      "source": "city_partial"
+    },
+    "C02138": {
+      "multiplier": 1.141893,
+      "city": "TURLOCK",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02139": {
+      "multiplier": 1.141893,
+      "city": "WILMINGTON",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02140": {
+      "multiplier": 1.141893,
+      "city": "JURUPA VALLEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02141": {
+      "multiplier": 1.141893,
+      "city": "VERNALIS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02142": {
+      "multiplier": 1.813817,
+      "city": "SAN FRANCISCO",
+      "state": "CA",
+      "gsa_rate": 263.33,
+      "source": "city_exact"
+    },
+    "C02143": {
+      "multiplier": 1.813817,
+      "city": "SAN FRANCISCO",
+      "state": "CA",
+      "gsa_rate": 263.33,
+      "source": "city_exact"
+    },
+    "C02144": {
+      "multiplier": 1.081416,
+      "city": "SANTA ROSA",
+      "state": "CA",
+      "gsa_rate": 157.0,
+      "source": "city_exact"
+    },
+    "C02145": {
+      "multiplier": 1.141893,
+      "city": "NORTH HIGHLANDS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02146": {
+      "multiplier": 1.141893,
+      "city": "CHINO",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02147": {
+      "multiplier": 1.141893,
+      "city": "SALINAS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02148": {
+      "multiplier": 1.141893,
+      "city": "ESCONDIDO",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02149": {
+      "multiplier": 1.315608,
+      "city": "LOS ANGELES",
+      "state": "CA",
+      "gsa_rate": 191.0,
+      "source": "city_exact"
+    },
+    "C02150": {
+      "multiplier": 1.141893,
+      "city": "SUN VALLEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02151": {
+      "multiplier": 1.141893,
+      "city": "LONG BEACH",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02152": {
+      "multiplier": 1.141893,
+      "city": "UNION CITY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02154": {
+      "multiplier": 1.141893,
+      "city": "DOWNEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02155": {
+      "multiplier": 1.141893,
+      "city": "ROSEVILLE",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02156": {
+      "multiplier": 1.141893,
+      "city": "PERRIS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02157": {
+      "multiplier": 1.141893,
+      "city": "MORENO VALLEY",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02158": {
+      "multiplier": 1.026312,
+      "city": "BOULDER",
+      "state": "CO",
+      "gsa_rate": 149.0,
+      "source": "city_partial"
+    },
+    "C02160": {
+      "multiplier": 1.337443,
+      "city": "DENVER",
+      "state": "CO",
+      "gsa_rate": 194.17,
+      "source": "city_partial"
+    },
+    "C02161": {
+      "multiplier": 0.892685,
+      "city": "WILLIMANTIC",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02162": {
+      "multiplier": 0.892685,
+      "city": "TRUMBULL",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02163": {
+      "multiplier": 0.892685,
+      "city": "WEST HAVEN",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02164": {
+      "multiplier": 0.892685,
+      "city": "STAMFORD",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02165": {
+      "multiplier": 0.892685,
+      "city": "Berlin",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02166": {
+      "multiplier": 1.005648,
+      "city": "BRIDGEPORT",
+      "state": "CT",
+      "gsa_rate": 146.0,
+      "source": "city_partial"
+    },
+    "C02167": {
+      "multiplier": 0.950544,
+      "city": "HARTFORD",
+      "state": "CT",
+      "gsa_rate": 138.0,
+      "source": "city_exact"
+    },
+    "C02168": {
+      "multiplier": 0.892685,
+      "city": "STRATFORD",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02169": {
+      "multiplier": 1.609519,
+      "city": "WASHINGTON",
+      "state": "DC",
+      "gsa_rate": 233.67,
+      "source": "city_partial"
+    },
+    "C02170": {
+      "multiplier": 0.874776,
+      "city": "WILMINGTON",
+      "state": "DE",
+      "gsa_rate": 127.0,
+      "source": "city_exact"
+    },
+    "C02171": {
+      "multiplier": 0.874776,
+      "city": "NEW CASTLE",
+      "state": "DE",
+      "gsa_rate": 127.0,
+      "source": "city_exact"
+    },
+    "C02172": {
+      "multiplier": 1.108968,
+      "city": "TAMPA",
+      "state": "FL",
+      "gsa_rate": 161.0,
+      "source": "city_partial"
+    },
+    "C02173": {
+      "multiplier": 1.090026,
+      "city": "FORT MYERS",
+      "state": "FL",
+      "gsa_rate": 158.25,
+      "source": "city_exact"
+    },
+    "C02174": {
+      "multiplier": 1.130665,
+      "city": "WEST PALM BEACH",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02175": {
+      "multiplier": 1.130665,
+      "city": "JACKSONVILLE",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02176": {
+      "multiplier": 1.130665,
+      "city": "JACKSONVILLE",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02177": {
+      "multiplier": 1.090026,
+      "city": "FORT MYERS",
+      "state": "FL",
+      "gsa_rate": 158.25,
+      "source": "city_exact"
+    },
+    "C02178": {
+      "multiplier": 1.130665,
+      "city": "FORT PIERCE",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02179": {
+      "multiplier": 1.108968,
+      "city": "TAMPA",
+      "state": "FL",
+      "gsa_rate": 161.0,
+      "source": "city_partial"
+    },
+    "C02180": {
+      "multiplier": 1.130665,
+      "city": "LECANTO",
+      "state": "FL",
+      "gsa_rate": 164.15,
+      "source": "state_avg"
+    },
+    "C02181": {
+      "multiplier": 1.014258,
+      "city": "ORLANDO",
+      "state": "FL",
+      "gsa_rate": 147.25,
+      "source": "city_exact"
+    },
+    "C02182": {
+      "multiplier": 1.008954,
+      "city": "DALTON",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02183": {
+      "multiplier": 1.008954,
+      "city": "COMMERCE",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02184": {
+      "multiplier": 1.008954,
+      "city": "SUMMERVILLE",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02185": {
+      "multiplier": 1.008954,
+      "city": "DAWSONVILLE",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02186": {
+      "multiplier": 0.936768,
+      "city": "ATHENS",
+      "state": "GA",
+      "gsa_rate": 136.0,
+      "source": "city_exact"
+    },
+    "C02187": {
+      "multiplier": 1.279446,
+      "city": "ATLANTA",
+      "state": "GA",
+      "gsa_rate": 185.75,
+      "source": "city_exact"
+    },
+    "C02188": {
+      "multiplier": 0.867888,
+      "city": "MARIETTA",
+      "state": "GA",
+      "gsa_rate": 126.0,
+      "source": "city_exact"
+    },
+    "C02189": {
+      "multiplier": 1.0,
+      "city": "KAPOLEI",
+      "state": "HI",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02190": {
+      "multiplier": 0.794393,
+      "city": "PELLA",
+      "state": "IA",
+      "gsa_rate": 115.33,
+      "source": "state_avg"
+    },
+    "C02191": {
+      "multiplier": 0.833448,
+      "city": "DES MOINES",
+      "state": "IA",
+      "gsa_rate": 121.0,
+      "source": "city_exact"
+    },
+    "C02192": {
+      "multiplier": 0.794393,
+      "city": "CEDAR RAPIDS",
+      "state": "IA",
+      "gsa_rate": 115.33,
+      "source": "state_avg"
+    },
+    "C02193": {
+      "multiplier": 1.219314,
+      "city": "BELLEVUE",
+      "state": "ID",
+      "gsa_rate": 177.02,
+      "source": "state_avg"
+    },
+    "C02194": {
+      "multiplier": 0.942623,
+      "city": "WAUKEGAN",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02195": {
+      "multiplier": 0.942623,
+      "city": "EAST HAZEL CREST",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02196": {
+      "multiplier": 0.942623,
+      "city": "PLAINFIELD",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02197": {
+      "multiplier": 0.942623,
+      "city": "NORTHBROOK",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02198": {
+      "multiplier": 0.942623,
+      "city": "Normal",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02199": {
+      "multiplier": 0.942623,
+      "city": "HODGKINS",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02200": {
+      "multiplier": 0.942623,
+      "city": "ELK GROVE VILLAGE",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02201": {
+      "multiplier": 0.942623,
+      "city": "CHICAGO RIDGE",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02202": {
+      "multiplier": 0.942623,
+      "city": "ELWOOD",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02203": {
+      "multiplier": 0.942623,
+      "city": "ROXANA",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02204": {
+      "multiplier": 0.842058,
+      "city": "RICHMOND",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02205": {
+      "multiplier": 0.842058,
+      "city": "PLAINFIELD",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02206": {
+      "multiplier": 0.842058,
+      "city": "GARY",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02207": {
+      "multiplier": 0.842058,
+      "city": "LAPORTE",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02208": {
+      "multiplier": 0.842058,
+      "city": "NORTH VERNON",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02209": {
+      "multiplier": 0.842058,
+      "city": "CRAWFORDSVILLE",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02210": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02211": {
+      "multiplier": 0.842058,
+      "city": "NEW HAVEN",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02212": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02213": {
+      "multiplier": 0.84378,
+      "city": "WICHITA",
+      "state": "KS",
+      "gsa_rate": 122.5,
+      "source": "state_avg"
+    },
+    "C02214": {
+      "multiplier": 0.84378,
+      "city": "OSAGE CITY",
+      "state": "KS",
+      "gsa_rate": 122.5,
+      "source": "state_avg"
+    },
+    "C02215": {
+      "multiplier": 0.894751,
+      "city": "FLORENCE",
+      "state": "KY",
+      "gsa_rate": 129.9,
+      "source": "state_avg"
+    },
+    "C02216": {
+      "multiplier": 0.812784,
+      "city": "LEXINGTON",
+      "state": "KY",
+      "gsa_rate": 118.0,
+      "source": "city_exact"
+    },
+    "C02217": {
+      "multiplier": 0.812784,
+      "city": "LEXINGTON",
+      "state": "KY",
+      "gsa_rate": 118.0,
+      "source": "city_exact"
+    },
+    "C02218": {
+      "multiplier": 0.98154,
+      "city": "LOUISVILLE",
+      "state": "KY",
+      "gsa_rate": 142.5,
+      "source": "city_exact"
+    },
+    "C02219": {
+      "multiplier": 0.873261,
+      "city": "SHREVEPORT",
+      "state": "LA",
+      "gsa_rate": 126.78,
+      "source": "state_avg"
+    },
+    "C02220": {
+      "multiplier": 0.873261,
+      "city": "BATON ROUGE",
+      "state": "LA",
+      "gsa_rate": 126.78,
+      "source": "state_avg"
+    },
+    "C02221": {
+      "multiplier": 0.873261,
+      "city": "METAIRIE",
+      "state": "LA",
+      "gsa_rate": 126.78,
+      "source": "state_avg"
+    },
+    "C02222": {
+      "multiplier": 1.175988,
+      "city": "AUBURN",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02223": {
+      "multiplier": 1.175988,
+      "city": "CHARLESTOWN",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02224": {
+      "multiplier": 0.881664,
+      "city": "SPRINGFIELD",
+      "state": "MA",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02225": {
+      "multiplier": 1.175988,
+      "city": "HOLLISTON",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02226": {
+      "multiplier": 1.175988,
+      "city": "FITCHBURG",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02227": {
+      "multiplier": 0.867888,
+      "city": "TAUNTON",
+      "state": "MA",
+      "gsa_rate": 126.0,
+      "source": "city_partial"
+    },
+    "C02228": {
+      "multiplier": 1.175988,
+      "city": "WILMINGTON",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02229": {
+      "multiplier": 0.867888,
+      "city": "NEW BEDFORD",
+      "state": "MA",
+      "gsa_rate": 126.0,
+      "source": "city_partial"
+    },
+    "C02230": {
+      "multiplier": 1.175988,
+      "city": "BROCKTON",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02231": {
+      "multiplier": 1.175988,
+      "city": "PEABODY",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02232": {
+      "multiplier": 1.175988,
+      "city": "CHARLESTOWN",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02233": {
+      "multiplier": 1.175988,
+      "city": "WILBRAHAM",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02234": {
+      "multiplier": 1.0,
+      "city": "WINNIPEG",
+      "state": "MB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02235": {
+      "multiplier": 1.0332,
+      "city": "BALTIMORE",
+      "state": "MD",
+      "gsa_rate": 150.0,
+      "source": "city_partial"
+    },
+    "C02236": {
+      "multiplier": 1.00675,
+      "city": "Cockeysville",
+      "state": "MD",
+      "gsa_rate": 146.16,
+      "source": "state_avg"
+    },
+    "C02237": {
+      "multiplier": 1.0332,
+      "city": "BALTIMORE",
+      "state": "MD",
+      "gsa_rate": 150.0,
+      "source": "city_partial"
+    },
+    "C02238": {
+      "multiplier": 1.00675,
+      "city": "LAUREL",
+      "state": "MD",
+      "gsa_rate": 146.16,
+      "source": "state_avg"
+    },
+    "C02239": {
+      "multiplier": 1.0332,
+      "city": "BALTIMORE",
+      "state": "MD",
+      "gsa_rate": 150.0,
+      "source": "city_partial"
+    },
+    "C02240": {
+      "multiplier": 0.778344,
+      "city": "COLUMBIA",
+      "state": "MD",
+      "gsa_rate": 113.0,
+      "source": "city_exact"
+    },
+    "C02241": {
+      "multiplier": 1.00675,
+      "city": "CAPITOL HEIGHTS",
+      "state": "MD",
+      "gsa_rate": 146.16,
+      "source": "state_avg"
+    },
+    "C02242": {
+      "multiplier": 1.00675,
+      "city": "CAPITOL HEIGHTS",
+      "state": "MD",
+      "gsa_rate": 146.16,
+      "source": "state_avg"
+    },
+    "C02243": {
+      "multiplier": 1.049869,
+      "city": "PORTLAND",
+      "state": "ME",
+      "gsa_rate": 152.42,
+      "source": "city_exact"
+    },
+    "C02244": {
+      "multiplier": 0.891238,
+      "city": "DUNDEE",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02245": {
+      "multiplier": 0.891238,
+      "city": "LANSING",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02246": {
+      "multiplier": 0.891238,
+      "city": "NEW BOSTON",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02247": {
+      "multiplier": 0.819672,
+      "city": "GRAND RAPIDS",
+      "state": "MI",
+      "gsa_rate": 119.0,
+      "source": "city_exact"
+    },
+    "C02248": {
+      "multiplier": 0.891238,
+      "city": "SOUTHFIELD",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02249": {
+      "multiplier": 0.893167,
+      "city": "HOLLAND",
+      "state": "MI",
+      "gsa_rate": 129.67,
+      "source": "city_exact"
+    },
+    "C02250": {
+      "multiplier": 0.891238,
+      "city": "WIXOM",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02251": {
+      "multiplier": 0.891238,
+      "city": "WYOMING",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02252": {
+      "multiplier": 0.891238,
+      "city": "TAYLOR",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02253": {
+      "multiplier": 0.980507,
+      "city": "SAINT PAUL",
+      "state": "MN",
+      "gsa_rate": 142.35,
+      "source": "state_avg"
+    },
+    "C02254": {
+      "multiplier": 1.019424,
+      "city": "MINNEAPOLIS",
+      "state": "MN",
+      "gsa_rate": 148.0,
+      "source": "city_partial"
+    },
+    "C02255": {
+      "multiplier": 1.019424,
+      "city": "MINNEAPOLIS",
+      "state": "MN",
+      "gsa_rate": 148.0,
+      "source": "city_partial"
+    },
+    "C02256": {
+      "multiplier": 0.980507,
+      "city": "SAINT PAUL",
+      "state": "MN",
+      "gsa_rate": 142.35,
+      "source": "state_avg"
+    },
+    "C02257": {
+      "multiplier": 0.906943,
+      "city": "JEFFERSON CITY",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02258": {
+      "multiplier": 0.92988,
+      "city": "KANSAS CITY",
+      "state": "MO",
+      "gsa_rate": 135.0,
+      "source": "city_exact"
+    },
+    "C02259": {
+      "multiplier": 0.906943,
+      "city": "BRIDGETON",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02260": {
+      "multiplier": 0.906943,
+      "city": "HAZELWOOD",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02261": {
+      "multiplier": 0.906943,
+      "city": "EARTH CITY",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02262": {
+      "multiplier": 0.906943,
+      "city": "BRIDGETON",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02263": {
+      "multiplier": 0.908183,
+      "city": "CANDLER",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02264": {
+      "multiplier": 0.908183,
+      "city": "HUNTERSVILLE",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02265": {
+      "multiplier": 0.908183,
+      "city": "HICKORY",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02266": {
+      "multiplier": 0.854112,
+      "city": "FAYETTEVILLE",
+      "state": "NC",
+      "gsa_rate": 124.0,
+      "source": "city_exact"
+    },
+    "C02267": {
+      "multiplier": 0.908183,
+      "city": "CONCORD",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02268": {
+      "multiplier": 0.902328,
+      "city": "CHARLOTTE",
+      "state": "NC",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02269": {
+      "multiplier": 0.902328,
+      "city": "CHARLOTTE",
+      "state": "NC",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02270": {
+      "multiplier": 0.908183,
+      "city": "CONOVER",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02271": {
+      "multiplier": 0.821945,
+      "city": "GREENSBORO",
+      "state": "NC",
+      "gsa_rate": 119.33,
+      "source": "city_exact"
+    },
+    "C02272": {
+      "multiplier": 0.908183,
+      "city": "REIDSVILLE",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02273": {
+      "multiplier": 0.902328,
+      "city": "RALEIGH",
+      "state": "NC",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02274": {
+      "multiplier": 0.908183,
+      "city": "REIDSVILLE",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02275": {
+      "multiplier": 0.840336,
+      "city": "OMAHA",
+      "state": "NE",
+      "gsa_rate": 122.0,
+      "source": "city_exact"
+    },
+    "C02276": {
+      "multiplier": 0.840336,
+      "city": "OMAHA",
+      "state": "NE",
+      "gsa_rate": 122.0,
+      "source": "city_exact"
+    },
+    "C02277": {
+      "multiplier": 0.940419,
+      "city": "GOFFSTOWN",
+      "state": "NH",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02278": {
+      "multiplier": 0.940419,
+      "city": "HUDSON",
+      "state": "NH",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02279": {
+      "multiplier": 0.940419,
+      "city": "KINGSTON",
+      "state": "NH",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02280": {
+      "multiplier": 0.89544,
+      "city": "MANCHESTER",
+      "state": "NH",
+      "gsa_rate": 130.0,
+      "source": "city_exact"
+    },
+    "C02281": {
+      "multiplier": 0.940419,
+      "city": "GORHAN",
+      "state": "NH",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02282": {
+      "multiplier": 0.940419,
+      "city": "JERSEY CITY",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02283": {
+      "multiplier": 0.950544,
+      "city": "TRENTON",
+      "state": "NJ",
+      "gsa_rate": 138.0,
+      "source": "city_partial"
+    },
+    "C02284": {
+      "multiplier": 0.940419,
+      "city": "LAKEWOOD",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02285": {
+      "multiplier": 1.074528,
+      "city": "PASSAIC",
+      "state": "NJ",
+      "gsa_rate": 156.0,
+      "source": "city_partial"
+    },
+    "C02286": {
+      "multiplier": 0.940419,
+      "city": "JERSEY CITY",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02287": {
+      "multiplier": 0.940419,
+      "city": "KEASBY",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02288": {
+      "multiplier": 0.940419,
+      "city": "New Brunswick",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02289": {
+      "multiplier": 0.940419,
+      "city": "ANDOVER",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02290": {
+      "multiplier": 0.940419,
+      "city": "SOUTH PLAINFIELD",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02291": {
+      "multiplier": 1.074528,
+      "city": "NEWARK",
+      "state": "NJ",
+      "gsa_rate": 156.0,
+      "source": "city_exact"
+    },
+    "C02292": {
+      "multiplier": 0.940419,
+      "city": "ELIZABETH",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02293": {
+      "multiplier": 0.940419,
+      "city": "TINTON FALLS",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02294": {
+      "multiplier": 1.074528,
+      "city": "NEWARK",
+      "state": "NJ",
+      "gsa_rate": 156.0,
+      "source": "city_exact"
+    },
+    "C02295": {
+      "multiplier": 0.940419,
+      "city": "JERSEY CITY",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02296": {
+      "multiplier": 0.771456,
+      "city": "CAMDEN",
+      "state": "NJ",
+      "gsa_rate": 112.0,
+      "source": "city_partial"
+    },
+    "C02297": {
+      "multiplier": 0.940419,
+      "city": "FARMINGDALE",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02298": {
+      "multiplier": 0.940419,
+      "city": "MINE HILL",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02299": {
+      "multiplier": 1.074528,
+      "city": "NEWARK",
+      "state": "NJ",
+      "gsa_rate": 156.0,
+      "source": "city_exact"
+    },
+    "C02300": {
+      "multiplier": 1.069913,
+      "city": "SANTA FE",
+      "state": "NM",
+      "gsa_rate": 155.33,
+      "source": "city_exact"
+    },
+    "C02301": {
+      "multiplier": 1.069913,
+      "city": "SANTA FE",
+      "state": "NM",
+      "gsa_rate": 155.33,
+      "source": "city_exact"
+    },
+    "C02302": {
+      "multiplier": 0.991872,
+      "city": "ALBUQUERQUE",
+      "state": "NM",
+      "gsa_rate": 144.0,
+      "source": "city_exact"
+    },
+    "C02303": {
+      "multiplier": 1.0,
+      "city": "AMHERST",
+      "state": "NS",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02304": {
+      "multiplier": 1.003375,
+      "city": "SPARKS",
+      "state": "NV",
+      "gsa_rate": 145.67,
+      "source": "city_partial"
+    },
+    "C02305": {
+      "multiplier": 1.003375,
+      "city": "RENO",
+      "state": "NV",
+      "gsa_rate": 145.67,
+      "source": "city_partial"
+    },
+    "C02306": {
+      "multiplier": 0.895234,
+      "city": "NORTH LAS VEGAS",
+      "state": "NV",
+      "gsa_rate": 129.97,
+      "source": "state_avg"
+    },
+    "C02307": {
+      "multiplier": 0.968315,
+      "city": "BROOKLYN",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02309": {
+      "multiplier": 0.882835,
+      "city": "BUFFALO",
+      "state": "NY",
+      "gsa_rate": 128.17,
+      "source": "city_exact"
+    },
+    "C02310": {
+      "multiplier": 0.991872,
+      "city": "ITHACA",
+      "state": "NY",
+      "gsa_rate": 144.0,
+      "source": "city_exact"
+    },
+    "C02311": {
+      "multiplier": 0.968315,
+      "city": "MASPETH",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02312": {
+      "multiplier": 0.968315,
+      "city": "WEST BABYLON",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02313": {
+      "multiplier": 0.968315,
+      "city": "AIRMONT",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02315": {
+      "multiplier": 0.968315,
+      "city": "UTICA",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02316": {
+      "multiplier": 0.968315,
+      "city": "HAWTHORNE",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02317": {
+      "multiplier": 0.968315,
+      "city": "STATEN ISLAND",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02318": {
+      "multiplier": 0.968315,
+      "city": "YONKERS",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02319": {
+      "multiplier": 0.968315,
+      "city": "HILLBURN",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02320": {
+      "multiplier": 1.907976,
+      "city": "BRONX",
+      "state": "NY",
+      "gsa_rate": 277.0,
+      "source": "city_partial"
+    },
+    "C02321": {
+      "multiplier": 1.907976,
+      "city": "BRONX",
+      "state": "NY",
+      "gsa_rate": 277.0,
+      "source": "city_partial"
+    },
+    "C02322": {
+      "multiplier": 0.968315,
+      "city": "KINGS PARK",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02323": {
+      "multiplier": 0.968935,
+      "city": "SCHENECTADY",
+      "state": "NY",
+      "gsa_rate": 140.67,
+      "source": "city_partial"
+    },
+    "C02324": {
+      "multiplier": 0.805896,
+      "city": "ALBANY",
+      "state": "NY",
+      "gsa_rate": 117.0,
+      "source": "city_exact"
+    },
+    "C02325": {
+      "multiplier": 0.968315,
+      "city": "BROOKHAVEN",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02326": {
+      "multiplier": 0.923956,
+      "city": "GAHANNA",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02327": {
+      "multiplier": 0.923956,
+      "city": "MIDDLETOWN",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02328": {
+      "multiplier": 0.923956,
+      "city": "CLYDE",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02329": {
+      "multiplier": 0.923956,
+      "city": "Hebron",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02330": {
+      "multiplier": 0.923956,
+      "city": "OREGON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02331": {
+      "multiplier": 0.923956,
+      "city": "MORAINE",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02332": {
+      "multiplier": 0.923956,
+      "city": "NEW PHILADELPHIA",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02333": {
+      "multiplier": 0.923956,
+      "city": "TWINSBURG",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02334": {
+      "multiplier": 0.923956,
+      "city": "AKRON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02335": {
+      "multiplier": 1.122744,
+      "city": "CINCINNATI",
+      "state": "OH",
+      "gsa_rate": 163.0,
+      "source": "city_exact"
+    },
+    "C02336": {
+      "multiplier": 0.902328,
+      "city": "COLUMBUS",
+      "state": "OH",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02337": {
+      "multiplier": 0.799008,
+      "city": "OKLAHOMA CITY",
+      "state": "OK",
+      "gsa_rate": 116.0,
+      "source": "city_exact"
+    },
+    "C02338": {
+      "multiplier": 1.0,
+      "city": "SHELBURNE",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02339": {
+      "multiplier": 1.0,
+      "city": "GUELPH",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02340": {
+      "multiplier": 1.0,
+      "city": "BURLINGTON",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02341": {
+      "multiplier": 1.0,
+      "city": "NIAGARA FALLS",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02342": {
+      "multiplier": 1.0,
+      "city": "RENFREW",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02343": {
+      "multiplier": 1.0,
+      "city": "HAMILTON",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02344": {
+      "multiplier": 1.0,
+      "city": "NORTH YORK",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02345": {
+      "multiplier": 1.0,
+      "city": "SARNIA",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02346": {
+      "multiplier": 1.0,
+      "city": "CARP",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02347": {
+      "multiplier": 1.0,
+      "city": "ETOBICOKE",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02348": {
+      "multiplier": 1.0,
+      "city": "PICKERING",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02349": {
+      "multiplier": 1.0,
+      "city": "BRACEBRIDGE",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02350": {
+      "multiplier": 1.012536,
+      "city": "EUGENE",
+      "state": "OR",
+      "gsa_rate": 147.0,
+      "source": "city_partial"
+    },
+    "C02351": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02352": {
+      "multiplier": 0.952611,
+      "city": "HILLSBORO",
+      "state": "OR",
+      "gsa_rate": 138.3,
+      "source": "state_avg"
+    },
+    "C02353": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02354": {
+      "multiplier": 0.952611,
+      "city": "SALEM",
+      "state": "OR",
+      "gsa_rate": 138.3,
+      "source": "state_avg"
+    },
+    "C02355": {
+      "multiplier": 0.936768,
+      "city": "CLACKAMAS",
+      "state": "OR",
+      "gsa_rate": 136.0,
+      "source": "city_exact"
+    },
+    "C02356": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02357": {
+      "multiplier": 0.885659,
+      "city": "YEADON",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02358": {
+      "multiplier": 0.805896,
+      "city": "READING",
+      "state": "PA",
+      "gsa_rate": 117.0,
+      "source": "city_exact"
+    },
+    "C02359": {
+      "multiplier": 0.885659,
+      "city": "HANOVER TOWNSHIP",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02360": {
+      "multiplier": 0.885659,
+      "city": "YORK",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02361": {
+      "multiplier": 0.79212,
+      "city": "ALLENTOWN",
+      "state": "PA",
+      "gsa_rate": 115.0,
+      "source": "city_partial"
+    },
+    "C02362": {
+      "multiplier": 1.270285,
+      "city": "PHILADELPHIA",
+      "state": "PA",
+      "gsa_rate": 184.42,
+      "source": "city_exact"
+    },
+    "C02363": {
+      "multiplier": 0.885659,
+      "city": "YORK",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02364": {
+      "multiplier": 0.950544,
+      "city": "PITTSBURGH",
+      "state": "PA",
+      "gsa_rate": 138.0,
+      "source": "city_exact"
+    },
+    "C02365": {
+      "multiplier": 0.885659,
+      "city": "KING OF PRUSSIA",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02366": {
+      "multiplier": 1.270285,
+      "city": "PHILADELPHIA",
+      "state": "PA",
+      "gsa_rate": 184.42,
+      "source": "city_exact"
+    },
+    "C02367": {
+      "multiplier": 0.885659,
+      "city": "BIRDSBORO",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02368": {
+      "multiplier": 0.84991,
+      "city": "JAMESVILLE,",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02369": {
+      "multiplier": 1.0,
+      "city": "GUAYNABO",
+      "state": "PR",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02370": {
+      "multiplier": 1.0,
+      "city": "UTUADO",
+      "state": "PR",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02371": {
+      "multiplier": 1.0,
+      "city": "SAN JUAN",
+      "state": "PR",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02372": {
+      "multiplier": 1.0,
+      "city": "LACHINE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02373": {
+      "multiplier": 1.0,
+      "city": "LACHINE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02374": {
+      "multiplier": 1.0,
+      "city": "MONTREAL",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02375": {
+      "multiplier": 1.0,
+      "city": "MONTREAL",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02376": {
+      "multiplier": 1.0,
+      "city": "DRUMMONDVILLE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02377": {
+      "multiplier": 1.0,
+      "city": "SHERBROOKE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02378": {
+      "multiplier": 1.0,
+      "city": "LACHINE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02380": {
+      "multiplier": 1.0,
+      "city": "YAMACHICHE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02381": {
+      "multiplier": 1.0,
+      "city": "MONTREAL",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02382": {
+      "multiplier": 1.0,
+      "city": "SAINT-LAURENT",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02383": {
+      "multiplier": 1.062819,
+      "city": "NORTH CHARLESTON",
+      "state": "SC",
+      "gsa_rate": 154.3,
+      "source": "state_avg"
+    },
+    "C02384": {
+      "multiplier": 0.968315,
+      "city": "SUFFERN",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02385": {
+      "multiplier": 1.0,
+      "city": "REGINA",
+      "state": "SK",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02386": {
+      "multiplier": 1.0,
+      "city": "REGINA",
+      "state": "SK",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02387": {
+      "multiplier": 1.0,
+      "city": "NORTH BATTLEFORD",
+      "state": "SK",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02388": {
+      "multiplier": 1.0,
+      "city": "SASKATOON",
+      "state": "SK",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02389": {
+      "multiplier": 0.94958,
+      "city": "CLARKSVILLE",
+      "state": "TN",
+      "gsa_rate": 137.86,
+      "source": "state_avg"
+    },
+    "C02390": {
+      "multiplier": 0.94958,
+      "city": "LAVERGNE",
+      "state": "TN",
+      "gsa_rate": 137.86,
+      "source": "state_avg"
+    },
+    "C02391": {
+      "multiplier": 0.94958,
+      "city": "CASTALIAN SPRINGS",
+      "state": "TN",
+      "gsa_rate": 137.86,
+      "source": "state_avg"
+    },
+    "C02392": {
+      "multiplier": 0.805896,
+      "city": "CHATTANOOGA",
+      "state": "TN",
+      "gsa_rate": 117.0,
+      "source": "city_exact"
+    },
+    "C02393": {
+      "multiplier": 0.942623,
+      "city": "GREENVILLE",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02394": {
+      "multiplier": 0.942623,
+      "city": "LAREDO",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02395": {
+      "multiplier": 1.215732,
+      "city": "AUSTIN",
+      "state": "TX",
+      "gsa_rate": 176.5,
+      "source": "city_exact"
+    },
+    "C02396": {
+      "multiplier": 0.942623,
+      "city": "LAREDO",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02397": {
+      "multiplier": 1.207122,
+      "city": "DALLAS",
+      "state": "TX",
+      "gsa_rate": 175.25,
+      "source": "city_exact"
+    },
+    "C02398": {
+      "multiplier": 1.207122,
+      "city": "DALLAS",
+      "state": "TX",
+      "gsa_rate": 175.25,
+      "source": "city_exact"
+    },
+    "C02399": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02400": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02401": {
+      "multiplier": 0.942623,
+      "city": "TEXARKANA",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02402": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02403": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02404": {
+      "multiplier": 0.971208,
+      "city": "SAN ANTONIO",
+      "state": "TX",
+      "gsa_rate": 141.0,
+      "source": "city_exact"
+    },
+    "C02405": {
+      "multiplier": 0.942623,
+      "city": "EL PASO",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02406": {
+      "multiplier": 1.207122,
+      "city": "DALLAS",
+      "state": "TX",
+      "gsa_rate": 175.25,
+      "source": "city_exact"
+    },
+    "C02407": {
+      "multiplier": 0.942623,
+      "city": "LAREDO",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02408": {
+      "multiplier": 0.942623,
+      "city": "CORPUS CHRISTI",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02409": {
+      "multiplier": 1.246728,
+      "city": "FORT WORTH",
+      "state": "TX",
+      "gsa_rate": 181.0,
+      "source": "city_partial"
+    },
+    "C02410": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02411": {
+      "multiplier": 0.847224,
+      "city": "PLANO",
+      "state": "TX",
+      "gsa_rate": 123.0,
+      "source": "city_exact"
+    },
+    "C02412": {
+      "multiplier": 0.971208,
+      "city": "SAN ANTONIO",
+      "state": "TX",
+      "gsa_rate": 141.0,
+      "source": "city_exact"
+    },
+    "C02413": {
+      "multiplier": 0.942623,
+      "city": "LAREDO",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02414": {
+      "multiplier": 0.942623,
+      "city": "BUDA",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02415": {
+      "multiplier": 1.246728,
+      "city": "FORT WORTH",
+      "state": "TX",
+      "gsa_rate": 181.0,
+      "source": "city_partial"
+    },
+    "C02416": {
+      "multiplier": 0.942623,
+      "city": "EL PASO",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02417": {
+      "multiplier": 0.942623,
+      "city": "MCKINNEY",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02418": {
+      "multiplier": 0.978096,
+      "city": "SALT LAKE CITY",
+      "state": "UT",
+      "gsa_rate": 142.0,
+      "source": "city_exact"
+    },
+    "C02419": {
+      "multiplier": 1.169789,
+      "city": "OGDEN",
+      "state": "UT",
+      "gsa_rate": 169.83,
+      "source": "state_avg"
+    },
+    "C02420": {
+      "multiplier": 0.978096,
+      "city": "SALT LAKE CITY",
+      "state": "UT",
+      "gsa_rate": 142.0,
+      "source": "city_exact"
+    },
+    "C02421": {
+      "multiplier": 0.978096,
+      "city": "SALT LAKE CITY",
+      "state": "UT",
+      "gsa_rate": 142.0,
+      "source": "city_exact"
+    },
+    "C02422": {
+      "multiplier": 0.954608,
+      "city": "HAMPTON",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02423": {
+      "multiplier": 0.954608,
+      "city": "FRANKLIN",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02424": {
+      "multiplier": 1.081416,
+      "city": "Richmond",
+      "state": "VA",
+      "gsa_rate": 157.0,
+      "source": "city_exact"
+    },
+    "C02425": {
+      "multiplier": 0.954608,
+      "city": "GORDONSVILLE",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02426": {
+      "multiplier": 0.954608,
+      "city": "NEWTOWN",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02427": {
+      "multiplier": 0.954608,
+      "city": "PORTSMOUTH",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02428": {
+      "multiplier": 0.954608,
+      "city": "Manassas",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02430": {
+      "multiplier": 0.954608,
+      "city": "Chesapeake",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02431": {
+      "multiplier": 0.954608,
+      "city": "CHESTER",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02432": {
+      "multiplier": 0.819672,
+      "city": "ROANOKE",
+      "state": "VA",
+      "gsa_rate": 119.0,
+      "source": "city_exact"
+    },
+    "C02433": {
+      "multiplier": 0.819672,
+      "city": "ROANOKE",
+      "state": "VA",
+      "gsa_rate": 119.0,
+      "source": "city_exact"
+    },
+    "C02434": {
+      "multiplier": 0.965009,
+      "city": "RENTON",
+      "state": "WA",
+      "gsa_rate": 140.1,
+      "source": "state_avg"
+    },
+    "C02435": {
+      "multiplier": 0.824838,
+      "city": "EVERETT",
+      "state": "WA",
+      "gsa_rate": 119.75,
+      "source": "city_partial"
+    },
+    "C02436": {
+      "multiplier": 0.965009,
+      "city": "KENT",
+      "state": "WA",
+      "gsa_rate": 140.1,
+      "source": "state_avg"
+    },
+    "C02437": {
+      "multiplier": 0.965009,
+      "city": "BURLINGTON",
+      "state": "WA",
+      "gsa_rate": 140.1,
+      "source": "state_avg"
+    },
+    "C02438": {
+      "multiplier": 1.432704,
+      "city": "SEATTLE",
+      "state": "WA",
+      "gsa_rate": 208.0,
+      "source": "city_exact"
+    },
+    "C02439": {
+      "multiplier": 1.432704,
+      "city": "SEATTLE",
+      "state": "WA",
+      "gsa_rate": 208.0,
+      "source": "city_exact"
+    },
+    "C02440": {
+      "multiplier": 0.965009,
+      "city": "RENTON",
+      "state": "WA",
+      "gsa_rate": 140.1,
+      "source": "state_avg"
+    },
+    "C02441": {
+      "multiplier": 0.84991,
+      "city": "NEENAH",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02442": {
+      "multiplier": 0.84991,
+      "city": "LA CROSSE",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02443": {
+      "multiplier": 0.84991,
+      "city": "DE PERE",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02444": {
+      "multiplier": 0.84991,
+      "city": "FITCHBURG",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02445": {
+      "multiplier": 0.84991,
+      "city": "GREEN BAY",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02446": {
+      "multiplier": 0.96432,
+      "city": "MILWAUKEE",
+      "state": "WI",
+      "gsa_rate": 140.0,
+      "source": "city_exact"
+    },
+    "C02447": {
+      "multiplier": 0.84991,
+      "city": "JANESVILLE",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02448": {
+      "multiplier": 1.279446,
+      "city": "ATLANTA",
+      "state": "GA",
+      "gsa_rate": 185.75,
+      "source": "city_exact"
+    },
+    "C02449": {
+      "multiplier": 0.923956,
+      "city": "WEST CHESTER",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02450": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02451": {
+      "multiplier": 1.279446,
+      "city": "ATLANTA",
+      "state": "GA",
+      "gsa_rate": 185.75,
+      "source": "city_exact"
+    },
+    "C02452": {
+      "multiplier": 1.062819,
+      "city": "LADSON",
+      "state": "SC",
+      "gsa_rate": 154.3,
+      "source": "state_avg"
+    },
+    "C02453": {
+      "multiplier": 0.892685,
+      "city": "NORWALK",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02454": {
+      "multiplier": 0.940419,
+      "city": "EWING TOWNSHIP",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02455": {
+      "multiplier": 1.907976,
+      "city": "NEW YORK",
+      "state": "NY",
+      "gsa_rate": 277.0,
+      "source": "city_partial"
+    },
+    "C02456": {
+      "multiplier": 0.942623,
+      "city": "THE WOODLANDS",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02457": {
+      "multiplier": 1.207122,
+      "city": "DALLAS",
+      "state": "TX",
+      "gsa_rate": 175.25,
+      "source": "city_exact"
+    },
+    "C02458": {
+      "multiplier": 0.891238,
+      "city": "MASON",
+      "state": "MI",
+      "gsa_rate": 129.39,
+      "source": "state_avg"
+    },
+    "C02459": {
+      "multiplier": 0.942623,
+      "city": "THE WOODLANDS",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02460": {
+      "multiplier": 1.0,
+      "city": "QUEBEC",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02461": {
+      "multiplier": 1.279446,
+      "city": "ATLANTA",
+      "state": "GA",
+      "gsa_rate": 185.75,
+      "source": "city_exact"
+    },
+    "C02463": {
+      "multiplier": 0.942623,
+      "city": "DOWNERS GROVE",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02464": {
+      "multiplier": 0.968315,
+      "city": "HARRISON",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02465": {
+      "multiplier": 1.907976,
+      "city": "NEW YORK",
+      "state": "NY",
+      "gsa_rate": 277.0,
+      "source": "city_partial"
+    },
+    "C02466": {
+      "multiplier": 0.885659,
+      "city": "ERIE",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02467": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02468": {
+      "multiplier": 1.152018,
+      "city": "RIVERSIDE",
+      "state": "CA",
+      "gsa_rate": 167.25,
+      "source": "city_exact"
+    },
+    "C02469": {
+      "multiplier": 1.0,
+      "city": "nan",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02470": {
+      "multiplier": 0.892685,
+      "city": "NORWALK",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02471": {
+      "multiplier": 0.908183,
+      "city": "STATESVILLE",
+      "state": "NC",
+      "gsa_rate": 131.85,
+      "source": "state_avg"
+    },
+    "C02472": {
+      "multiplier": 1.0,
+      "city": "THE NETHERLANDS",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02473": {
+      "multiplier": 0.942623,
+      "city": "CHICAGO IL",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02474": {
+      "multiplier": 1.813817,
+      "city": "SAN FRANCISCO",
+      "state": "CA",
+      "gsa_rate": 263.33,
+      "source": "city_exact"
+    },
+    "C02475": {
+      "multiplier": 1.0,
+      "city": "nan",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02476": {
+      "multiplier": 0.942623,
+      "city": "LAKE FOREST",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02477": {
+      "multiplier": 0.942623,
+      "city": "GRAND PRAIRIE",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02478": {
+      "multiplier": 0.923956,
+      "city": "MASON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02479": {
+      "multiplier": 1.0,
+      "city": "MISSISSAUGA",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02480": {
+      "multiplier": 0.906943,
+      "city": "ST. PETERS",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02481": {
+      "multiplier": 1.06764,
+      "city": "MELVILLE",
+      "state": "NY",
+      "gsa_rate": 155.0,
+      "source": "city_partial"
+    },
+    "C02482": {
+      "multiplier": 1.882697,
+      "city": "BOSTON",
+      "state": "MA",
+      "gsa_rate": 273.33,
+      "source": "city_partial"
+    },
+    "C02483": {
+      "multiplier": 1.0,
+      "city": "WANROIJ",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02484": {
+      "multiplier": 1.062819,
+      "city": "HARTSVILLE",
+      "state": "SC",
+      "gsa_rate": 154.3,
+      "source": "state_avg"
+    },
+    "C02485": {
+      "multiplier": 1.609519,
+      "city": "WASHINGTON",
+      "state": "DC",
+      "gsa_rate": 233.67,
+      "source": "city_partial"
+    },
+    "C02486": {
+      "multiplier": 0.968315,
+      "city": "ROKONKOM",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02489": {
+      "multiplier": 0.952611,
+      "city": "JUNCTION CITY",
+      "state": "OR",
+      "gsa_rate": 138.3,
+      "source": "state_avg"
+    },
+    "C02491": {
+      "multiplier": 1.174198,
+      "city": "nan",
+      "state": "CO",
+      "gsa_rate": 170.47,
+      "source": "state_avg"
+    },
+    "C02492": {
+      "multiplier": 1.141893,
+      "city": "PALISADES",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02493": {
+      "multiplier": 0.892685,
+      "city": "MANCHESTER",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02494": {
+      "multiplier": 1.0,
+      "city": "SAN JOSE",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02496": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02497": {
+      "multiplier": 1.175988,
+      "city": "FITCHBURG",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02501": {
+      "multiplier": 1.0,
+      "city": "INSTALACIONES VICESA",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02502": {
+      "multiplier": 1.175988,
+      "city": "WESTBOROUGH",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02503": {
+      "multiplier": 1.032236,
+      "city": "JOHNSTON",
+      "state": "RI",
+      "gsa_rate": 149.86,
+      "source": "state_avg"
+    },
+    "C02505": {
+      "multiplier": 1.0,
+      "city": "BRAMPTON",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02506": {
+      "multiplier": 1.0,
+      "city": "BAIE D'URFE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02507": {
+      "multiplier": 0.819672,
+      "city": "KNOXVILLE",
+      "state": "TN",
+      "gsa_rate": 119.0,
+      "source": "city_exact"
+    },
+    "C02508": {
+      "multiplier": 0.867888,
+      "city": "BIRMINGHAM",
+      "state": "AL",
+      "gsa_rate": 126.0,
+      "source": "city_exact"
+    },
+    "C02509": {
+      "multiplier": 1.0,
+      "city": "SAULT STE MARIE",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02510": {
+      "multiplier": 1.0,
+      "city": "ST. ALBERT",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02511": {
+      "multiplier": 0.892685,
+      "city": "Norwalk",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02512": {
+      "multiplier": 1.008954,
+      "city": "CARNESVILLE",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02513": {
+      "multiplier": 0.940419,
+      "city": "MINE HILL",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02514": {
+      "multiplier": 1.141893,
+      "city": "ANAHEIM",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02515": {
+      "multiplier": 1.038917,
+      "city": "TRAVERSE CITY",
+      "state": "MI",
+      "gsa_rate": 150.83,
+      "source": "city_exact"
+    },
+    "C02516": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02517": {
+      "multiplier": 0.942623,
+      "city": "Taylor",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02518": {
+      "multiplier": 1.0,
+      "city": "nan",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02519": {
+      "multiplier": 0.842058,
+      "city": "CONNERSVILLE",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02520": {
+      "multiplier": 1.246728,
+      "city": "FORT WORTH",
+      "state": "TX",
+      "gsa_rate": 181.0,
+      "source": "city_partial"
+    },
+    "C02521": {
+      "multiplier": 0.84378,
+      "city": "TOPEKA",
+      "state": "KS",
+      "gsa_rate": 122.5,
+      "source": "state_avg"
+    },
+    "C02522": {
+      "multiplier": 1.0,
+      "city": "ROBLIN",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02523": {
+      "multiplier": 1.0,
+      "city": "Cambridge",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02524": {
+      "multiplier": 0.886624,
+      "city": "TROY",
+      "state": "AL",
+      "gsa_rate": 128.72,
+      "source": "state_avg"
+    },
+    "C02525": {
+      "multiplier": 1.0,
+      "city": "MEXICO CITY",
+      "state": "MX",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02526": {
+      "multiplier": 1.090026,
+      "city": "FORT MYERS",
+      "state": "FL",
+      "gsa_rate": 158.25,
+      "source": "city_exact"
+    },
+    "C02527": {
+      "multiplier": 0.854112,
+      "city": "MERRIMACK",
+      "state": "NH",
+      "gsa_rate": 124.0,
+      "source": "city_exact"
+    },
+    "C02528": {
+      "multiplier": 1.141893,
+      "city": "PICO RIVERA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02529": {
+      "multiplier": 1.0,
+      "city": "EDMONTON",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02533": {
+      "multiplier": 0.842058,
+      "city": "GARY",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02534": {
+      "multiplier": 1.012536,
+      "city": "EUGENE",
+      "state": "OR",
+      "gsa_rate": 147.0,
+      "source": "city_partial"
+    },
+    "C02535": {
+      "multiplier": 0.886624,
+      "city": "AUBURN",
+      "state": "AL",
+      "gsa_rate": 128.72,
+      "source": "state_avg"
+    },
+    "C02537": {
+      "multiplier": 1.141893,
+      "city": "GOLETA",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02538": {
+      "multiplier": 1.0,
+      "city": "PHAYATHAI, BANKOK",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02539": {
+      "multiplier": 1.062819,
+      "city": "ISLE OF PALMS",
+      "state": "SC",
+      "gsa_rate": 154.3,
+      "source": "state_avg"
+    },
+    "C02540": {
+      "multiplier": 0.923956,
+      "city": "AKRON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02541": {
+      "multiplier": 1.0,
+      "city": "LONDON",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02542": {
+      "multiplier": 0.952611,
+      "city": "MILWAUKIE",
+      "state": "OR",
+      "gsa_rate": 138.3,
+      "source": "state_avg"
+    },
+    "C02543": {
+      "multiplier": 1.0,
+      "city": "EDMONTON",
+      "state": "AB",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02544": {
+      "multiplier": 0.906943,
+      "city": "HARRISONVILLE",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02553": {
+      "multiplier": 0.968315,
+      "city": "JAMAICA",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02557": {
+      "multiplier": 1.023281,
+      "city": "ORRINGTON",
+      "state": "ME",
+      "gsa_rate": 148.56,
+      "source": "state_avg"
+    },
+    "C02558": {
+      "multiplier": 1.141893,
+      "city": "FREMONT",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02559": {
+      "multiplier": 1.0,
+      "city": "QU\u00c9BEC",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02562": {
+      "multiplier": 0.885659,
+      "city": "MOON TOWNSHIP",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02569": {
+      "multiplier": 1.219176,
+      "city": "BOISE",
+      "state": "ID",
+      "gsa_rate": 177.0,
+      "source": "city_exact"
+    },
+    "C02575": {
+      "multiplier": 0.968935,
+      "city": "Schenectady",
+      "state": "NY",
+      "gsa_rate": 140.67,
+      "source": "city_partial"
+    },
+    "C02585": {
+      "multiplier": 1.364995,
+      "city": "STEAMBOAT SPRINGS",
+      "state": "CO",
+      "gsa_rate": 198.17,
+      "source": "city_exact"
+    },
+    "C02586": {
+      "multiplier": 0.923956,
+      "city": "HEBRON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02587": {
+      "multiplier": 1.008954,
+      "city": "DORAVILLE",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02588": {
+      "multiplier": 0.867888,
+      "city": "NEW BEDFORD",
+      "state": "MA",
+      "gsa_rate": 126.0,
+      "source": "city_partial"
+    },
+    "C02583": {
+      "multiplier": 0.923956,
+      "city": "AKRON",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02582": {
+      "multiplier": 0.980507,
+      "city": "GOLDEN VALLEY",
+      "state": "MN",
+      "gsa_rate": 142.35,
+      "source": "state_avg"
+    },
+    "C02581": {
+      "multiplier": 0.902328,
+      "city": "CHARLOTTE",
+      "state": "NC",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02580": {
+      "multiplier": 0.902328,
+      "city": "CHARLOTTE",
+      "state": "NC",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02578": {
+      "multiplier": 0.892685,
+      "city": "DARIEN",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02577": {
+      "multiplier": 0.847224,
+      "city": "PLANO",
+      "state": "TX",
+      "gsa_rate": 123.0,
+      "source": "city_exact"
+    },
+    "C02576": {
+      "multiplier": 0.940419,
+      "city": "CRANBURY",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02574": {
+      "multiplier": 0.892685,
+      "city": "GUILFORD",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02573": {
+      "multiplier": 1.0,
+      "city": "PAPINEAUVILLE",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02572": {
+      "multiplier": 1.019424,
+      "city": "ST. PAUL",
+      "state": "MN",
+      "gsa_rate": 148.0,
+      "source": "city_partial"
+    },
+    "C02571": {
+      "multiplier": 0.874776,
+      "city": "WILMINGTON",
+      "state": "DE",
+      "gsa_rate": 127.0,
+      "source": "city_exact"
+    },
+    "C02568": {
+      "multiplier": 0.971208,
+      "city": "SAN ANTONIO",
+      "state": "TX",
+      "gsa_rate": 141.0,
+      "source": "city_exact"
+    },
+    "C02567": {
+      "multiplier": 0.885659,
+      "city": "COLUMBIA",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02566": {
+      "multiplier": 1.081416,
+      "city": "RICHMOND",
+      "state": "VA",
+      "gsa_rate": 157.0,
+      "source": "city_exact"
+    },
+    "C02565": {
+      "multiplier": 0.842058,
+      "city": "EVANSVILLE",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02564": {
+      "multiplier": 0.923956,
+      "city": "WASHINGTON COURT HOUSE",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02563": {
+      "multiplier": 1.101529,
+      "city": "SCOTTSDALE",
+      "state": "AZ",
+      "gsa_rate": 159.92,
+      "source": "city_partial"
+    },
+    "C02561": {
+      "multiplier": 1.0,
+      "city": "CHICOUTIMI",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02560": {
+      "multiplier": 1.0,
+      "city": "RIVIERE-DU-LOUP",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02556": {
+      "multiplier": 1.175988,
+      "city": "FRAMINHAM",
+      "state": "MA",
+      "gsa_rate": 170.73,
+      "source": "state_avg"
+    },
+    "C02555": {
+      "multiplier": 0.92127,
+      "city": "ANN ARBOR",
+      "state": "MI",
+      "gsa_rate": 133.75,
+      "source": "city_exact"
+    },
+    "C02554": {
+      "multiplier": 0.923956,
+      "city": "WEST CHESTER",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02552": {
+      "multiplier": 0.942623,
+      "city": "MCKINNEY",
+      "state": "TX",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02551": {
+      "multiplier": 0.942623,
+      "city": "DOWNERS GROVE",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02550": {
+      "multiplier": 0.885659,
+      "city": "PITTSON",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02549": {
+      "multiplier": 1.0,
+      "city": "MISSISSAUGA",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02548": {
+      "multiplier": 0.902328,
+      "city": "VISALIA",
+      "state": "CA",
+      "gsa_rate": 131.0,
+      "source": "city_exact"
+    },
+    "C02545": {
+      "multiplier": 1.141893,
+      "city": "SAN PEDRO",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02314": {
+      "multiplier": 0.968315,
+      "city": "WESTBURY",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02592": {
+      "multiplier": 1.207122,
+      "city": "DALLAS",
+      "state": "TX",
+      "gsa_rate": 175.25,
+      "source": "city_exact"
+    },
+    "C02594": {
+      "multiplier": 1.06764,
+      "city": "PORTLAND",
+      "state": "OR",
+      "gsa_rate": 155.0,
+      "source": "city_exact"
+    },
+    "C02009": {
+      "multiplier": 0.968315,
+      "city": "Brooklyn",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02604": {
+      "multiplier": 0.940419,
+      "city": "LAKEWOOD",
+      "state": "NJ",
+      "gsa_rate": 136.53,
+      "source": "state_avg"
+    },
+    "C02605": {
+      "multiplier": 0.954608,
+      "city": "NEWPORT NEWS",
+      "state": "VA",
+      "gsa_rate": 138.59,
+      "source": "state_avg"
+    },
+    "C02601": {
+      "multiplier": 0.924714,
+      "city": "LAS VEGAS",
+      "state": "NV",
+      "gsa_rate": 134.25,
+      "source": "city_exact"
+    },
+    "C02602": {
+      "multiplier": 0.916104,
+      "city": "INDIANAPOLIS",
+      "state": "IN",
+      "gsa_rate": 133.0,
+      "source": "city_partial"
+    },
+    "C02600": {
+      "multiplier": 0.881664,
+      "city": "HOUSTON",
+      "state": "TX",
+      "gsa_rate": 128.0,
+      "source": "city_exact"
+    },
+    "C02609": {
+      "multiplier": 0.924714,
+      "city": "COLORADO SPRINGS",
+      "state": "CO",
+      "gsa_rate": 134.25,
+      "source": "city_exact"
+    },
+    "C02612": {
+      "multiplier": 1.0,
+      "city": "GRANBY",
+      "state": "QC",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02617": {
+      "multiplier": 0.906943,
+      "city": "BRIDGETON",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02589": {
+      "multiplier": 1.344882,
+      "city": "CHICAGO",
+      "state": "IL",
+      "gsa_rate": 195.25,
+      "source": "city_exact"
+    },
+    "C02590": {
+      "multiplier": 0.885659,
+      "city": "LAFAYETTE HILL",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02591": {
+      "multiplier": 0.842058,
+      "city": "FORT WAYNE",
+      "state": "IN",
+      "gsa_rate": 122.25,
+      "source": "state_avg"
+    },
+    "C02593": {
+      "multiplier": 1.0,
+      "city": "Norwalk",
+      "state": "US",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02595": {
+      "multiplier": 1.0,
+      "city": "GRAFTON",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02596": {
+      "multiplier": 1.008954,
+      "city": "ROME",
+      "state": "GA",
+      "gsa_rate": 146.48,
+      "source": "state_avg"
+    },
+    "C02597": {
+      "multiplier": 0.906943,
+      "city": "SPRINGFIELD",
+      "state": "MO",
+      "gsa_rate": 131.67,
+      "source": "state_avg"
+    },
+    "C02598": {
+      "multiplier": 0.942623,
+      "city": "RANTOUL",
+      "state": "IL",
+      "gsa_rate": 136.85,
+      "source": "state_avg"
+    },
+    "C02599": {
+      "multiplier": 1.108968,
+      "city": "White Plains",
+      "state": "NY",
+      "gsa_rate": 161.0,
+      "source": "city_partial"
+    },
+    "C02603": {
+      "multiplier": 1.907976,
+      "city": "NEW YORK",
+      "state": "NY",
+      "gsa_rate": 277.0,
+      "source": "city_partial"
+    },
+    "C02606": {
+      "multiplier": 0.952611,
+      "city": "SHEDD",
+      "state": "OR",
+      "gsa_rate": 138.3,
+      "source": "state_avg"
+    },
+    "C02607": {
+      "multiplier": 0.885659,
+      "city": "LANCASTOR",
+      "state": "PA",
+      "gsa_rate": 128.58,
+      "source": "state_avg"
+    },
+    "C02608": {
+      "multiplier": 0.84991,
+      "city": "APPLETON",
+      "state": "WI",
+      "gsa_rate": 123.39,
+      "source": "state_avg"
+    },
+    "C02610": {
+      "multiplier": 1.0,
+      "city": "HILTER",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02613": {
+      "multiplier": 0.923956,
+      "city": "HOLLAND",
+      "state": "OH",
+      "gsa_rate": 134.14,
+      "source": "state_avg"
+    },
+    "C02614": {
+      "multiplier": 1.0,
+      "city": "BRANTFORD",
+      "state": "ON",
+      "gsa_rate": 145.18,
+      "source": "international"
+    },
+    "C02615": {
+      "multiplier": 1.0,
+      "city": "COOLAROO VICTORIA",
+      "state": "nan",
+      "gsa_rate": 145.18,
+      "source": "national_avg"
+    },
+    "C02616": {
+      "multiplier": 1.141893,
+      "city": "EL CENTRO",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02618": {
+      "multiplier": 1.141893,
+      "city": "MILPITAS",
+      "state": "CA",
+      "gsa_rate": 165.78,
+      "source": "state_avg"
+    },
+    "C02620": {
+      "multiplier": 1.104353,
+      "city": "San Rafael",
+      "state": "CA",
+      "gsa_rate": 160.33,
+      "source": "city_partial"
+    },
+    "C02621": {
+      "multiplier": 0.968315,
+      "city": "YONKERS",
+      "state": "NY",
+      "gsa_rate": 140.58,
+      "source": "state_avg"
+    },
+    "C02487": {
+      "multiplier": 0.892685,
+      "city": "NORWALK",
+      "state": "CT",
+      "gsa_rate": 129.6,
+      "source": "state_avg"
+    },
+    "C02623": {
+      "multiplier": 1.108968,
+      "city": "TAMPA",
+      "state": "FL",
+      "gsa_rate": 161.0,
+      "source": "city_partial"
+    }
+  },
+  "by_city_state": {
+    "birmingham_AL": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "jefferson_AL": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "gulf shores_AL": {
+      "multiplier": 1.067089,
+      "gsa_rate": 154.92
+    },
+    "baldwin_AL": {
+      "multiplier": 1.067089,
+      "gsa_rate": 154.92
+    },
+    "huntsville_AL": {
+      "multiplier": 0.955159,
+      "gsa_rate": 138.67
+    },
+    "madison_AL": {
+      "multiplier": 0.955159,
+      "gsa_rate": 138.67
+    },
+    "mobile_AL": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "standard rate_AL": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_AL": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "grand canyon / flagstaff_AZ": {
+      "multiplier": 0.913831,
+      "gsa_rate": 132.67
+    },
+    "coconino / yavapai less the city of sedona_AZ": {
+      "multiplier": 0.913831,
+      "gsa_rate": 132.67
+    },
+    "kayenta_AZ": {
+      "multiplier": 0.99876,
+      "gsa_rate": 145.0
+    },
+    "navajo_AZ": {
+      "multiplier": 0.99876,
+      "gsa_rate": 145.0
+    },
+    "phoenix / scottsdale_AZ": {
+      "multiplier": 1.101529,
+      "gsa_rate": 159.92
+    },
+    "maricopa_AZ": {
+      "multiplier": 1.101529,
+      "gsa_rate": 159.92
+    },
+    "sedona_AZ": {
+      "multiplier": 1.41204,
+      "gsa_rate": 205.0
+    },
+    "city limits of sedona_AZ": {
+      "multiplier": 1.41204,
+      "gsa_rate": 205.0
+    },
+    "standard rate_AZ": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_AZ": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "tucson_AZ": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "pima_AZ": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "hot springs_AR": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "garland_AR": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "standard rate_AR": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_AR": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "antioch / brentwood / concord_CA": {
+      "multiplier": 1.012536,
+      "gsa_rate": 147.0
+    },
+    "contra costa_CA": {
+      "multiplier": 1.012536,
+      "gsa_rate": 147.0
+    },
+    "bakersfield / ridgecrest_CA": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "kern_CA": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "barstow / ontario / victorville_CA": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "san bernardino_CA": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "death valley_CA": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "inyo / naws china lake_CA": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "eureka / arcata / mckinleyville_CA": {
+      "multiplier": 0.941934,
+      "gsa_rate": 136.75
+    },
+    "humboldt_CA": {
+      "multiplier": 0.941934,
+      "gsa_rate": 136.75
+    },
+    "fresno_CA": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "los angeles_CA": {
+      "multiplier": 1.315608,
+      "gsa_rate": 191.0
+    },
+    "los angeles / orange / ventura / edwards afb less the city of santa monica_CA": {
+      "multiplier": 1.315608,
+      "gsa_rate": 191.0
+    },
+    "mammoth lakes_CA": {
+      "multiplier": 1.086031,
+      "gsa_rate": 157.67
+    },
+    "mono_CA": {
+      "multiplier": 1.086031,
+      "gsa_rate": 157.67
+    },
+    "mill valley / san rafael / novato_CA": {
+      "multiplier": 1.104353,
+      "gsa_rate": 160.33
+    },
+    "marin_CA": {
+      "multiplier": 1.104353,
+      "gsa_rate": 160.33
+    },
+    "monterey_CA": {
+      "multiplier": 1.439592,
+      "gsa_rate": 209.0
+    },
+    "napa_CA": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    },
+    "oakhurst_CA": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "madera_CA": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "oakland_CA": {
+      "multiplier": 0.99876,
+      "gsa_rate": 145.0
+    },
+    "alameda_CA": {
+      "multiplier": 0.99876,
+      "gsa_rate": 145.0
+    },
+    "palm springs_CA": {
+      "multiplier": 1.152018,
+      "gsa_rate": 167.25
+    },
+    "riverside_CA": {
+      "multiplier": 1.152018,
+      "gsa_rate": 167.25
+    },
+    "point arena / gualala_CA": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "mendocino_CA": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "sacramento_CA": {
+      "multiplier": 1.0332,
+      "gsa_rate": 150.0
+    },
+    "san diego_CA": {
+      "multiplier": 1.414313,
+      "gsa_rate": 205.33
+    },
+    "san francisco_CA": {
+      "multiplier": 1.813817,
+      "gsa_rate": 263.33
+    },
+    "san luis obispo_CA": {
+      "multiplier": 1.168687,
+      "gsa_rate": 169.67
+    },
+    "san mateo / foster city / belmont_CA": {
+      "multiplier": 1.260504,
+      "gsa_rate": 183.0
+    },
+    "san mateo_CA": {
+      "multiplier": 1.260504,
+      "gsa_rate": 183.0
+    },
+    "santa barbara_CA": {
+      "multiplier": 1.477476,
+      "gsa_rate": 214.5
+    },
+    "santa cruz_CA": {
+      "multiplier": 1.021146,
+      "gsa_rate": 148.25
+    },
+    "santa monica_CA": {
+      "multiplier": 1.880424,
+      "gsa_rate": 273.0
+    },
+    "city limits of santa monica_CA": {
+      "multiplier": 1.880424,
+      "gsa_rate": 273.0
+    },
+    "santa rosa_CA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "sonoma_CA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "south lake tahoe_CA": {
+      "multiplier": 1.268563,
+      "gsa_rate": 184.17
+    },
+    "el dorado_CA": {
+      "multiplier": 1.268563,
+      "gsa_rate": 184.17
+    },
+    "standard rate_CA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_CA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "stockton_CA": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "san joaquin_CA": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "sunnyvale / palo alto / san jose_CA": {
+      "multiplier": 1.322496,
+      "gsa_rate": 192.0
+    },
+    "santa clara_CA": {
+      "multiplier": 1.322496,
+      "gsa_rate": 192.0
+    },
+    "tahoe city_CA": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "placer_CA": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "truckee_CA": {
+      "multiplier": 1.08486,
+      "gsa_rate": 157.5
+    },
+    "nevada_CA": {
+      "multiplier": 1.08486,
+      "gsa_rate": 157.5
+    },
+    "visalia_CA": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "tulare_CA": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "west sacramento / davis_CA": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "yolo_CA": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "yosemite national park_CA": {
+      "multiplier": 1.297217,
+      "gsa_rate": 188.33
+    },
+    "mariposa_CA": {
+      "multiplier": 1.297217,
+      "gsa_rate": 188.33
+    },
+    "aspen_CO": {
+      "multiplier": 1.885039,
+      "gsa_rate": 273.67
+    },
+    "pitkin_CO": {
+      "multiplier": 1.885039,
+      "gsa_rate": 273.67
+    },
+    "boulder / broomfield_CO": {
+      "multiplier": 1.026312,
+      "gsa_rate": 149.0
+    },
+    "colorado springs_CO": {
+      "multiplier": 0.924714,
+      "gsa_rate": 134.25
+    },
+    "el paso_CO": {
+      "multiplier": 0.924714,
+      "gsa_rate": 134.25
+    },
+    "cortez_CO": {
+      "multiplier": 0.836892,
+      "gsa_rate": 121.5
+    },
+    "montezuma_CO": {
+      "multiplier": 0.836892,
+      "gsa_rate": 121.5
+    },
+    "crested butte / gunnison_CO": {
+      "multiplier": 1.060752,
+      "gsa_rate": 154.0
+    },
+    "gunnison_CO": {
+      "multiplier": 1.060752,
+      "gsa_rate": 154.0
+    },
+    "denver / aurora_CO": {
+      "multiplier": 1.337443,
+      "gsa_rate": 194.17
+    },
+    "denver / adams / arapahoe / jefferson_CO": {
+      "multiplier": 1.337443,
+      "gsa_rate": 194.17
+    },
+    "douglas_CO": {
+      "multiplier": 0.81795,
+      "gsa_rate": 118.75
+    },
+    "durango_CO": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "la plata_CO": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "fort collins / loveland_CO": {
+      "multiplier": 0.80934,
+      "gsa_rate": 117.5
+    },
+    "larimer_CO": {
+      "multiplier": 0.80934,
+      "gsa_rate": 117.5
+    },
+    "grand lake_CO": {
+      "multiplier": 1.036644,
+      "gsa_rate": 150.5
+    },
+    "grand_CO": {
+      "multiplier": 1.036644,
+      "gsa_rate": 150.5
+    },
+    "montrose_CO": {
+      "multiplier": 1.077421,
+      "gsa_rate": 156.42
+    },
+    "silverthorne / breckenridge_CO": {
+      "multiplier": 1.391376,
+      "gsa_rate": 202.0
+    },
+    "summit_CO": {
+      "multiplier": 1.391376,
+      "gsa_rate": 202.0
+    },
+    "standard rate_CO": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_CO": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "steamboat springs_CO": {
+      "multiplier": 1.364995,
+      "gsa_rate": 198.17
+    },
+    "routt_CO": {
+      "multiplier": 1.364995,
+      "gsa_rate": 198.17
+    },
+    "telluride_CO": {
+      "multiplier": 1.648505,
+      "gsa_rate": 239.33
+    },
+    "san miguel_CO": {
+      "multiplier": 1.648505,
+      "gsa_rate": 239.33
+    },
+    "vail_CO": {
+      "multiplier": 1.834481,
+      "gsa_rate": 266.33
+    },
+    "eagle_CO": {
+      "multiplier": 1.834481,
+      "gsa_rate": 266.33
+    },
+    "bridgeport / danbury_CT": {
+      "multiplier": 1.005648,
+      "gsa_rate": 146.0
+    },
+    "fairfield_CT": {
+      "multiplier": 1.005648,
+      "gsa_rate": 146.0
+    },
+    "hartford_CT": {
+      "multiplier": 0.950544,
+      "gsa_rate": 138.0
+    },
+    "new haven_CT": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "new london / groton_CT": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "new london_CT": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "standard rate_CT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_CT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "lewes_DE": {
+      "multiplier": 1.021146,
+      "gsa_rate": 148.25
+    },
+    "sussex_DE": {
+      "multiplier": 1.021146,
+      "gsa_rate": 148.25
+    },
+    "standard rate_DE": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_DE": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "wilmington_DE": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "new castle_DE": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "boca raton / delray beach / jupiter_FL": {
+      "multiplier": 1.265119,
+      "gsa_rate": 183.67
+    },
+    "palm beach / hendry_FL": {
+      "multiplier": 1.265119,
+      "gsa_rate": 183.67
+    },
+    "bradenton_FL": {
+      "multiplier": 1.104353,
+      "gsa_rate": 160.33
+    },
+    "manatee_FL": {
+      "multiplier": 1.104353,
+      "gsa_rate": 160.33
+    },
+    "cocoa beach_FL": {
+      "multiplier": 1.191624,
+      "gsa_rate": 173.0
+    },
+    "brevard_FL": {
+      "multiplier": 1.191624,
+      "gsa_rate": 173.0
+    },
+    "daytona beach_FL": {
+      "multiplier": 0.931051,
+      "gsa_rate": 135.17
+    },
+    "volusia_FL": {
+      "multiplier": 0.931051,
+      "gsa_rate": 135.17
+    },
+    "fort lauderdale_FL": {
+      "multiplier": 1.220898,
+      "gsa_rate": 177.25
+    },
+    "broward_FL": {
+      "multiplier": 1.220898,
+      "gsa_rate": 177.25
+    },
+    "fort myers_FL": {
+      "multiplier": 1.090026,
+      "gsa_rate": 158.25
+    },
+    "lee_FL": {
+      "multiplier": 1.090026,
+      "gsa_rate": 158.25
+    },
+    "fort walton beach / de funiak springs_FL": {
+      "multiplier": 1.150296,
+      "gsa_rate": 167.0
+    },
+    "okaloosa / walton_FL": {
+      "multiplier": 1.150296,
+      "gsa_rate": 167.0
+    },
+    "gulf breeze_FL": {
+      "multiplier": 1.021146,
+      "gsa_rate": 148.25
+    },
+    "santa rosa_FL": {
+      "multiplier": 1.021146,
+      "gsa_rate": 148.25
+    },
+    "key west_FL": {
+      "multiplier": 2.220209,
+      "gsa_rate": 322.33
+    },
+    "monroe_FL": {
+      "multiplier": 2.220209,
+      "gsa_rate": 322.33
+    },
+    "miami_FL": {
+      "multiplier": 1.215732,
+      "gsa_rate": 176.5
+    },
+    "miami-dade_FL": {
+      "multiplier": 1.215732,
+      "gsa_rate": 176.5
+    },
+    "naples_FL": {
+      "multiplier": 1.494696,
+      "gsa_rate": 217.0
+    },
+    "collier_FL": {
+      "multiplier": 1.494696,
+      "gsa_rate": 217.0
+    },
+    "orlando_FL": {
+      "multiplier": 1.014258,
+      "gsa_rate": 147.25
+    },
+    "orange_FL": {
+      "multiplier": 1.014258,
+      "gsa_rate": 147.25
+    },
+    "panama city_FL": {
+      "multiplier": 0.917826,
+      "gsa_rate": 133.25
+    },
+    "bay_FL": {
+      "multiplier": 0.917826,
+      "gsa_rate": 133.25
+    },
+    "pensacola_FL": {
+      "multiplier": 0.956881,
+      "gsa_rate": 138.92
+    },
+    "escambia_FL": {
+      "multiplier": 0.956881,
+      "gsa_rate": 138.92
+    },
+    "punta gorda_FL": {
+      "multiplier": 0.932153,
+      "gsa_rate": 135.33
+    },
+    "charlotte_FL": {
+      "multiplier": 0.932153,
+      "gsa_rate": 135.33
+    },
+    "sarasota_FL": {
+      "multiplier": 1.061923,
+      "gsa_rate": 154.17
+    },
+    "sebring_FL": {
+      "multiplier": 0.974652,
+      "gsa_rate": 141.5
+    },
+    "highlands_FL": {
+      "multiplier": 0.974652,
+      "gsa_rate": 141.5
+    },
+    "st. augustine_FL": {
+      "multiplier": 1.083689,
+      "gsa_rate": 157.33
+    },
+    "st. johns_FL": {
+      "multiplier": 1.083689,
+      "gsa_rate": 157.33
+    },
+    "standard rate_FL": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_FL": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "stuart_FL": {
+      "multiplier": 0.986155,
+      "gsa_rate": 143.17
+    },
+    "martin_FL": {
+      "multiplier": 0.986155,
+      "gsa_rate": 143.17
+    },
+    "tallahassee_FL": {
+      "multiplier": 0.835721,
+      "gsa_rate": 121.33
+    },
+    "leon_FL": {
+      "multiplier": 0.835721,
+      "gsa_rate": 121.33
+    },
+    "tampa / st. petersburg_FL": {
+      "multiplier": 1.108968,
+      "gsa_rate": 161.0
+    },
+    "pinellas / hillsborough_FL": {
+      "multiplier": 1.108968,
+      "gsa_rate": 161.0
+    },
+    "vero beach_FL": {
+      "multiplier": 1.470588,
+      "gsa_rate": 213.5
+    },
+    "indian river_FL": {
+      "multiplier": 1.470588,
+      "gsa_rate": 213.5
+    },
+    "athens_GA": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "clarke_GA": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "atlanta_GA": {
+      "multiplier": 1.279446,
+      "gsa_rate": 185.75
+    },
+    "fulton / dekalb_GA": {
+      "multiplier": 1.279446,
+      "gsa_rate": 185.75
+    },
+    "augusta_GA": {
+      "multiplier": 0.84378,
+      "gsa_rate": 122.5
+    },
+    "richmond_GA": {
+      "multiplier": 0.84378,
+      "gsa_rate": 122.5
+    },
+    "jekyll island / brunswick_GA": {
+      "multiplier": 1.331106,
+      "gsa_rate": 193.25
+    },
+    "glynn_GA": {
+      "multiplier": 1.331106,
+      "gsa_rate": 193.25
+    },
+    "marietta_GA": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "cobb_GA": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "savannah_GA": {
+      "multiplier": 1.045805,
+      "gsa_rate": 151.83
+    },
+    "chatham_GA": {
+      "multiplier": 1.045805,
+      "gsa_rate": 151.83
+    },
+    "standard rate_GA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_GA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "boise_ID": {
+      "multiplier": 1.219176,
+      "gsa_rate": 177.0
+    },
+    "ada_ID": {
+      "multiplier": 1.219176,
+      "gsa_rate": 177.0
+    },
+    "coeur d'alene_ID": {
+      "multiplier": 1.107246,
+      "gsa_rate": 160.75
+    },
+    "kootenai_ID": {
+      "multiplier": 1.107246,
+      "gsa_rate": 160.75
+    },
+    "standard rate_ID": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_ID": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "sun valley / ketchum_ID": {
+      "multiplier": 1.793153,
+      "gsa_rate": 260.33
+    },
+    "blaine / elmore_ID": {
+      "multiplier": 1.793153,
+      "gsa_rate": 260.33
+    },
+    "bolingbrook / romeoville / lemont_IL": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "will_IL": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "chicago_IL": {
+      "multiplier": 1.344882,
+      "gsa_rate": 195.25
+    },
+    "cook / lake_IL": {
+      "multiplier": 1.344882,
+      "gsa_rate": 195.25
+    },
+    "east st. louis / o'fallon / fairview heights_IL": {
+      "multiplier": 1.0332,
+      "gsa_rate": 150.0
+    },
+    "st. clair_IL": {
+      "multiplier": 1.0332,
+      "gsa_rate": 150.0
+    },
+    "oak brook terrace_IL": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "dupage_IL": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "standard rate_IL": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_IL": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "bloomington_IN": {
+      "multiplier": 0.824287,
+      "gsa_rate": 119.67
+    },
+    "monroe_IN": {
+      "multiplier": 0.824287,
+      "gsa_rate": 119.67
+    },
+    "indianapolis / carmel_IN": {
+      "multiplier": 0.916104,
+      "gsa_rate": 133.0
+    },
+    "marion / hamilton_IN": {
+      "multiplier": 0.916104,
+      "gsa_rate": 133.0
+    },
+    "lafayette / west lafayette_IN": {
+      "multiplier": 0.870161,
+      "gsa_rate": 126.33
+    },
+    "tippecanoe_IN": {
+      "multiplier": 0.870161,
+      "gsa_rate": 126.33
+    },
+    "standard rate_IN": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_IN": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "dallas_IA": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "des moines_IA": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "polk_IA": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "standard rate_IA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_IA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "kansas city / overland park_KS": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "wyandotte / johnson / leavenworth_KS": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "standard rate_KS": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_KS": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "boone_KY": {
+      "multiplier": 0.799008,
+      "gsa_rate": 116.0
+    },
+    "kenton_KY": {
+      "multiplier": 1.122744,
+      "gsa_rate": 163.0
+    },
+    "lexington_KY": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "fayette_KY": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "louisville_KY": {
+      "multiplier": 0.98154,
+      "gsa_rate": 142.5
+    },
+    "jefferson_KY": {
+      "multiplier": 0.98154,
+      "gsa_rate": 142.5
+    },
+    "standard rate_KY": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_KY": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "alexandria / leesville / natchitoches_LA": {
+      "multiplier": 0.771456,
+      "gsa_rate": 112.0
+    },
+    "allen / jefferson davis / natchitoches / rapides / vernon parishes_LA": {
+      "multiplier": 0.771456,
+      "gsa_rate": 112.0
+    },
+    "new orleans_LA": {
+      "multiplier": 1.090577,
+      "gsa_rate": 158.33
+    },
+    "orleans / jefferson parishes_LA": {
+      "multiplier": 1.090577,
+      "gsa_rate": 158.33
+    },
+    "standard rate_LA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_LA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "bar harbor / rockport_ME": {
+      "multiplier": 1.332828,
+      "gsa_rate": 193.5
+    },
+    "hancock / knox_ME": {
+      "multiplier": 1.332828,
+      "gsa_rate": 193.5
+    },
+    "kennebunk / kittery / sanford_ME": {
+      "multiplier": 0.952817,
+      "gsa_rate": 138.33
+    },
+    "york_ME": {
+      "multiplier": 0.952817,
+      "gsa_rate": 138.33
+    },
+    "portland_ME": {
+      "multiplier": 1.049869,
+      "gsa_rate": 152.42
+    },
+    "cumberland / sagadahoc_ME": {
+      "multiplier": 1.049869,
+      "gsa_rate": 152.42
+    },
+    "standard rate_ME": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_ME": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "aberdeen / bel air / belcamp_MD": {
+      "multiplier": 0.778344,
+      "gsa_rate": 113.0
+    },
+    "harford_MD": {
+      "multiplier": 0.778344,
+      "gsa_rate": 113.0
+    },
+    "annapolis_MD": {
+      "multiplier": 0.984984,
+      "gsa_rate": 143.0
+    },
+    "anne arundel_MD": {
+      "multiplier": 0.984984,
+      "gsa_rate": 143.0
+    },
+    "baltimore city_MD": {
+      "multiplier": 1.0332,
+      "gsa_rate": 150.0
+    },
+    "cambridge / st. michaels_MD": {
+      "multiplier": 1.069362,
+      "gsa_rate": 155.25
+    },
+    "dorchester / talbot_MD": {
+      "multiplier": 1.069362,
+      "gsa_rate": 155.25
+    },
+    "centreville_MD": {
+      "multiplier": 0.9471,
+      "gsa_rate": 137.5
+    },
+    "queen anne_MD": {
+      "multiplier": 0.9471,
+      "gsa_rate": 137.5
+    },
+    "columbia_MD": {
+      "multiplier": 0.778344,
+      "gsa_rate": 113.0
+    },
+    "howard_MD": {
+      "multiplier": 0.778344,
+      "gsa_rate": 113.0
+    },
+    "district of columbia_MD": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    },
+    "washington dc (also the cities of alexandria, falls church and fairfax, and the counties of arlington and fairfax, in virginia; and the counties of montgomery and prince george's in maryland)_MD": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    },
+    "ocean city_MD": {
+      "multiplier": 1.10208,
+      "gsa_rate": 160.0
+    },
+    "worcester_MD": {
+      "multiplier": 1.10208,
+      "gsa_rate": 160.0
+    },
+    "standard rate_MD": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MD": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "andover_MA": {
+      "multiplier": 0.943656,
+      "gsa_rate": 137.0
+    },
+    "essex_MA": {
+      "multiplier": 0.943656,
+      "gsa_rate": 137.0
+    },
+    "boston / cambridge_MA": {
+      "multiplier": 1.882697,
+      "gsa_rate": 273.33
+    },
+    "suffolk, city of cambridge_MA": {
+      "multiplier": 1.882697,
+      "gsa_rate": 273.33
+    },
+    "burlington / woburn_MA": {
+      "multiplier": 1.108968,
+      "gsa_rate": 161.0
+    },
+    "middlesex less the city of cambridge_MA": {
+      "multiplier": 1.108968,
+      "gsa_rate": 161.0
+    },
+    "falmouth_MA": {
+      "multiplier": 1.105524,
+      "gsa_rate": 160.5
+    },
+    "city limits of falmouth_MA": {
+      "multiplier": 1.105524,
+      "gsa_rate": 160.5
+    },
+    "hyannis_MA": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "barnstable less the city of falmouth_MA": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "martha's vineyard_MA": {
+      "multiplier": 1.960807,
+      "gsa_rate": 284.67
+    },
+    "dukes_MA": {
+      "multiplier": 1.960807,
+      "gsa_rate": 284.67
+    },
+    "nantucket_MA": {
+      "multiplier": 1.885039,
+      "gsa_rate": 273.67
+    },
+    "northampton_MA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "hampshire_MA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "pittsfield_MA": {
+      "multiplier": 0.984984,
+      "gsa_rate": 143.0
+    },
+    "berkshire_MA": {
+      "multiplier": 0.984984,
+      "gsa_rate": 143.0
+    },
+    "plymouth / taunton / new bedford_MA": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "plymouth / bristol_MA": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "quincy_MA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "norfolk_MA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "springfield_MA": {
+      "multiplier": 0.881664,
+      "gsa_rate": 128.0
+    },
+    "hampden_MA": {
+      "multiplier": 0.881664,
+      "gsa_rate": 128.0
+    },
+    "standard rate_MA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "worcester_MA": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "ann arbor_MI": {
+      "multiplier": 0.92127,
+      "gsa_rate": 133.75
+    },
+    "washtenaw_MI": {
+      "multiplier": 0.92127,
+      "gsa_rate": 133.75
+    },
+    "detroit_MI": {
+      "multiplier": 1.046976,
+      "gsa_rate": 152.0
+    },
+    "wayne_MI": {
+      "multiplier": 1.046976,
+      "gsa_rate": 152.0
+    },
+    "grand rapids_MI": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "kent_MI": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "holland_MI": {
+      "multiplier": 0.893167,
+      "gsa_rate": 129.67
+    },
+    "ottawa_MI": {
+      "multiplier": 0.893167,
+      "gsa_rate": 129.67
+    },
+    "mackinac island_MI": {
+      "multiplier": 0.91266,
+      "gsa_rate": 132.5
+    },
+    "mackinac_MI": {
+      "multiplier": 0.91266,
+      "gsa_rate": 132.5
+    },
+    "midland_MI": {
+      "multiplier": 0.82656,
+      "gsa_rate": 120.0
+    },
+    "muskegon_MI": {
+      "multiplier": 0.824838,
+      "gsa_rate": 119.75
+    },
+    "petoskey_MI": {
+      "multiplier": 1.041259,
+      "gsa_rate": 151.17
+    },
+    "emmet_MI": {
+      "multiplier": 1.041259,
+      "gsa_rate": 151.17
+    },
+    "pontiac / auburn hills_MI": {
+      "multiplier": 0.799008,
+      "gsa_rate": 116.0
+    },
+    "oakland_MI": {
+      "multiplier": 0.799008,
+      "gsa_rate": 116.0
+    },
+    "south haven_MI": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "van buren_MI": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "standard rate_MI": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MI": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "traverse city_MI": {
+      "multiplier": 1.038917,
+      "gsa_rate": 150.83
+    },
+    "grand traverse_MI": {
+      "multiplier": 1.038917,
+      "gsa_rate": 150.83
+    },
+    "duluth_MN": {
+      "multiplier": 1.270285,
+      "gsa_rate": 184.42
+    },
+    "st. louis_MN": {
+      "multiplier": 1.270285,
+      "gsa_rate": 184.42
+    },
+    "minneapolis / st. paul_MN": {
+      "multiplier": 1.019424,
+      "gsa_rate": 148.0
+    },
+    "hennepin / ramsey_MN": {
+      "multiplier": 1.019424,
+      "gsa_rate": 148.0
+    },
+    "rochester_MN": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "olmsted_MN": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "standard rate_MN": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MN": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "oxford_MS": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "lafayette_MS": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "southaven_MS": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "desoto_MS": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "standard rate_MS": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MS": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "starkville_MS": {
+      "multiplier": 0.861,
+      "gsa_rate": 125.0
+    },
+    "oktibbeha_MS": {
+      "multiplier": 0.861,
+      "gsa_rate": 125.0
+    },
+    "kansas city_MO": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "jackson / clay / cass / platte_MO": {
+      "multiplier": 0.92988,
+      "gsa_rate": 135.0
+    },
+    "st. louis_MO": {
+      "multiplier": 1.0332,
+      "gsa_rate": 150.0
+    },
+    "st. louis / st. louis city / st. charles_MO": {
+      "multiplier": 1.0332,
+      "gsa_rate": 150.0
+    },
+    "standard rate_MO": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MO": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "big sky / west yellowstone/gardiner_MT": {
+      "multiplier": 1.519975,
+      "gsa_rate": 220.67
+    },
+    "gallatin/park_MT": {
+      "multiplier": 1.519975,
+      "gsa_rate": 220.67
+    },
+    "helena_MT": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "lewis and clark_MT": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "kalispell/whitefish_MT": {
+      "multiplier": 1.040088,
+      "gsa_rate": 151.0
+    },
+    "flathead_MT": {
+      "multiplier": 1.040088,
+      "gsa_rate": 151.0
+    },
+    "missoula_MT": {
+      "multiplier": 1.044703,
+      "gsa_rate": 151.67
+    },
+    "standard rate_MT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_MT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "omaha_NE": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "douglas_NE": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "standard rate_NE": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NE": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "incline village / reno / sparks_NV": {
+      "multiplier": 1.003375,
+      "gsa_rate": 145.67
+    },
+    "washoe_NV": {
+      "multiplier": 1.003375,
+      "gsa_rate": 145.67
+    },
+    "las vegas_NV": {
+      "multiplier": 0.924714,
+      "gsa_rate": 134.25
+    },
+    "clark_NV": {
+      "multiplier": 0.924714,
+      "gsa_rate": 134.25
+    },
+    "standard rate_NV": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NV": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "concord_NH": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "merrimack_NH": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "conway_NH": {
+      "multiplier": 0.951715,
+      "gsa_rate": 138.17
+    },
+    "caroll_NH": {
+      "multiplier": 0.951715,
+      "gsa_rate": 138.17
+    },
+    "durham_NH": {
+      "multiplier": 0.891996,
+      "gsa_rate": 129.5
+    },
+    "strafford_NH": {
+      "multiplier": 0.891996,
+      "gsa_rate": 129.5
+    },
+    "laconia_NH": {
+      "multiplier": 1.08486,
+      "gsa_rate": 157.5
+    },
+    "belknap_NH": {
+      "multiplier": 1.08486,
+      "gsa_rate": 157.5
+    },
+    "lebanon / lincoln / west lebanon_NH": {
+      "multiplier": 1.078523,
+      "gsa_rate": 156.58
+    },
+    "grafton_NH": {
+      "multiplier": 1.078523,
+      "gsa_rate": 156.58
+    },
+    "manchester_NH": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "hillsborough_NH": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "portsmouth_NH": {
+      "multiplier": 1.009092,
+      "gsa_rate": 146.5
+    },
+    "rockingham_NH": {
+      "multiplier": 1.009092,
+      "gsa_rate": 146.5
+    },
+    "standard rate_NH": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NH": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "cherry hill / moorestown_NJ": {
+      "multiplier": 0.771456,
+      "gsa_rate": 112.0
+    },
+    "camden / burlington_NJ": {
+      "multiplier": 0.771456,
+      "gsa_rate": 112.0
+    },
+    "eatontown / freehold_NJ": {
+      "multiplier": 1.005648,
+      "gsa_rate": 146.0
+    },
+    "monmouth_NJ": {
+      "multiplier": 1.005648,
+      "gsa_rate": 146.0
+    },
+    "edison / piscataway_NJ": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "middlesex_NJ": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "flemington_NJ": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "hunterdon_NJ": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "newark_NJ": {
+      "multiplier": 1.074528,
+      "gsa_rate": 156.0
+    },
+    "essex / bergen / hudson / passaic_NJ": {
+      "multiplier": 1.074528,
+      "gsa_rate": 156.0
+    },
+    "parsippany_NJ": {
+      "multiplier": 0.984984,
+      "gsa_rate": 143.0
+    },
+    "morris_NJ": {
+      "multiplier": 0.984984,
+      "gsa_rate": 143.0
+    },
+    "princeton / trenton_NJ": {
+      "multiplier": 0.950544,
+      "gsa_rate": 138.0
+    },
+    "mercer_NJ": {
+      "multiplier": 0.950544,
+      "gsa_rate": 138.0
+    },
+    "somerset_NJ": {
+      "multiplier": 0.950544,
+      "gsa_rate": 138.0
+    },
+    "springfield / cranford / new providence_NJ": {
+      "multiplier": 0.957432,
+      "gsa_rate": 139.0
+    },
+    "union_NJ": {
+      "multiplier": 0.957432,
+      "gsa_rate": 139.0
+    },
+    "standard rate_NJ": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NJ": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "toms river_NJ": {
+      "multiplier": 1.197341,
+      "gsa_rate": 173.83
+    },
+    "ocean_NJ": {
+      "multiplier": 1.197341,
+      "gsa_rate": 173.83
+    },
+    "albuquerque_NM": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "bernalillo_NM": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "carlsbad_NM": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "eddy_NM": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "santa fe_NM": {
+      "multiplier": 1.069913,
+      "gsa_rate": 155.33
+    },
+    "standard rate_NM": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NM": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "taos_NM": {
+      "multiplier": 0.881664,
+      "gsa_rate": 128.0
+    },
+    "albany_NY": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "binghamton_NY": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "broome_NY": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "buffalo_NY": {
+      "multiplier": 0.882835,
+      "gsa_rate": 128.17
+    },
+    "erie_NY": {
+      "multiplier": 0.882835,
+      "gsa_rate": 128.17
+    },
+    "floral park / garden city / great neck_NY": {
+      "multiplier": 1.129632,
+      "gsa_rate": 164.0
+    },
+    "nassau_NY": {
+      "multiplier": 1.129632,
+      "gsa_rate": 164.0
+    },
+    "glens falls_NY": {
+      "multiplier": 0.885108,
+      "gsa_rate": 128.5
+    },
+    "warren_NY": {
+      "multiplier": 0.885108,
+      "gsa_rate": 128.5
+    },
+    "ithaca_NY": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "tompkins_NY": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "kingston_NY": {
+      "multiplier": 0.957432,
+      "gsa_rate": 139.0
+    },
+    "ulster_NY": {
+      "multiplier": 0.957432,
+      "gsa_rate": 139.0
+    },
+    "lake placid_NY": {
+      "multiplier": 1.172131,
+      "gsa_rate": 170.17
+    },
+    "essex_NY": {
+      "multiplier": 1.172131,
+      "gsa_rate": 170.17
+    },
+    "new york city_NY": {
+      "multiplier": 1.907976,
+      "gsa_rate": 277.0
+    },
+    "bronx / kings / new york / queens / richmond_NY": {
+      "multiplier": 1.907976,
+      "gsa_rate": 277.0
+    },
+    "niagara falls_NY": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "niagara_NY": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "nyack / palisades_NY": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "rockland_NY": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "poughkeepsie_NY": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "dutchess_NY": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "riverhead / ronkonkoma / melville_NY": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "suffolk_NY": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "rochester_NY": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "monroe_NY": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "saratoga springs / schenectady_NY": {
+      "multiplier": 0.968935,
+      "gsa_rate": 140.67
+    },
+    "saratoga / schenectady_NY": {
+      "multiplier": 0.968935,
+      "gsa_rate": 140.67
+    },
+    "standard rate_NY": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NY": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "syracuse / oswego_NY": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "onondaga / oswego_NY": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "tarrytown / white plains / new rochelle_NY": {
+      "multiplier": 1.108968,
+      "gsa_rate": 161.0
+    },
+    "westchester_NY": {
+      "multiplier": 1.108968,
+      "gsa_rate": 161.0
+    },
+    "troy_NY": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "rensselaer_NY": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "west point_NY": {
+      "multiplier": 0.847224,
+      "gsa_rate": 123.0
+    },
+    "orange_NY": {
+      "multiplier": 0.847224,
+      "gsa_rate": 123.0
+    },
+    "asheville_NC": {
+      "multiplier": 0.862722,
+      "gsa_rate": 125.25
+    },
+    "buncombe_NC": {
+      "multiplier": 0.862722,
+      "gsa_rate": 125.25
+    },
+    "atlantic beach / morehead city_NC": {
+      "multiplier": 0.973481,
+      "gsa_rate": 141.33
+    },
+    "carteret_NC": {
+      "multiplier": 0.973481,
+      "gsa_rate": 141.33
+    },
+    "chapel hill_NC": {
+      "multiplier": 0.96432,
+      "gsa_rate": 140.0
+    },
+    "orange_NC": {
+      "multiplier": 0.96432,
+      "gsa_rate": 140.0
+    },
+    "charlotte_NC": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "mecklenburg_NC": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "durham_NC": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "fayetteville_NC": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "cumberland_NC": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "greensboro_NC": {
+      "multiplier": 0.821945,
+      "gsa_rate": 119.33
+    },
+    "guilford_NC": {
+      "multiplier": 0.821945,
+      "gsa_rate": 119.33
+    },
+    "kill devil hills_NC": {
+      "multiplier": 1.189902,
+      "gsa_rate": 172.75
+    },
+    "dare_NC": {
+      "multiplier": 1.189902,
+      "gsa_rate": 172.75
+    },
+    "raleigh_NC": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "wake_NC": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "standard rate_NC": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_NC": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "wilmington_NC": {
+      "multiplier": 0.927607,
+      "gsa_rate": 134.67
+    },
+    "new hanover_NC": {
+      "multiplier": 0.927607,
+      "gsa_rate": 134.67
+    },
+    "standard rate_ND": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_ND": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "cincinnati_OH": {
+      "multiplier": 1.122744,
+      "gsa_rate": 163.0
+    },
+    "hamilton / clermont_OH": {
+      "multiplier": 1.122744,
+      "gsa_rate": 163.0
+    },
+    "cleveland_OH": {
+      "multiplier": 1.095192,
+      "gsa_rate": 159.0
+    },
+    "cuyahoga_OH": {
+      "multiplier": 1.095192,
+      "gsa_rate": 159.0
+    },
+    "columbus_OH": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "franklin_OH": {
+      "multiplier": 0.902328,
+      "gsa_rate": 131.0
+    },
+    "dayton / fairborn_OH": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "greene / montgomery_OH": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "hamilton_OH": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "butler / warren_OH": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "sandusky_OH": {
+      "multiplier": 0.943656,
+      "gsa_rate": 137.0
+    },
+    "erie_OH": {
+      "multiplier": 0.943656,
+      "gsa_rate": 137.0
+    },
+    "standard rate_OH": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_OH": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "oklahoma city_OK": {
+      "multiplier": 0.799008,
+      "gsa_rate": 116.0
+    },
+    "oklahoma_OK": {
+      "multiplier": 0.799008,
+      "gsa_rate": 116.0
+    },
+    "standard rate_OK": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_OK": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "beaverton_OR": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "washington_OR": {
+      "multiplier": 0.909216,
+      "gsa_rate": 132.0
+    },
+    "bend_OR": {
+      "multiplier": 0.976374,
+      "gsa_rate": 141.75
+    },
+    "deschutes_OR": {
+      "multiplier": 0.976374,
+      "gsa_rate": 141.75
+    },
+    "clackamas_OR": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "eugene / florence_OR": {
+      "multiplier": 1.012536,
+      "gsa_rate": 147.0
+    },
+    "lane_OR": {
+      "multiplier": 1.012536,
+      "gsa_rate": 147.0
+    },
+    "lincoln city_OR": {
+      "multiplier": 0.880493,
+      "gsa_rate": 127.83
+    },
+    "lincoln_OR": {
+      "multiplier": 0.880493,
+      "gsa_rate": 127.83
+    },
+    "portland_OR": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "multnomah_OR": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "seaside_OR": {
+      "multiplier": 1.080245,
+      "gsa_rate": 156.83
+    },
+    "clatsop_OR": {
+      "multiplier": 1.080245,
+      "gsa_rate": 156.83
+    },
+    "standard rate_OR": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_OR": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "allentown / easton / bethlehem_PA": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "lehigh / northampton_PA": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "bucks_PA": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "chester / radnor / essington_PA": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "delaware_PA": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "gettysburg_PA": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "adams_PA": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "harrisburg_PA": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "dauphin  excluding hershey_PA": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "hershey_PA": {
+      "multiplier": 1.086582,
+      "gsa_rate": 157.75
+    },
+    "lancaster_PA": {
+      "multiplier": 0.847224,
+      "gsa_rate": 123.0
+    },
+    "malvern / frazer / berwyn_PA": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "chester_PA": {
+      "multiplier": 0.812784,
+      "gsa_rate": 118.0
+    },
+    "montgomery_PA": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "philadelphia_PA": {
+      "multiplier": 1.270285,
+      "gsa_rate": 184.42
+    },
+    "pittsburgh_PA": {
+      "multiplier": 0.950544,
+      "gsa_rate": 138.0
+    },
+    "allegheny_PA": {
+      "multiplier": 0.950544,
+      "gsa_rate": 138.0
+    },
+    "reading_PA": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "berks_PA": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "standard rate_PA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_PA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "state college_PA": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "centre_PA": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "jamestown / middletown / newport_RI": {
+      "multiplier": 1.278275,
+      "gsa_rate": 185.58
+    },
+    "newport_RI": {
+      "multiplier": 1.278275,
+      "gsa_rate": 185.58
+    },
+    "providence / bristol_RI": {
+      "multiplier": 1.060752,
+      "gsa_rate": 154.0
+    },
+    "standard rate_RI": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_RI": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "charleston_SC": {
+      "multiplier": 1.696721,
+      "gsa_rate": 246.33
+    },
+    "charleston / berkeley / dorchester_SC": {
+      "multiplier": 1.696721,
+      "gsa_rate": 246.33
+    },
+    "columbia_SC": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "richland / lexington_SC": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "hilton head_SC": {
+      "multiplier": 1.160628,
+      "gsa_rate": 168.5
+    },
+    "beaufort_SC": {
+      "multiplier": 1.160628,
+      "gsa_rate": 168.5
+    },
+    "myrtle beach_SC": {
+      "multiplier": 0.906943,
+      "gsa_rate": 131.67
+    },
+    "horry_SC": {
+      "multiplier": 0.906943,
+      "gsa_rate": 131.67
+    },
+    "standard rate_SC": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_SC": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "deadwood / spearfish_SD": {
+      "multiplier": 0.861,
+      "gsa_rate": 125.0
+    },
+    "lawrence_SD": {
+      "multiplier": 0.861,
+      "gsa_rate": 125.0
+    },
+    "hot springs_SD": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "fall river / custer_SD": {
+      "multiplier": 0.874776,
+      "gsa_rate": 127.0
+    },
+    "rapid city_SD": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "pennington_SD": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "standard rate_SD": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_SD": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "brentwood / franklin_TN": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "williamson_TN": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "chattanooga_TN": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "hamilton_TN": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "knoxville_TN": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "knox_TN": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "memphis_TN": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "shelby_TN": {
+      "multiplier": 0.888552,
+      "gsa_rate": 129.0
+    },
+    "nashville_TN": {
+      "multiplier": 1.530307,
+      "gsa_rate": 222.17
+    },
+    "davidson_TN": {
+      "multiplier": 1.530307,
+      "gsa_rate": 222.17
+    },
+    "standard rate_TN": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_TN": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "arlington / fort worth / grapevine_TX": {
+      "multiplier": 1.246728,
+      "gsa_rate": 181.0
+    },
+    "tarrant  / city of grapevine_TX": {
+      "multiplier": 1.246728,
+      "gsa_rate": 181.0
+    },
+    "austin_TX": {
+      "multiplier": 1.215732,
+      "gsa_rate": 176.5
+    },
+    "travis_TX": {
+      "multiplier": 1.215732,
+      "gsa_rate": 176.5
+    },
+    "big spring_TX": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "howard_TX": {
+      "multiplier": 0.785232,
+      "gsa_rate": 114.0
+    },
+    "dallas_TX": {
+      "multiplier": 1.207122,
+      "gsa_rate": 175.25
+    },
+    "galveston_TX": {
+      "multiplier": 0.804725,
+      "gsa_rate": 116.83
+    },
+    "houston_TX": {
+      "multiplier": 0.881664,
+      "gsa_rate": 128.0
+    },
+    "montgomery / fort bend / harris_TX": {
+      "multiplier": 0.881664,
+      "gsa_rate": 128.0
+    },
+    "midland / odessa_TX": {
+      "multiplier": 0.885108,
+      "gsa_rate": 128.5
+    },
+    "midland / andrews / ector / martin_TX": {
+      "multiplier": 0.885108,
+      "gsa_rate": 128.5
+    },
+    "pecos_TX": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "reeves_TX": {
+      "multiplier": 0.833448,
+      "gsa_rate": 121.0
+    },
+    "plano_TX": {
+      "multiplier": 0.847224,
+      "gsa_rate": 123.0
+    },
+    "collin_TX": {
+      "multiplier": 0.847224,
+      "gsa_rate": 123.0
+    },
+    "san antonio_TX": {
+      "multiplier": 0.971208,
+      "gsa_rate": 141.0
+    },
+    "bexar_TX": {
+      "multiplier": 0.971208,
+      "gsa_rate": 141.0
+    },
+    "south padre island_TX": {
+      "multiplier": 0.875947,
+      "gsa_rate": 127.17
+    },
+    "cameron_TX": {
+      "multiplier": 0.875947,
+      "gsa_rate": 127.17
+    },
+    "standard rate_TX": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_TX": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "moab_UT": {
+      "multiplier": 1.183565,
+      "gsa_rate": 171.83
+    },
+    "grand_UT": {
+      "multiplier": 1.183565,
+      "gsa_rate": 171.83
+    },
+    "park city_UT": {
+      "multiplier": 2.123777,
+      "gsa_rate": 308.33
+    },
+    "summit_UT": {
+      "multiplier": 2.123777,
+      "gsa_rate": 308.33
+    },
+    "provo_UT": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "utah_UT": {
+      "multiplier": 0.805896,
+      "gsa_rate": 117.0
+    },
+    "salt lake city_UT": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "salt lake / tooele_UT": {
+      "multiplier": 0.978096,
+      "gsa_rate": 142.0
+    },
+    "standard rate_UT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_UT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "burlington_VT": {
+      "multiplier": 1.13652,
+      "gsa_rate": 165.0
+    },
+    "chittenden_VT": {
+      "multiplier": 1.13652,
+      "gsa_rate": 165.0
+    },
+    "manchester_VT": {
+      "multiplier": 1.246728,
+      "gsa_rate": 181.0
+    },
+    "bennington_VT": {
+      "multiplier": 1.246728,
+      "gsa_rate": 181.0
+    },
+    "montpelier_VT": {
+      "multiplier": 1.253616,
+      "gsa_rate": 182.0
+    },
+    "washington_VT": {
+      "multiplier": 1.253616,
+      "gsa_rate": 182.0
+    },
+    "standard rate_VT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_VT": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "stowe_VT": {
+      "multiplier": 1.210566,
+      "gsa_rate": 175.75
+    },
+    "lamoille_VT": {
+      "multiplier": 1.210566,
+      "gsa_rate": 175.75
+    },
+    "white river junction_VT": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "windsor_VT": {
+      "multiplier": 0.991872,
+      "gsa_rate": 144.0
+    },
+    "blacksburg_VA": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "montgomery_VA": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "charlottesville_VA": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "city of charlottesville / albemarle_VA": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "district of columbia_VA": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    },
+    "washington dc (also the cities of alexandria, falls church and fairfax, and the counties of arlington and fairfax, in virginia; and the counties of montgomery and prince george's in maryland)_VA": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    },
+    "loudoun_VA": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "lynchburg_VA": {
+      "multiplier": 0.786403,
+      "gsa_rate": 114.17
+    },
+    "campbell / lynchburg city_VA": {
+      "multiplier": 0.786403,
+      "gsa_rate": 114.17
+    },
+    "richmond_VA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "city of richmond_VA": {
+      "multiplier": 1.081416,
+      "gsa_rate": 157.0
+    },
+    "roanoke_VA": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "city limits of roanoke_VA": {
+      "multiplier": 0.819672,
+      "gsa_rate": 119.0
+    },
+    "standard rate_VA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_VA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "virginia beach_VA": {
+      "multiplier": 1.002204,
+      "gsa_rate": 145.5
+    },
+    "city of virginia beach_VA": {
+      "multiplier": 1.002204,
+      "gsa_rate": 145.5
+    },
+    "wallops island_VA": {
+      "multiplier": 1.036644,
+      "gsa_rate": 150.5
+    },
+    "accomack_VA": {
+      "multiplier": 1.036644,
+      "gsa_rate": 150.5
+    },
+    "williamsburg / york_VA": {
+      "multiplier": 0.838063,
+      "gsa_rate": 121.67
+    },
+    "james city / york counties / city of williamsburg_VA": {
+      "multiplier": 0.838063,
+      "gsa_rate": 121.67
+    },
+    "everett / lynnwood_WA": {
+      "multiplier": 0.824838,
+      "gsa_rate": 119.75
+    },
+    "snohomish_WA": {
+      "multiplier": 0.824838,
+      "gsa_rate": 119.75
+    },
+    "ocean shores_WA": {
+      "multiplier": 0.782959,
+      "gsa_rate": 113.67
+    },
+    "grays harbor_WA": {
+      "multiplier": 0.782959,
+      "gsa_rate": 113.67
+    },
+    "olympia / tumwater_WA": {
+      "multiplier": 1.028034,
+      "gsa_rate": 149.25
+    },
+    "thurston_WA": {
+      "multiplier": 1.028034,
+      "gsa_rate": 149.25
+    },
+    "port angeles / port townsend_WA": {
+      "multiplier": 1.056137,
+      "gsa_rate": 153.33
+    },
+    "clallam / jefferson_WA": {
+      "multiplier": 1.056137,
+      "gsa_rate": 153.33
+    },
+    "richland / pasco_WA": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "benton / franklin_WA": {
+      "multiplier": 0.89544,
+      "gsa_rate": 130.0
+    },
+    "seattle_WA": {
+      "multiplier": 1.432704,
+      "gsa_rate": 208.0
+    },
+    "king_WA": {
+      "multiplier": 1.432704,
+      "gsa_rate": 208.0
+    },
+    "spokane_WA": {
+      "multiplier": 0.867888,
+      "gsa_rate": 126.0
+    },
+    "standard rate_WA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_WA": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "tacoma_WA": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "pierce_WA": {
+      "multiplier": 0.936768,
+      "gsa_rate": 136.0
+    },
+    "vancouver_WA": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "clark / cowlitz / skamania_WA": {
+      "multiplier": 1.06764,
+      "gsa_rate": 155.0
+    },
+    "charles town_WV": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "jefferson_WV": {
+      "multiplier": 0.840336,
+      "gsa_rate": 122.0
+    },
+    "charleston_WV": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "kanawha_WV": {
+      "multiplier": 0.79212,
+      "gsa_rate": 115.0
+    },
+    "standard rate_WV": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_WV": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "madison_WI": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "dane_WI": {
+      "multiplier": 0.854112,
+      "gsa_rate": 124.0
+    },
+    "milwaukee_WI": {
+      "multiplier": 0.96432,
+      "gsa_rate": 140.0
+    },
+    "standard rate_WI": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_WI": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "sturgeon bay_WI": {
+      "multiplier": 0.823667,
+      "gsa_rate": 119.58
+    },
+    "door_WI": {
+      "multiplier": 0.823667,
+      "gsa_rate": 119.58
+    },
+    "cody_WY": {
+      "multiplier": 1.019424,
+      "gsa_rate": 148.0
+    },
+    "park_WY": {
+      "multiplier": 1.019424,
+      "gsa_rate": 148.0
+    },
+    "jackson / pinedale_WY": {
+      "multiplier": 1.937801,
+      "gsa_rate": 281.33
+    },
+    "teton / sublette_WY": {
+      "multiplier": 1.937801,
+      "gsa_rate": 281.33
+    },
+    "standard rate_WY": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "none_WY": {
+      "multiplier": 0.75768,
+      "gsa_rate": 110.0
+    },
+    "district of columbia_DC": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    },
+    "washington dc (also the cities of alexandria, falls church and fairfax, and the counties of arlington and fairfax, in virginia; and the counties of montgomery and prince george's in maryland)_DC": {
+      "multiplier": 1.609519,
+      "gsa_rate": 233.67
+    }
+  },
+  "by_state": {
+    "AL": {
+      "multiplier": 0.886624,
+      "avg_rate": 128.72
+    },
+    "AR": {
+      "multiplier": 0.771456,
+      "avg_rate": 112.0
+    },
+    "AZ": {
+      "multiplier": 1.018942,
+      "avg_rate": 147.93
+    },
+    "CA": {
+      "multiplier": 1.141893,
+      "avg_rate": 165.78
+    },
+    "CO": {
+      "multiplier": 1.174198,
+      "avg_rate": 170.47
+    },
+    "CT": {
+      "multiplier": 0.892685,
+      "avg_rate": 129.6
+    },
+    "DC": {
+      "multiplier": 1.609519,
+      "avg_rate": 233.67
+    },
+    "DE": {
+      "multiplier": 0.884557,
+      "avg_rate": 128.42
+    },
+    "FL": {
+      "multiplier": 1.130665,
+      "avg_rate": 164.15
+    },
+    "GA": {
+      "multiplier": 1.008954,
+      "avg_rate": 146.48
+    },
+    "IA": {
+      "multiplier": 0.794393,
+      "avg_rate": 115.33
+    },
+    "ID": {
+      "multiplier": 1.219314,
+      "avg_rate": 177.02
+    },
+    "IL": {
+      "multiplier": 0.942623,
+      "avg_rate": 136.85
+    },
+    "IN": {
+      "multiplier": 0.842058,
+      "avg_rate": 122.25
+    },
+    "KS": {
+      "multiplier": 0.84378,
+      "avg_rate": 122.5
+    },
+    "KY": {
+      "multiplier": 0.894751,
+      "avg_rate": 129.9
+    },
+    "LA": {
+      "multiplier": 0.873261,
+      "avg_rate": 126.78
+    },
+    "MA": {
+      "multiplier": 1.175988,
+      "avg_rate": 170.73
+    },
+    "MD": {
+      "multiplier": 1.00675,
+      "avg_rate": 146.16
+    },
+    "ME": {
+      "multiplier": 1.023281,
+      "avg_rate": 148.56
+    },
+    "MI": {
+      "multiplier": 0.891238,
+      "avg_rate": 129.39
+    },
+    "MN": {
+      "multiplier": 0.980507,
+      "avg_rate": 142.35
+    },
+    "MO": {
+      "multiplier": 0.906943,
+      "avg_rate": 131.67
+    },
+    "MS": {
+      "multiplier": 0.840336,
+      "avg_rate": 122.0
+    },
+    "MT": {
+      "multiplier": 1.054346,
+      "avg_rate": 153.07
+    },
+    "NC": {
+      "multiplier": 0.908183,
+      "avg_rate": 131.85
+    },
+    "ND": {
+      "multiplier": 0.75768,
+      "avg_rate": 110.0
+    },
+    "NE": {
+      "multiplier": 0.799008,
+      "avg_rate": 116.0
+    },
+    "NH": {
+      "multiplier": 0.940419,
+      "avg_rate": 136.53
+    },
+    "NJ": {
+      "multiplier": 0.940419,
+      "avg_rate": 136.53
+    },
+    "NM": {
+      "multiplier": 0.953782,
+      "avg_rate": 138.47
+    },
+    "NV": {
+      "multiplier": 0.895234,
+      "avg_rate": 129.97
+    },
+    "NY": {
+      "multiplier": 0.968315,
+      "avg_rate": 140.58
+    },
+    "OH": {
+      "multiplier": 0.923956,
+      "avg_rate": 134.14
+    },
+    "OK": {
+      "multiplier": 0.778344,
+      "avg_rate": 113.0
+    },
+    "OR": {
+      "multiplier": 0.952611,
+      "avg_rate": 138.3
+    },
+    "PA": {
+      "multiplier": 0.885659,
+      "avg_rate": 128.58
+    },
+    "RI": {
+      "multiplier": 1.032236,
+      "avg_rate": 149.86
+    },
+    "SC": {
+      "multiplier": 1.062819,
+      "avg_rate": 154.3
+    },
+    "SD": {
+      "multiplier": 0.833448,
+      "avg_rate": 121.0
+    },
+    "TN": {
+      "multiplier": 0.94958,
+      "avg_rate": 137.86
+    },
+    "TX": {
+      "multiplier": 0.942623,
+      "avg_rate": 136.85
+    },
+    "UT": {
+      "multiplier": 1.169789,
+      "avg_rate": 169.83
+    },
+    "VA": {
+      "multiplier": 0.954608,
+      "avg_rate": 138.59
+    },
+    "VT": {
+      "multiplier": 1.099463,
+      "avg_rate": 159.62
+    },
+    "WA": {
+      "multiplier": 0.965009,
+      "avg_rate": 140.1
+    },
+    "WI": {
+      "multiplier": 0.84991,
+      "avg_rate": 123.39
+    },
+    "WV": {
+      "multiplier": 0.796735,
+      "avg_rate": 115.67
+    },
+    "WY": {
+      "multiplier": 1.238325,
+      "avg_rate": 179.78
+    }
+  },
+  "metadata": {
+    "source": "GSA FY2026 Per Diem Rates",
+    "api_endpoint": "https://api.gsa.gov/travel/perdiem/v2/rates/state/all/year/2026",
+    "fiscal_year": 2026,
+    "built_date": "2026-05-07",
+    "n_customers": 597,
+    "n_city_state_entries": 650,
+    "n_states": 49,
+    "national_avg_lodging": 145.18,
+    "note": "multiplier = gsa_local_avg / national_avg. Apply to hotel component only (meals/transport not geo-corrected). Canadian customers and unlisted locations default to 1.0."
+  }
+}

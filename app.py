@@ -214,6 +214,77 @@ _GLOBAL_CSS = """
 # Pure helpers
 # ---------------------------------------------------------------------------
 
+def get_hotel_geo_mult(geo_index: dict, cust_id=None, city=None, state=None) -> tuple:
+    """
+    Return (multiplier, display_label) for a destination.
+    multiplier > 1.0 = expensive area, < 1.0 = cheaper area.
+    Label is used in the UI (e.g. "Houston, TX · 1.45×").
+    """
+    CANADIAN_PROVINCES = {"ON","BC","AB","QC","MB","SK","NS","NB","PE","NL","NT","YT","NU"}
+    if state and state.upper() in CANADIAN_PROVINCES:
+        return 1.0, ""
+
+    by_cust = geo_index.get("by_customer", {})
+    if cust_id and str(cust_id) in by_cust:
+        entry = by_cust[str(cust_id)]
+        mult  = float(entry.get("multiplier", 1.0))
+        src   = entry.get("source", "")
+        if src in ("city_exact", "city_partial"):
+            label = f"{entry.get('city','')}, {entry.get('state','')} · {mult:.2f}×"
+        elif src == "state_avg":
+            label = f"{entry.get('state','')} avg · {mult:.2f}×"
+        else:
+            label = ""
+        return mult, label
+
+    by_city = geo_index.get("by_city_state", {})
+    if city and state:
+        key = f"{city.lower().strip()}_{state.upper().strip()}"
+        if key in by_city:
+            mult = float(by_city[key]["multiplier"])
+            return mult, f"{city}, {state} · {mult:.2f}×"
+
+    by_state = geo_index.get("by_state", {})
+    if state and state.upper() in by_state:
+        mult = float(by_state[state.upper()]["multiplier"])
+        return mult, f"{state} avg · {mult:.2f}×"
+
+    return 1.0, ""
+
+
+def apply_geo_correction(cell: dict, geo_mult: float, geo_label: str = "") -> dict:
+    """
+    Return a new cell dict with hotel_rate scaled by geo_mult.
+    Only hotel is adjusted — meals and local transport are not location-sensitive
+    enough to warrant correction.
+    Stores originals as hotel_rate_base / geo metadata for UI display.
+    """
+    if not cell or abs(geo_mult - 1.0) < 0.001:
+        return cell
+
+    c = dict(cell)
+    hotel_base = c.get("hotel_rate") or 0
+    hotel_adj  = hotel_base * geo_mult
+    delta      = hotel_adj - hotel_base
+
+    c["hotel_rate"]      = round(hotel_adj, 2)
+    c["hotel_rate_base"] = round(hotel_base, 2)
+    c["hotel_geo_mult"]  = round(geo_mult, 4)
+    c["hotel_geo_label"] = geo_label
+    c["total_rate"]      = round(
+        hotel_adj
+        + (c.get("meals_rate") or 0)
+        + (c.get("transport_rate") or 0),
+        2,
+    )
+    # Shift p25/p75 by the same absolute hotel delta (preserves width of range)
+    if c.get("total_p25") is not None:
+        c["total_p25"] = round(c["total_p25"] + delta, 2)
+    if c.get("total_p75") is not None:
+        c["total_p75"] = round(c["total_p75"] + delta, 2)
+    return c
+
+
 def haversine(lat1, lon1, lat2, lon2):
     R = 3958.8
     lat1, lon1, lat2, lon2 = map(radians, [lat1, lon1, lat2, lon2])
@@ -303,6 +374,14 @@ def load_rates():
 @st.cache_data
 def load_classifier():
     with open(os.path.join(BASE_DIR, "overnight_lookup.json")) as f:
+        return json.load(f)
+
+@st.cache_data
+def load_geo_index():
+    path = os.path.join(BASE_DIR, "geo_index.json")
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
         return json.load(f)
 
 @st.cache_data
@@ -991,9 +1070,17 @@ def render_overnight_table(cell, dist_miles):
     if trans_med is not None and trans_mean and trans_med < trans_mean * 0.5:
         trans_note = f"mean used (median ${trans_med:,.0f} suppressed by $0 filings)"
 
+    # Geo-correction detail for hotel row
+    geo_label = cell.get("hotel_geo_label", "")
+    hotel_base = cell.get("hotel_rate_base")
+    if hotel_base and geo_label:
+        hotel_note = f"N={hotel_n} · {geo_label}"
+    else:
+        hotel_note = f"N={hotel_n}"
+
     range_str = f"  ·  range {_fmt(p25)}–{_fmt(p75)}/day" if (p25 and p75) else ""
     rows = [
-        ("Hotel",           f"{_fmt(hotel_r)}/day", f"N={hotel_n}"),
+        ("Hotel",           f"{_fmt(hotel_r)}/day", hotel_note),
         ("Meals",           f"{_fmt(meals_r)}/day", f"N={meals_n}"),
         ("Local Transport", f"{_fmt(trans_r)}/day", trans_note),
         ("TOTAL",           f"{_fmt(total_r)}/day", f"{basis}{range_str}"),
@@ -1153,7 +1240,7 @@ JOB_TYPES = [
 # Estimate tab
 # ---------------------------------------------------------------------------
 
-def render_estimate_tab(customers, techs, rates, classifier, master_df):
+def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_index=None):
     meta    = rates.get("metadata", {})
 
     # ── STEP 1 — Trip Details ────────────────────────────────────────────────
@@ -1344,6 +1431,14 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df):
     af_cell  = lookup_airfare(rates, band, seas) if is_fly else None
     dr_cell  = lookup_drive(rates, band)         if not is_fly else None
 
+    # Apply geographic hotel-cost correction (GSA-based multiplier for destination)
+    if geo_index and on_cell:
+        cust_city = cust_display.get("city", "")
+        geo_mult, geo_label = get_hotel_geo_mult(
+            geo_index, customer_id, cust_city, cust_state
+        )
+        on_cell = apply_geo_correction(on_cell, geo_mult, geo_label)
+
     daily_used = fee_used = None
 
     def _overnight(cell, nd):
@@ -1454,8 +1549,9 @@ def main():
         st.stop()
 
     master_df = load_master()
+    geo_index = load_geo_index()
 
-    render_estimate_tab(customers, techs, rates, classifier, master_df)
+    render_estimate_tab(customers, techs, rates, classifier, master_df, geo_index)
 
 
 if __name__ == "__main__":
