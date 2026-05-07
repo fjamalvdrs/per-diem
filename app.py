@@ -1075,7 +1075,7 @@ def render_total_box(daily_rate, trip_fee, fee_label, n_days, rate_cell=None):
         sub_html   = (
             f'<div style="color:#bfdbfe;font-size:13px;">{_fmt(daily_rate)}/day{fee_str}</div>'
             f'<div style="color:#93c5fd;font-size:11px;margin-top:3px;">'
-            f'Enter days on site above for a full trip total</div>'
+            f'Enter total days (labor + travel) above for a full trip total</div>'
         )
 
     range_html = ""
@@ -1202,13 +1202,13 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df):
 
     with col_days:
         n_days = st.number_input(
-            "Days on Site",
+            "Days on Site (labor + travel)",
             min_value=1,
             value=None,
             placeholder="optional",
             step=1,
             key="n_days",
-            help="Enter expected trip duration to see a total estimate.",
+            help="Enter total trip duration including travel days (e.g. fly out Monday, work Tue–Thu, fly home Friday = 5 days).",
         )
 
     # ── Validate inputs ──────────────────────────────────────────────────────
