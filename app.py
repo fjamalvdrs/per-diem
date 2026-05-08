@@ -448,21 +448,51 @@ def load_master():
     return df
 
 
+def _ensure_rate_col(df):
+    """
+    Ensure `daily_rate_expenses_final` exists — compute on-the-fly from raw columns
+    if it was not pre-computed (e.g. deployed master_trips_imputed.csv may lack it).
+    Returns the df (possibly a copy with the column added), or an empty DataFrame
+    if the required source columns are also absent.
+    """
+    if df.empty:
+        return df
+    if "daily_rate_expenses_final" in df.columns:
+        return df
+    needed = ["exp_hotel", "exp_meals", "exp_local_transport", "total_trip_days"]
+    if not all(c in df.columns for c in needed):
+        return df  # can't compute — return as-is (callers check column presence)
+    import numpy as np
+    df = df.copy()
+    days = df["total_trip_days"].replace(0, np.nan)
+    df["daily_rate_expenses_final"] = (
+        df["exp_hotel"].fillna(0)
+        + df["exp_meals"].fillna(0)
+        + df["exp_local_transport"].fillna(0)
+    ) / days
+    return df
+
+
 # ---------------------------------------------------------------------------
 # Explain modal helpers
 # ---------------------------------------------------------------------------
 
 def get_example_trips(master_df, basis, customer_id, cust_name,
                       band, seas, is_fly, dist_miles, cust_state=None):
-    """Return (DataFrame of up to 5 matching historical trips, plain-English label)."""
+    """Return (DataFrame of up to 25 matching historical trips, plain-English label)."""
     if master_df.empty:
+        return pd.DataFrame(), ""
+
+    master_df = _ensure_rate_col(master_df)
+    rate_col  = "daily_rate_expenses_final"
+    if rate_col not in master_df.columns:
         return pd.DataFrame(), ""
 
     df = master_df[
         (master_df["data_category"] == "E_complete") &
         (master_df["year"] >= 2022) &
-        (master_df["daily_rate_expenses_final"].notna()) &
-        (master_df["daily_rate_expenses_final"] > 10)
+        (master_df[rate_col].notna()) &
+        (master_df[rate_col] > 10)
     ].copy()
 
     fine = _fine_band(dist_miles)
@@ -718,15 +748,16 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
         """All E_complete trips matching the same lookup basis — for trend + distribution."""
         if master_df.empty:
             return pd.DataFrame()
+        mdf = _ensure_rate_col(master_df)
         rate_col = "daily_rate_expenses_final"
-        if rate_col not in master_df.columns:
+        if rate_col not in mdf.columns:
             return pd.DataFrame()
         basis_str = cell.get("basis", "") if cell else ""
         try:
-            base = master_df[
-                (master_df["data_category"] == "E_complete") &
-                (master_df[rate_col].notna()) &
-                (master_df[rate_col] > 10)
+            base = mdf[
+                (mdf["data_category"] == "E_complete") &
+                (mdf[rate_col].notna()) &
+                (mdf[rate_col] > 10)
             ]
             mode_val = 1 if is_fly else 0
             if "Customer" in basis_str and customer_id:
@@ -956,6 +987,15 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
                 unsafe_allow_html=True,
             )
             st.dataframe(disp, use_container_width=True, hide_index=True)
+        elif not trend_data:
+            st.markdown(
+                '<div style="background:rgba(255,255,255,0.04);border-radius:8px;'
+                'padding:14px 18px;color:#9ca3af;font-size:13px;">'
+                'No historical trip data available for this route in the training dataset. '
+                'The estimate uses broader regional averages.'
+                '</div>',
+                unsafe_allow_html=True,
+            )
 
 
 
@@ -1189,7 +1229,7 @@ def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True):
     return None
 
 
-def render_total_box(daily_rate, trip_fee, fee_label, n_days, rate_cell=None):
+def render_total_box(daily_rate, trip_fee, fee_label, n_days, rate_cell=None, basis_text=None):
     if daily_rate is None:
         return
 
@@ -1229,53 +1269,47 @@ def render_total_box(daily_rate, trip_fee, fee_label, n_days, rate_cell=None):
                 f'Typical range&nbsp;&nbsp;{_fmt(lo)} – {_fmt(hi)}</div>'
             )
 
-    # ── Confidence badge + buffer signal embedded in the estimate box ──────────
+    # ── Confidence footer — always shows level, action, and basis ─────────────
     conf        = rate_confidence(rate_cell) if rate_cell else "LOW"
     rules       = _BUFFER_RULES[conf]
     colors      = _CONF_COLORS[conf]
     border_col  = {"HIGH": "#22c55e", "MEDIUM": "#eab308", "LOW": "#ef4444"}[conf]
     buf_pct     = rules["pct"]
+    action_text = rules["action"]
 
+    # Invoice line — only when days entered and buffer > 0
     if has_days and buf_pct > 0:
         buffered    = total * (1 + buf_pct / 100)
-        conf_footer = (
-            f'<div style="margin-top:12px;padding-top:10px;'
-            f'border-top:1px solid rgba(255,255,255,0.12);'
-            f'display:flex;align-items:center;gap:10px;flex-wrap:wrap;">'
-            f'<span style="font-size:14px;">{colors["icon"]}</span>'
-            f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
-            f'letter-spacing:0.05em;text-transform:uppercase;">{conf}</span>'
-            f'<span style="color:#6b7280;font-size:11px;">·</span>'
-            f'<span style="color:#d1d5db;font-size:12px;">'
-            f'Invoice at&nbsp;<strong style="color:#ffffff;font-size:14px;">'
-            f'{_fmt(buffered)}</strong>'
-            f'&nbsp;<span style="color:#9ca3af;font-size:11px;">(+{buf_pct}% buffer)</span>'
-            f'</span>'
-            f'</div>'
-        )
-    elif has_days:
-        conf_footer = (
-            f'<div style="margin-top:12px;padding-top:10px;'
-            f'border-top:1px solid rgba(255,255,255,0.12);'
-            f'display:flex;align-items:center;gap:8px;">'
-            f'<span style="font-size:14px;">{colors["icon"]}</span>'
-            f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
-            f'letter-spacing:0.05em;text-transform:uppercase;">{conf} CONFIDENCE</span>'
-            f'<span style="color:#6b7280;font-size:11px;">·</span>'
-            f'<span style="color:#d1d5db;font-size:12px;">Use estimate directly</span>'
+        invoice_line = (
+            f'<div style="margin-top:6px;margin-bottom:2px;">'
+            f'<span style="color:#9ca3af;font-size:11px;">Invoice at&nbsp;</span>'
+            f'<span style="color:#ffffff;font-size:16px;font-weight:700;">{_fmt(buffered)}</span>'
+            f'<span style="color:#9ca3af;font-size:11px;">&nbsp;(+{buf_pct}% buffer)</span>'
             f'</div>'
         )
     else:
-        # No days entered — just show the confidence badge
-        conf_footer = (
-            f'<div style="margin-top:10px;padding-top:8px;'
-            f'border-top:1px solid rgba(255,255,255,0.10);'
-            f'display:flex;align-items:center;gap:8px;">'
-            f'<span style="font-size:13px;">{colors["icon"]}</span>'
-            f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
-            f'letter-spacing:0.05em;text-transform:uppercase;">{conf} CONFIDENCE</span>'
-            f'</div>'
-        )
+        invoice_line = ""
+
+    # Basis line — shown when basis_text provided
+    basis_line = (
+        f'<div style="color:#9ca3af;font-size:11px;margin-top:5px;">'
+        f'Based on: {basis_text}</div>'
+        if basis_text else ""
+    )
+
+    conf_footer = (
+        f'<div style="margin-top:12px;padding-top:10px;'
+        f'border-top:1px solid rgba(255,255,255,0.12);">'
+        f'<div style="display:flex;align-items:center;gap:8px;">'
+        f'<span style="font-size:13px;">{colors["icon"]}</span>'
+        f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
+        f'letter-spacing:0.05em;text-transform:uppercase;">{conf} CONFIDENCE</span>'
+        f'</div>'
+        f'{invoice_line}'
+        f'<div style="color:#d1d5db;font-size:12px;margin-top:4px;">{action_text}</div>'
+        f'{basis_line}'
+        f'</div>'
+    )
 
     st.markdown(
         f'<div style="background-color:#1e3a5f;border-radius:10px;padding:20px 24px;'
@@ -1542,12 +1576,14 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
         on_cell = apply_geo_correction(on_cell, geo_mult, geo_label)
 
     daily_used = fee_used = None
+    _cust_name = cust_display.get("name", "this customer")
 
     def _overnight(cell, nd):
         daily   = render_overnight_table(cell, dist_miles)
         fee     = render_trip_fee(af_cell, dr_cell, is_fly)
         fee_lbl = "airfare" if is_fly else "drive"
-        render_total_box(daily, fee, fee_lbl, nd, rate_cell=cell)
+        bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
+        render_total_box(daily, fee, fee_lbl, nd, rate_cell=cell, basis_text=bt)
         return daily, fee
 
     def _day_trip(cell, nd):
@@ -1558,7 +1594,8 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
             fee = None
             st.caption("Note: flying for a day trip is unusual — confirm with ops.")
         fee_lbl = "drive" if not is_fly else ""
-        render_total_box(daily, fee if not is_fly else None, fee_lbl, nd, rate_cell=cell)
+        bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
+        render_total_box(daily, fee if not is_fly else None, fee_lbl, nd, rate_cell=cell, basis_text=bt)
         return daily, fee
 
     if final_trip == "overnight":
@@ -1587,12 +1624,6 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
             daily_used, fee_used = _overnight(on_cell, n_days)
         st.caption("Select 'Overnight' or 'Day Trip' in the Trip Type field above to confirm.")
         exp_cell_type, exp_cell = "overnight", on_cell
-
-    # ── Confidence + billing guidance (always shown) ──────────────────────────
-    render_confidence_guidance(
-        exp_cell, cust_display, daily_used, fee_used,
-        n_days, band, seas, is_fly,
-    )
 
     # ── Explain button + disclaimer ───────────────────────────────────────────
     st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
