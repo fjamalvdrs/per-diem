@@ -335,6 +335,60 @@ def _conf_badge_html(level):
     css = {"HIGH": "conf-high", "MEDIUM": "conf-medium", "LOW": "conf-low"}
     return f'<span class="conf-badge {css.get(level,"conf-low")}">{level}</span>'
 
+# ── Confidence-based billing guidance ────────────────────────────────────────
+_BUFFER_RULES = {
+    "HIGH":   {"pct": 0,  "action": "Use estimate directly — no buffer needed."},
+    "MEDIUM": {"pct": 15, "action": "Add 15% buffer before invoicing — regional data, not customer-specific."},
+    "LOW":    {"pct": 25, "action": "Add 25% buffer before invoicing — sparse data. Consider a custom quote."},
+}
+_CONF_COLORS = {
+    "HIGH":   {"bg": "rgba(34,197,94,0.10)",  "border": "rgba(34,197,94,0.4)",  "icon": "🟢", "tc": "#86efac"},
+    "MEDIUM": {"bg": "rgba(234,179,8,0.10)",  "border": "rgba(234,179,8,0.4)",  "icon": "🟡", "tc": "#fde047"},
+    "LOW":    {"bg": "rgba(239,68,68,0.10)",  "border": "rgba(239,68,68,0.4)",  "icon": "🔴", "tc": "#f87171"},
+}
+
+def _basis_plain(cell, cust_name, band, seas, is_fly):
+    """Translate the internal lookup basis code into a plain-English sentence."""
+    if not cell:
+        return "no data — estimate unavailable"
+    basis = cell.get("basis", "")
+    n     = cell.get("n", 0)
+    mode  = "flying" if is_fly else "driving"
+    if "Customer" in basis and "seasonal" in basis.lower():
+        return f"{n} past trips to {cust_name}, {seas} season"
+    if "Customer" in basis:
+        return f"{n} past trips to {cust_name} (all seasons)"
+    if "State" in basis:
+        return f"{n} regional trips, {band} miles, {mode}"
+    if "Season" in basis and "Distance" in basis.lower():
+        return f"{n} trips, {band} miles {mode}, {seas} season"
+    if "Distance" in basis and "global" not in basis.lower():
+        return f"{n} trips, {band} miles {mode}"
+    return f"{n} trips — broad average (limited data for this specific route)"
+
+def render_confidence_guidance(cell, cust_display, daily_used, fee_used,
+                               n_days, band, seas, is_fly):
+    """
+    Secondary block below the estimate box.
+    Explains WHERE the confidence level comes from (the data source).
+    The buffer amount itself is shown inside render_total_box.
+    """
+    conf       = rate_confidence(cell) if cell else "LOW"
+    colors     = _CONF_COLORS[conf]
+    cust_name  = cust_display.get("name", "this customer")
+    basis_text = _basis_plain(cell, cust_name, band, seas, is_fly)
+
+    st.markdown(
+        f'<div style="background:{colors["bg"]};border:1px solid {colors["border"]};'
+        f'border-radius:8px;padding:10px 16px;margin:4px 0 0 0;">'
+        f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
+        f'letter-spacing:0.05em;text-transform:uppercase;">{conf}</span>'
+        f'<span style="color:#6b7280;font-size:11px;margin:0 6px;">·</span>'
+        f'<span style="color:#d1d5db;font-size:12px;">Based on: {basis_text}</span>'
+        f'</div>',
+        unsafe_allow_html=True,
+    )
+
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
@@ -664,26 +718,33 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
         """All E_complete trips matching the same lookup basis — for trend + distribution."""
         if master_df.empty:
             return pd.DataFrame()
+        rate_col = "daily_rate_expenses_final"
+        if rate_col not in master_df.columns:
+            return pd.DataFrame()
         basis_str = cell.get("basis", "") if cell else ""
-        base = master_df[
-            (master_df["data_category"] == "E_complete") &
-            (master_df["daily_rate_expenses_final"].notna()) &
-            (master_df["daily_rate_expenses_final"] > 10)
-        ]
-        mode_val = 1 if is_fly else 0
-        if "Customer" in basis_str and customer_id:
-            sub = base[base["CustomerIDAcu"].astype(str) == str(customer_id)]
-            if len(sub) >= 3:
-                return sub
-        sub = base[base["distance_band"] == band]
-        if "is_fly_trip" in sub.columns:
-            sub = sub[sub["is_fly_trip"].fillna(0).astype(float).round().astype(int) == mode_val]
-        return sub if len(sub) >= 3 else base
+        try:
+            base = master_df[
+                (master_df["data_category"] == "E_complete") &
+                (master_df[rate_col].notna()) &
+                (master_df[rate_col] > 10)
+            ]
+            mode_val = 1 if is_fly else 0
+            if "Customer" in basis_str and customer_id:
+                sub = base[base["CustomerIDAcu"].astype(str) == str(customer_id)]
+                if len(sub) >= 3:
+                    return sub
+            sub = base[base["distance_band"] == band]
+            if "is_fly_trip" in sub.columns:
+                sub = sub[sub["is_fly_trip"].fillna(0).astype(float).round().astype(int) == mode_val]
+            return sub if len(sub) >= 3 else base
+        except Exception:
+            return pd.DataFrame()
 
     # ── Pre-compute shared data ────────────────────────────────────────────────
     similar_df = _similar_all()
     basis_str  = cell.get("basis", "") if cell else ""
-    daily_rate_est = daily_used  # may be None if ambiguous
+    # Fall back to cell's total_rate if daily_used wasn't captured (e.g. ambiguous branch)
+    daily_rate_est = daily_used or (cell.get("total_rate") if cell else None)
 
     # For distribution strip
     p25 = cell.get("total_p25") if cell else None
@@ -1177,8 +1238,57 @@ def render_total_box(daily_rate, trip_fee, fee_label, n_days, rate_cell=None):
                 f'Typical range&nbsp;&nbsp;{_fmt(lo)} – {_fmt(hi)}</div>'
             )
 
+    # ── Confidence badge + buffer signal embedded in the estimate box ──────────
+    conf        = rate_confidence(rate_cell) if rate_cell else "LOW"
+    rules       = _BUFFER_RULES[conf]
+    colors      = _CONF_COLORS[conf]
+    border_col  = {"HIGH": "#22c55e", "MEDIUM": "#eab308", "LOW": "#ef4444"}[conf]
+    buf_pct     = rules["pct"]
+
+    if has_days and buf_pct > 0:
+        buffered    = total * (1 + buf_pct / 100)
+        conf_footer = (
+            f'<div style="margin-top:12px;padding-top:10px;'
+            f'border-top:1px solid rgba(255,255,255,0.12);'
+            f'display:flex;align-items:center;gap:10px;flex-wrap:wrap;">'
+            f'<span style="font-size:14px;">{colors["icon"]}</span>'
+            f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
+            f'letter-spacing:0.05em;text-transform:uppercase;">{conf}</span>'
+            f'<span style="color:#6b7280;font-size:11px;">·</span>'
+            f'<span style="color:#d1d5db;font-size:12px;">'
+            f'Invoice at&nbsp;<strong style="color:#ffffff;font-size:14px;">'
+            f'{_fmt(buffered)}</strong>'
+            f'&nbsp;<span style="color:#9ca3af;font-size:11px;">(+{buf_pct}% buffer)</span>'
+            f'</span>'
+            f'</div>'
+        )
+    elif has_days:
+        conf_footer = (
+            f'<div style="margin-top:12px;padding-top:10px;'
+            f'border-top:1px solid rgba(255,255,255,0.12);'
+            f'display:flex;align-items:center;gap:8px;">'
+            f'<span style="font-size:14px;">{colors["icon"]}</span>'
+            f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
+            f'letter-spacing:0.05em;text-transform:uppercase;">{conf} CONFIDENCE</span>'
+            f'<span style="color:#6b7280;font-size:11px;">·</span>'
+            f'<span style="color:#d1d5db;font-size:12px;">Use estimate directly</span>'
+            f'</div>'
+        )
+    else:
+        # No days entered — just show the confidence badge
+        conf_footer = (
+            f'<div style="margin-top:10px;padding-top:8px;'
+            f'border-top:1px solid rgba(255,255,255,0.10);'
+            f'display:flex;align-items:center;gap:8px;">'
+            f'<span style="font-size:13px;">{colors["icon"]}</span>'
+            f'<span style="color:{colors["tc"]};font-size:11px;font-weight:700;'
+            f'letter-spacing:0.05em;text-transform:uppercase;">{conf} CONFIDENCE</span>'
+            f'</div>'
+        )
+
     st.markdown(
-        f'<div style="background-color:#1e3a5f;border-radius:10px;padding:20px 24px;margin:12px 0 8px 0;'
+        f'<div style="background-color:#1e3a5f;border-radius:10px;padding:20px 24px;'
+        f'margin:12px 0 8px 0;border-left:4px solid {border_col};'
         f'font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',sans-serif;">'
         f'<div style="color:#93c5fd;font-size:11px;font-weight:600;letter-spacing:0.06em;'
         f'text-transform:uppercase;margin-bottom:4px;">{top_label}</div>'
@@ -1186,6 +1296,7 @@ def render_total_box(daily_rate, trip_fee, fee_label, n_days, rate_cell=None):
         f'{amount_str}</div>'
         f'{sub_html}'
         f'{range_html}'
+        f'{conf_footer}'
         f'</div>',
         unsafe_allow_html=True,
     )
@@ -1482,20 +1593,15 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
                 'text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">If Overnight</p>',
                 unsafe_allow_html=True,
             )
-            _overnight(on_cell, n_days)
+            daily_used, fee_used = _overnight(on_cell, n_days)
         st.caption("Select 'Overnight' or 'Day Trip' in the Trip Type field above to confirm.")
         exp_cell_type, exp_cell = "overnight", on_cell
 
-    # ── LOW confidence warning ────────────────────────────────────────────────
-    if exp_cell and rate_confidence(exp_cell) == "LOW":
-        st.markdown(
-            '<div style="background:#fff7ed;border:1px solid #fdba74;border-radius:8px;'
-            'padding:10px 16px;margin:8px 0 0 0;font-size:13px;color:#9a3412;">'
-            '<strong>Limited data</strong> — few historical records for this route. '
-            'Estimate is based on broad averages; actual cost may vary significantly. '
-            'Consider adding a buffer when quoting.</div>',
-            unsafe_allow_html=True,
-        )
+    # ── Confidence + billing guidance (always shown) ──────────────────────────
+    render_confidence_guidance(
+        exp_cell, cust_display, daily_used, fee_used,
+        n_days, band, seas, is_fly,
+    )
 
     # ── Explain button + disclaimer ───────────────────────────────────────────
     st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
