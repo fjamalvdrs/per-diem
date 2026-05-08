@@ -914,16 +914,7 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
     else:
         st.caption("No trip fee data available for this scenario.")
 
-    # ── 5 · Trip Length Calculator ────────────────────────────────────────────
-    if daily_rate_est:
-        _sep()
-        _section("Trip Length Calculator")
-        st.markdown(
-            _trip_calc(daily_rate_est, trip_fee_val, fee_label_str, n_days),
-            unsafe_allow_html=True,
-        )
-
-    # ── 6 · Historical Evidence ───────────────────────────────────────────────
+    # ── 5 · Historical Evidence ───────────────────────────────────────────────
     if cell:
         _sep()
         _section("Historical Evidence")
