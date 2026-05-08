@@ -35,6 +35,11 @@ __pycache__/
 *.pyo
 .ipynb_checkpoints/
 
+# Secrets — never commit
+db_config.py
+secrets.py
+.env
+
 # Misc
 costestimator/
 *.md
