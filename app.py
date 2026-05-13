@@ -216,68 +216,89 @@ _GLOBAL_CSS = """
 
 def get_hotel_geo_mult(geo_index: dict, cust_id=None, city=None, state=None) -> tuple:
     """
-    Return (multiplier, display_label) for a destination.
+    Return (multiplier, display_label, gsa_rate) for a destination.
     multiplier > 1.0 = expensive area, < 1.0 = cheaper area.
-    Label is used in the UI (e.g. "Houston, TX · 1.45×").
+    gsa_rate = raw GSA lodging per diem for the destination (used as hotel floor).
     """
     CANADIAN_PROVINCES = {"ON","BC","AB","QC","MB","SK","NS","NB","PE","NL","NT","YT","NU"}
     if state and state.upper() in CANADIAN_PROVINCES:
-        return 1.0, ""
+        return 1.0, "", None  # no GSA floor for international
 
     by_cust = geo_index.get("by_customer", {})
     if cust_id and str(cust_id) in by_cust:
-        entry = by_cust[str(cust_id)]
-        mult  = float(entry.get("multiplier", 1.0))
-        src   = entry.get("source", "")
+        entry    = by_cust[str(cust_id)]
+        mult     = float(entry.get("multiplier", 1.0))
+        gsa_rate = entry.get("gsa_rate")
+        src      = entry.get("source", "")
         if src in ("city_exact", "city_partial"):
             label = f"{entry.get('city','')}, {entry.get('state','')} · {mult:.2f}×"
         elif src == "state_avg":
             label = f"{entry.get('state','')} avg · {mult:.2f}×"
         else:
             label = ""
-        return mult, label
+        return mult, label, gsa_rate
 
     by_city = geo_index.get("by_city_state", {})
     if city and state:
         key = f"{city.lower().strip()}_{state.upper().strip()}"
         if key in by_city:
-            mult = float(by_city[key]["multiplier"])
-            return mult, f"{city}, {state} · {mult:.2f}×"
+            entry    = by_city[key]
+            mult     = float(entry["multiplier"])
+            gsa_rate = entry.get("gsa_rate")
+            return mult, f"{city}, {state} · {mult:.2f}×", gsa_rate
 
     by_state = geo_index.get("by_state", {})
     if state and state.upper() in by_state:
-        mult = float(by_state[state.upper()]["multiplier"])
-        return mult, f"{state} avg · {mult:.2f}×"
+        entry    = by_state[state.upper()]
+        mult     = float(entry["multiplier"])
+        gsa_rate = entry.get("avg_rate")
+        return mult, f"{state} avg · {mult:.2f}×", gsa_rate
 
-    return 1.0, ""
+    # Unknown US location — floor at national average
+    national_avg = geo_index.get("national_avg_lodging", 145.18)
+    return 1.0, "", national_avg
 
 
-def apply_geo_correction(cell: dict, geo_mult: float, geo_label: str = "") -> dict:
+def apply_geo_correction(cell: dict, geo_mult: float, geo_label: str = "",
+                         gsa_rate: float = None) -> dict:
     """
-    Return a new cell dict with hotel_rate scaled by geo_mult.
-    Only hotel is adjusted — meals and local transport are not location-sensitive
-    enough to warrant correction.
-    Stores originals as hotel_rate_base / geo metadata for UI display.
+    Return a new cell dict with hotel_rate adjusted for location and floored at GSA rate.
+
+    Two adjustments applied in order:
+      1. Geo-scale: hotel_base × geo_mult  (location cost adjustment)
+      2. GSA floor: max(geo-scaled, gsa_rate)  (guards against company-card data gap)
+
+    Only hotel is adjusted — meals and transport are not location-sensitive enough.
     """
-    if not cell or abs(geo_mult - 1.0) < 0.001:
+    if not cell:
+        return cell
+    # Skip only when no geo data AND no GSA rate to floor against
+    if abs(geo_mult - 1.0) < 0.001 and not gsa_rate:
         return cell
 
     c = dict(cell)
     hotel_base = c.get("hotel_rate") or 0
-    hotel_adj  = hotel_base * geo_mult
-    delta      = hotel_adj - hotel_base
+    hotel_hist = round(hotel_base * geo_mult, 2)      # geo-adjusted historical
+    gsa_floor  = round(float(gsa_rate), 2) if (gsa_rate and gsa_rate > 0) else 0
 
-    c["hotel_rate"]      = round(hotel_adj, 2)
-    c["hotel_rate_base"] = round(hotel_base, 2)
-    c["hotel_geo_mult"]  = round(geo_mult, 4)
-    c["hotel_geo_label"] = geo_label
-    c["total_rate"]      = round(
-        hotel_adj
+    hotel_final      = max(hotel_hist, gsa_floor)
+    used_gsa_floor   = bool(gsa_floor > 0 and hotel_final > hotel_hist + 0.50)
+    delta            = hotel_final - hotel_base
+
+    c["hotel_rate"]            = round(hotel_final, 2)
+    c["hotel_rate_base"]       = round(hotel_base, 2)
+    c["hotel_rate_historical"] = hotel_hist
+    c["hotel_rate_gsa"]        = gsa_floor if gsa_floor > 0 else None
+    c["hotel_used_gsa_floor"]  = used_gsa_floor
+    c["hotel_geo_mult"]        = round(geo_mult, 4)
+    c["hotel_geo_label"]       = geo_label
+    c["total_rate"]            = round(
+        hotel_final
         + (c.get("meals_rate") or 0)
         + (c.get("transport_rate") or 0),
         2,
     )
-    # Shift p25/p75 by the same absolute hotel delta (preserves width of range)
+    # Shift p25/p75 by the full hotel delta (preserves width of range)
     if c.get("total_p25") is not None:
         c["total_p25"] = round(c["total_p25"] + delta, 2)
     if c.get("total_p75") is not None:
@@ -800,7 +821,7 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
         trip_fee_val = af_cell.get("model_rate") or af_cell.get("median", 0)
         fee_label_str = "airfare"
     elif not is_fly and dr_cell:
-        trip_fee_val = dr_cell.get("model_rate") or dr_cell.get("mean", 0)
+        trip_fee_val = round(dist_miles * 2 * IRS_RATE, 0) if dist_miles else (dr_cell.get("model_rate") or dr_cell.get("mean", 0))
         fee_label_str = "drive"
     else:
         trip_fee_val  = 0
@@ -937,9 +958,10 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
         n_dr = dr_cell.get("n", 0)
         st.markdown(
             f'<p style="font-size:13px;color:#d1d5db;margin:0 0 2px 0;">'
-            f'IRS mileage rate (${IRS_RATE}/mile) for a <strong>{dist_miles:,.0f}-mile</strong> round trip, '
-            f'cross-checked against <strong>{n_dr} similar drive trips</strong>. '
-            f'Estimated drive cost: <strong style="color:#93c5fd;">${trip_fee_val:,.0f}</strong>.</p>',
+            f'${IRS_RATE}/mi × <strong>{dist_miles:,.0f} mi</strong> × 2 (round trip) = '
+            f'<strong style="color:#93c5fd;">${trip_fee_val:,.0f}</strong>. '
+            f'Cross-checked against <strong>{n_dr} similar drive trips</strong>. '
+            f'Note: distance is straight-line — actual road miles are typically 15–25% longer.</p>',
             unsafe_allow_html=True,
         )
     else:
@@ -1016,16 +1038,35 @@ def lookup_overnight_rate(rates, band, seas, is_fly, customer_id=None, state=Non
     mode_str = "1" if is_fly else "0"
     on = rates.get("overnight_rates", {})
 
+    # Priority 1 — Customer history (N≥10: enough data to trust customer-specific patterns)
     if customer_id:
         c = on.get("by_customer_season",{}).get(str(customer_id),{}).get(seas)
-        if c and c.get("n",0) >= 3: return dict(c, basis="Customer history (seasonal)")
+        if c and c.get("n",0) >= 10: return dict(c, basis="Customer history (seasonal)")
         c = on.get("by_customer",{}).get(str(customer_id))
-        if c and c.get("n",0) >= 3: return dict(c, basis="Customer history")
+        if c and c.get("n",0) >= 10: return dict(c, basis="Customer history")
 
+    # Priority 2 — State-level hybrid: hotel+meals from broad state cell (mode/distance
+    # don't causally affect hotel or meals) + transport from mode-specific state cell
+    # (mode DOES matter for local transport: fly=Uber/rental, drive=own car).
     if state:
-        c = on.get("by_state_distance_mode",{}).get(str(state),{}).get(band,{}).get(mode_str)
-        if c and c.get("n",0) >= 5: return dict(c, basis=f"State ({state}) + Distance + Mode")
+        hm = on.get("by_state_season_only",{}).get(str(state),{}).get(seas)
+        if not hm or hm.get("n",0) < 10:
+            hm = on.get("by_state_only",{}).get(str(state))
+        if hm and hm.get("n",0) >= 10:
+            c = dict(hm)
+            tr = on.get("by_state_distance_mode",{}).get(str(state),{}).get(band,{}).get(mode_str)
+            if tr and tr.get("n",0) >= 5:
+                c["transport_rate"] = tr.get("transport_rate", hm.get("transport_rate", 0))
+                c["transport_n"]    = tr.get("transport_n", tr.get("n", 0))
+                c["total_rate"]     = round(
+                    (c.get("hotel_rate") or 0)
+                    + (c.get("meals_rate") or 0)
+                    + c["transport_rate"], 4
+                )
+                return dict(c, basis=f"State ({state}) · Mode transport")
+            return dict(c, basis=f"State ({state})")
 
+    # Priority 3–8 — Distance-band fallbacks (existing, unchanged)
     fine = _fine_band(dist_miles)
     if fine:
         c = on.get("fine_by_distance_season_mode",{}).get(fine,{}).get(seas,{}).get(mode_str)
@@ -1162,10 +1203,19 @@ def render_overnight_table(cell, dist_miles):
     if trans_med is not None and trans_mean and trans_med < trans_mean * 0.5:
         trans_note = f"mean used (median ${trans_med:,.0f} suppressed by $0 filings)"
 
-    # Geo-correction detail for hotel row
-    geo_label = cell.get("hotel_geo_label", "")
-    hotel_base = cell.get("hotel_rate_base")
-    if hotel_base and geo_label:
+    # Hotel row note — shows whether GSA floor or historical data was used
+    geo_label       = cell.get("hotel_geo_label", "")
+    used_gsa_floor  = cell.get("hotel_used_gsa_floor", False)
+    hotel_hist_disp = cell.get("hotel_rate_historical")
+    gsa_disp        = cell.get("hotel_rate_gsa")
+
+    if used_gsa_floor and gsa_disp:
+        hotel_note = f"GSA floor ${gsa_disp:,.0f}"
+        if geo_label:
+            hotel_note += f" · {geo_label}"
+        if hotel_hist_disp:
+            hotel_note += f" (hist. ${hotel_hist_disp:,.0f})"
+    elif geo_label:
         hotel_note = f"N={hotel_n} · {geo_label}"
     else:
         hotel_note = f"N={hotel_n}"
@@ -1213,7 +1263,7 @@ def render_day_trip_table(cell, dist_miles):
     return total_r
 
 
-def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True):
+def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True, dist_miles=None):
     if is_fly and af_cell:
         fee = af_cell.get("model_rate") or af_cell.get("median") or af_cell.get("mean")
         n   = af_cell.get("n", 0)
@@ -1221,9 +1271,14 @@ def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True):
         st.markdown(_table_html(rows, "One-Time Trip Fee"), unsafe_allow_html=True)
         return fee
     elif not is_fly and dr_cell:
-        fee = dr_cell.get("model_rate") or dr_cell.get("mean")
-        n   = dr_cell.get("n", 0)
-        rows = [("Drive Cost", f"{_fmt(fee)}/trip", f"IRS mileage + fuel  ·  N={n} trips")]
+        n = dr_cell.get("n", 0)
+        if dist_miles and dist_miles > 0:
+            fee    = round(dist_miles * 2 * IRS_RATE, 0)
+            detail = f"${IRS_RATE}/mi × {dist_miles:,.0f} mi × 2 (round trip)  ·  N={n} trips"
+        else:
+            fee    = dr_cell.get("model_rate") or dr_cell.get("mean")
+            detail = f"IRS mileage  ·  N={n} trips"
+        rows = [("Drive Cost", f"{_fmt(fee)}/trip", detail)]
         st.markdown(_table_html(rows, "One-Time Trip Fee"), unsafe_allow_html=True)
         return fee
     return None
@@ -1505,18 +1560,27 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
         mode_label = "Flight" if is_fly else "Car"
 
     with col_trip:
-        p_overnight, on_basis, on_confidence, on_n = get_overnight_probability(
-            classifier, customer_id, dist_miles, job_type_internal
-        )
-
-        if on_confidence == "HIGH":
-            suggestion = "overnight" if p_overnight >= 0.75 else "day_trip"
-        elif on_confidence == "MEDIUM":
-            if p_overnight >= 0.75:   suggestion = "overnight"
-            elif p_overnight <= 0.25: suggestion = "day_trip"
-            else:                     suggestion = "ambiguous"
+        if is_fly:
+            # Flight trips are almost always overnight — default to overnight.
+            # Classifier not run; override selector stays for rare edge cases.
+            p_overnight   = 1.0
+            on_basis      = "Flight trip — overnight assumed"
+            on_confidence = "HIGH"
+            on_n          = 0
+            suggestion    = "overnight"
         else:
-            suggestion = "ambiguous"
+            # Car trips: run classifier to determine day vs overnight
+            p_overnight, on_basis, on_confidence, on_n = get_overnight_probability(
+                classifier, customer_id, dist_miles, job_type_internal
+            )
+            if on_confidence == "HIGH":
+                suggestion = "overnight" if p_overnight >= 0.75 else "day_trip"
+            elif on_confidence == "MEDIUM":
+                if p_overnight >= 0.75:   suggestion = "overnight"
+                elif p_overnight <= 0.25: suggestion = "day_trip"
+                else:                     suggestion = "ambiguous"
+            else:
+                suggestion = "ambiguous"
 
         override = st.selectbox(
             "Trip Type",
@@ -1530,28 +1594,57 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
             else ("overnight" if override == "Overnight" else "day_trip")
         )
 
-        pill_pct  = p_overnight if final_trip != "day_trip" else (1 - p_overnight)
-        pill_text = "overnight" if final_trip != "day_trip" else "day trip"
-        pill_css  = (
-            "background:#dcfce7;color:#166534;border:1px solid #86efac"
-            if on_confidence == "HIGH"
-            else (
-                "background:#fef9c3;color:#854d0e;border:1px solid #fde047"
-                if on_confidence == "MEDIUM"
-                else "background:#f1f5f9;color:#475569;border:1px solid #cbd5e1"
+        if is_fly and final_trip != "day_trip":
+            # Flight + overnight (auto or manual) — clean static pill
+            st.markdown(
+                '<div style="background:#dcfce7;color:#166534;border:1px solid #86efac;'
+                'display:inline-block;border-radius:999px;padding:4px 12px;'
+                'font-size:13px;font-weight:600;margin-top:4px;">✈ Overnight assumed'
+                '<span style="font-weight:400;margin-left:6px;font-size:11px;'
+                'opacity:0.8;">HIGH</span></div>',
+                unsafe_allow_html=True,
             )
-        )
-        st.markdown(
-            f'<div style="{pill_css};display:inline-block;border-radius:999px;'
-            f'padding:4px 12px;font-size:13px;font-weight:600;margin-top:4px;">'
-            f'{pill_pct:.0%} likely {pill_text}'
-            f'<span style="font-weight:400;margin-left:6px;font-size:11px;opacity:0.8;">'
-            f'{on_confidence}</span></div>',
-            unsafe_allow_html=True,
-        )
-        st.caption(on_basis)
+            st.caption("Almost all flight trips are overnight. Override above if needed.")
+        elif is_fly and final_trip == "day_trip":
+            # Flight + day trip manual override — flag it
+            st.markdown(
+                '<div style="background:#fff7ed;color:#9a3412;border:1px solid #fdba74;'
+                'display:inline-block;border-radius:999px;padding:4px 12px;'
+                'font-size:13px;font-weight:600;margin-top:4px;">⚠ Day trip override'
+                '<span style="font-weight:400;margin-left:6px;font-size:11px;'
+                'opacity:0.8;">LOW</span></div>',
+                unsafe_allow_html=True,
+            )
+            st.caption("Flying for a day trip is unusual — verify with ops.")
+        else:
+            # Car trip — show classifier result
+            pill_pct  = p_overnight if final_trip != "day_trip" else (1 - p_overnight)
+            pill_text = "overnight" if final_trip != "day_trip" else "day trip"
+            pill_css  = (
+                "background:#dcfce7;color:#166534;border:1px solid #86efac"
+                if on_confidence == "HIGH"
+                else (
+                    "background:#fef9c3;color:#854d0e;border:1px solid #fde047"
+                    if on_confidence == "MEDIUM"
+                    else "background:#f1f5f9;color:#475569;border:1px solid #cbd5e1"
+                )
+            )
+            st.markdown(
+                f'<div style="{pill_css};display:inline-block;border-radius:999px;'
+                f'padding:4px 12px;font-size:13px;font-weight:600;margin-top:4px;">'
+                f'{pill_pct:.0%} likely {pill_text}'
+                f'<span style="font-weight:400;margin-left:6px;font-size:11px;opacity:0.8;">'
+                f'{on_confidence}</span></div>',
+                unsafe_allow_html=True,
+            )
+            st.caption(on_basis)
 
-    if final_trip == "day_trip" and dist_miles >= 300:
+    if final_trip == "day_trip" and is_fly:
+        st.warning(
+            "Day trip selected with flight mode — flying for a day trip is very unusual. "
+            "Verify before using this estimate."
+        )
+    elif final_trip == "day_trip" and dist_miles >= 300:
         st.warning(
             f"Day trip selected at {dist_miles:,.0f} miles — trips this long are almost always overnight. "
             "Verify before using this estimate."
@@ -1570,17 +1663,17 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
     # Apply geographic hotel-cost correction (GSA-based multiplier for destination)
     if geo_index and on_cell:
         cust_city = cust_display.get("city", "")
-        geo_mult, geo_label = get_hotel_geo_mult(
+        geo_mult, geo_label, gsa_rate = get_hotel_geo_mult(
             geo_index, customer_id, cust_city, cust_state
         )
-        on_cell = apply_geo_correction(on_cell, geo_mult, geo_label)
+        on_cell = apply_geo_correction(on_cell, geo_mult, geo_label, gsa_rate)
 
     daily_used = fee_used = None
     _cust_name = cust_display.get("name", "this customer")
 
     def _overnight(cell, nd):
         daily   = render_overnight_table(cell, dist_miles)
-        fee     = render_trip_fee(af_cell, dr_cell, is_fly)
+        fee     = render_trip_fee(af_cell, dr_cell, is_fly, dist_miles)
         fee_lbl = "airfare" if is_fly else "drive"
         bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
         render_total_box(daily, fee, fee_lbl, nd, rate_cell=cell, basis_text=bt)
@@ -1589,7 +1682,7 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
     def _day_trip(cell, nd):
         daily = render_day_trip_table(cell, dist_miles)
         if not is_fly:
-            fee = render_trip_fee(None, dr_cell, is_fly=False)
+            fee = render_trip_fee(None, dr_cell, is_fly=False, dist_miles=dist_miles)
         else:
             fee = None
             st.caption("Note: flying for a day trip is unusual — confirm with ops.")

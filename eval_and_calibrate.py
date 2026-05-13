@@ -33,6 +33,94 @@ CPI_FACTORS = {
 def cpi(y):
     return CPI_FACTORS.get(int(y), 1.0)
 
+# ── SQL data join (2026 actuals) ──────────────────────────────────────────────
+# Pulls ALL columns from the SQL view for 2026 rows and left-joins them onto df.
+# SQL columns are kept exactly as-is — no splitting or transforming.
+# total_trip_days still comes from master_trips_v3.csv (TimeClock unique calendar
+# dates — this field is not available in the SQL view).
+def _load_sql_expenses():
+    try:
+        import pyodbc
+        from db_config import SQL_USER, SQL_PASSWORD, DATABASE_NAME, SERVER_NAME, VIEW_NAME
+        conn_str = (
+            'DRIVER={ODBC Driver 17 for SQL Server};'
+            f'SERVER={SERVER_NAME};DATABASE={DATABASE_NAME};'
+            f'UID={SQL_USER};PWD={SQL_PASSWORD};'
+            'Encrypt=yes;TrustServerCertificate=no;'
+        )
+        conn = pyodbc.connect(conn_str, timeout=15)
+        sql_df = pd.read_sql(
+            f"SELECT * FROM {VIEW_NAME}"
+            f" WHERE YEAR(NeedBy) = 2026"
+            f" AND Status IN ('Invoiced','Closed')"
+            f" AND Type IN ('Service','Installation')",
+            conn
+        )
+        conn.close()
+        sql_df['TicketID']      = sql_df['TicketID'].astype(str).str.strip()
+        sql_df['AssignedAcuID'] = pd.to_numeric(sql_df['AssignedAcuID'], errors='coerce')
+        print(f"SQL data loaded: {len(sql_df)} 2026 rows, {len(sql_df.columns)} columns: "
+              f"{list(sql_df.columns)}")
+        return sql_df
+    except Exception as e:
+        print(f"WARNING: Could not load SQL data ({e}). Falling back to CSV.")
+        return None
+
+
+def attach_sql_data(df, sql_df):
+    """
+    Left-joins all SQL view columns onto df for 2026 rows.
+    SQL columns are prefixed with 'sql_' to avoid collisions with CSV columns.
+    No splitting, no transformation — values are exactly as they appear in the view.
+
+    Derived additions (not in view):
+      - 'expense_source'  : 'SQL' or 'CSV' per row
+      - 'sql_actual_total': LodgingAndMeals + AirfareAndFees + Transportation (SQL rows only)
+
+    is_fly_trip is also updated for SQL-matched rows: AirfareAndFees > 0.
+    """
+    if sql_df is None:
+        df['expense_source'] = 'CSV'
+        return df
+
+    df = df.copy()
+    df['Title']         = df['Title'].astype(str).str.strip()
+    df['AssignedAcuID'] = pd.to_numeric(df['AssignedAcuID'], errors='coerce')
+
+    # Rename all SQL columns with sql_ prefix; rename TicketID → Title for join
+    rename_map = {'TicketID': 'Title'}
+    for c in sql_df.columns:
+        if c not in ('TicketID', 'AssignedAcuID'):
+            rename_map[c] = f"sql_{c}"
+    sql_renamed = sql_df.rename(columns=rename_map)
+
+    merged = df.merge(sql_renamed, on=['Title', 'AssignedAcuID'], how='left')
+
+    lm_col = 'sql_LodgingAndMeals'
+    matched = merged[lm_col].notna() if lm_col in merged.columns else pd.Series(False, index=merged.index)
+
+    merged['expense_source'] = np.where(matched, 'SQL', 'CSV')
+
+    # Derived: SQL actual total (3 expense categories; CPI=1.0 for 2026)
+    if lm_col in merged.columns:
+        merged['sql_actual_total'] = np.where(
+            matched,
+            merged['sql_LodgingAndMeals'].fillna(0) +
+            merged['sql_AirfareAndFees'].fillna(0) +
+            merged['sql_Transportation'].fillna(0),
+            np.nan
+        )
+
+    # Update is_fly_trip from SQL for matched rows (AirfareAndFees > 0)
+    if 'sql_AirfareAndFees' in merged.columns:
+        merged.loc[matched, 'is_fly_trip'] = np.where(
+            merged.loc[matched, 'sql_AirfareAndFees'] > 0, 1, 0
+        )
+
+    print(f"SQL join: {matched.sum()} rows matched (SQL), "
+          f"{(~matched).sum()} rows unmatched (CSV fallback)")
+    return merged
+
 
 # ── Rate lookup helpers (mirrors app.py) ─────────────────────────────────────
 def fine_band(d):
@@ -97,19 +185,24 @@ def lookup_drive(rates, band):
 def run_evaluation(df, rates, label):
     """
     Handles overnight and day trips. Rows with no distance_band get prediction=None.
-    Returns DataFrame with predicted, actual, error columns.
+
+    Actual costs: for SQL-matched 2026 rows, uses sql_LodgingAndMeals +
+    sql_AirfareAndFees + sql_Transportation directly (view columns, as-is).
+    For CSV rows, falls back to individual exp_* columns.
+
+    is_fly_trip: already updated in df by attach_sql_data() for SQL rows.
     """
     rows = []
     for _, r in df.iterrows():
-        band      = r.get("distance_band")
-        seas      = r.get("season")
-        fly       = bool(r.get("is_fly_trip", 0) == 1)
-        cust      = str(r.get("CustomerIDAcu", "")).strip()
-        cust      = cust if cust not in ("", "nan", "None") else None
-        state     = r.get("State")
-        dist      = r.get("distance_miles")
-        days      = float(r["total_trip_days"]) if pd.notna(r["total_trip_days"]) and r["total_trip_days"] > 0 else None
-        is_overn  = bool(r.get("is_overnight", 0))
+        band     = r.get("distance_band")
+        seas     = r.get("season")
+        fly      = bool(r.get("is_fly_trip", 0) == 1)
+        cust     = str(r.get("CustomerIDAcu", "")).strip()
+        cust     = cust if cust not in ("", "nan", "None") else None
+        state    = r.get("State")
+        dist     = r.get("distance_miles")
+        days     = float(r["total_trip_days"]) if pd.notna(r.get("total_trip_days")) and r.get("total_trip_days", 0) > 0 else None
+        is_overn = bool(r.get("is_overnight", 0))
 
         if days is None:
             rate, fee, basis = None, 0.0, "No Days"
@@ -124,29 +217,30 @@ def run_evaluation(df, rates, label):
 
         pred_total = (rate * days + fee) if (rate is not None and days is not None) else None
 
-        sf = lambda x: float(x) if pd.notna(x) else 0.0
-        act_daily = sf(r["exp_hotel"]) + sf(r["exp_meals"]) + sf(r["exp_local_transport"])
-        act_fee   = sf(r["exp_airfare"]) if fly else sf(r["exp_fuel_tolls"])
-        act_total_nominal = act_daily + act_fee
-        act_total_cpi     = act_total_nominal * cpi(r["year"])
+        cf = cpi(r.get("year", 2026))
 
-        cf = cpi(r["year"])
+        # Actual total: prefer SQL columns (as-is from view) when available
+        use_sql = (r.get("expense_source") == "SQL" and
+                   pd.notna(r.get("sql_actual_total")))
+        if use_sql:
+            actual_total_cpi = float(r["sql_actual_total"]) * cf
+        else:
+            sf = lambda x: float(x) if pd.notna(x) else 0.0
+            act_daily = (sf(r.get("exp_hotel", 0)) + sf(r.get("exp_meals", 0)) +
+                         sf(r.get("exp_local_transport", 0)))
+            act_fee   = sf(r.get("exp_airfare", 0)) if fly else sf(r.get("exp_fuel_tolls", 0))
+            actual_total_cpi = (act_daily + act_fee) * cf
+
         rows.append({
-            "predicted_daily_rate":    rate,
-            "predicted_trip_fee":      fee,
-            "predicted_daily_total":   rate * days if (rate is not None and days is not None) else None,
-            "predicted_total":         pred_total,
-            "act_hotel_cpi":           sf(r["exp_hotel"])           * cf,
-            "act_meals_cpi":           sf(r["exp_meals"])           * cf,
-            "act_local_transport_cpi": sf(r["exp_local_transport"]) * cf,
-            "act_airfare_cpi":         sf(r["exp_airfare"])         * cf,
-            "act_fuel_tolls_cpi":      sf(r["exp_fuel_tolls"])      * cf,
-            "actual_total_cpi":        act_total_cpi,
-            "lookup_basis":            basis,
+            "predicted_daily_rate":  rate,
+            "predicted_trip_fee":    fee,
+            "predicted_daily_total": rate * days if (rate is not None and days is not None) else None,
+            "predicted_total":       pred_total,
+            "actual_total_cpi":      actual_total_cpi,
+            "lookup_basis":          basis,
         })
 
     pred_df = pd.DataFrame(rows, index=df.index)
-    out = pd.concat([df, pred_df], axis=1)
     # Keep all rows — even those with no prediction (missing band) or no expense data
     out = pd.concat([df, pred_df], axis=1).copy()
 
@@ -166,7 +260,7 @@ def run_evaluation(df, rates, label):
         out["error_dollars"].notna() & (out["error_dollars"] > 0), "Over",
         np.where(out["error_dollars"].notna(), "Under", "")
     )
-    out["is_long_trip"]  = out["is_overnight"].astype(bool) & (out["total_trip_days"] > LONG_TRIP_THRESHOLD)
+    out["is_long_trip"] = out["is_overnight"].astype(bool) & (out["total_trip_days"] > LONG_TRIP_THRESHOLD)
     return out
 
 
@@ -201,6 +295,10 @@ df   = pd.read_csv(PROJECT / "master_trips_v3.csv", low_memory=False)
 with open(PROJECT / "rate_table_v4.json") as f:
     rates = json.load(f)
 
+# Pull SQL data and join onto df (2026 rows only will match)
+sql_expenses = _load_sql_expenses()
+df = attach_sql_data(df, sql_expenses)
+
 # Base filter: overnight, non-zero expenses, valid days + distance
 def base_filter(df):
     return df[
@@ -225,7 +323,10 @@ def quality_flag(row):
         return "Day Trip"
     if row["total_trip_days"] > LONG_TRIP_THRESHOLD:
         return "Long Project (>21 days)"
-    if row.get("exp_total_non_labor", 0) == 0:
+    # Has expense data if SQL matched (sql_actual_total > 0) or CSV total > 0
+    sql_total = row.get("sql_actual_total", 0) or 0
+    csv_total = row.get("exp_total_non_labor", 0) or 0
+    if sql_total == 0 and csv_total == 0:
         return "No Expense Data (company card?)"
     if row["data_category"] == "E_complete":
         return "Clean"
@@ -384,34 +485,72 @@ print(hc[["Customer","N (in-sample)","Bias % (in-sample)","N (2026)","Bias % (20
 # ── Export model_eval_2026.xlsx ───────────────────────────────────────────────
 print("\nWriting model_eval_2026.xlsx...")
 
-# Sheet 1: Per Ticket
-ticket_cols = [
-    "Title", "CustomerName", "State", "distance_band", "season",
-    "total_trip_days",
-    "act_hotel_cpi", "act_meals_cpi", "act_local_transport_cpi",
-    "act_airfare_cpi", "act_fuel_tolls_cpi",
-    "actual_total_cpi",
-    "predicted_daily_total", "predicted_trip_fee", "predicted_total",
-    "error_dollars", "error_pct", "over_under",
-    "Data Quality", "lookup_basis",
-]
-ticket_cols = [c for c in ticket_cols if c in eval_2026.columns]
-ticket_df = eval_2026[ticket_cols].copy()
-col_names = [
-    "Ticket", "Customer", "State", "Distance Band", "Season",
-    "Total Trip Days",
-    "Actual Hotel ($)", "Actual Meals ($)", "Actual Local Transport ($)",
-    "Actual Airfare ($)", "Actual Fuel/Tolls ($)",
-    "Actual Total ($, 2025$)",
-    "Predicted Daily Cost ($)", "Predicted Trip Fee ($)", "Predicted Total ($)",
-    "Error ($)", "Error %", "Over/Under",
-    "Data Quality", "Lookup Basis",
-]
-ticket_df.columns = col_names[:len(ticket_cols)]
+# ── Sheet 1: Per Ticket — SQL view columns as-is, then derived, then model output
+#
+# Column layout:
+#   [1] SQL view columns  — exactly as they appear in vw_TicketSummary_Extended
+#   [2] CSV-derived info  — Title (Ticket ID), CustomerName, State, total_trip_days,
+#                           distance_band, season, is_fly_trip, Data Quality
+#   [3] Model predictions — predicted_daily_rate, predicted_daily_total,
+#                           predicted_trip_fee, predicted_total
+#   [4] Eval output       — actual_total_cpi (2025$), error_dollars, error_pct,
+#                           over_under, expense_source, lookup_basis
 
-# Track which expense columns to check for zero-highlighting
-EXPENSE_COLS = ["Actual Hotel ($)", "Actual Meals ($)", "Actual Local Transport ($)",
-                "Actual Airfare ($)", "Actual Fuel/Tolls ($)"]
+# ── [1] SQL view columns (sql_* prefix stripped; Title is the join key so skip it)
+# TotalExpenses excluded here — repositioned just before Actual Total for comparison
+sql_view_cols = [c for c in eval_2026.columns
+                 if c.startswith('sql_') and c not in ('sql_actual_total', 'sql_TotalExpenses')]
+sql_display_names = [c[4:] for c in sql_view_cols]   # strip 'sql_' prefix
+
+sql_part = eval_2026[sql_view_cols].rename(
+    columns=dict(zip(sql_view_cols, sql_display_names))
+)
+
+# ── [2] CSV-derived columns (skip any already shown in SQL part)
+already_in_sql = {n.lower() for n in sql_display_names}
+csv_candidates = [
+    ("Title",         "Ticket"),
+    ("CustomerName",  "Customer"),
+    ("State",         "State"),
+    ("total_trip_days", "Total Trip Days"),
+    ("distance_band", "Distance Band"),
+    ("season",        "Season"),
+    ("is_fly_trip",   "Fly Trip"),
+    ("Data Quality",  "Data Quality"),
+]
+csv_cols_raw  = [c for c, _ in csv_candidates
+                 if c.lower() not in already_in_sql and c in eval_2026.columns]
+csv_cols_disp = [d for c, d in csv_candidates
+                 if c.lower() not in already_in_sql and c in eval_2026.columns]
+
+csv_part = eval_2026[csv_cols_raw].rename(
+    columns=dict(zip(csv_cols_raw, csv_cols_disp))
+)
+
+# ── [3+4] Model + eval columns (TotalExpenses inserted just before Actual Total)
+model_cols_raw  = ["predicted_daily_rate", "predicted_daily_total",
+                   "predicted_trip_fee",   "predicted_total",
+                   "sql_TotalExpenses",    "actual_total_cpi",
+                   "error_dollars", "error_pct", "over_under",
+                   "expense_source", "lookup_basis"]
+model_cols_disp = ["Predicted Daily Rate ($)", "Predicted Daily Cost ($)",
+                   "Predicted Trip Fee ($)",   "Predicted Total ($)",
+                   "Total Expenses (SQL, $)",  "Actual Total ($, 2025$)",
+                   "Error ($)", "Error %", "Over/Under",
+                   "Expense Source", "Lookup Basis"]
+model_cols_raw  = [c for c in model_cols_raw if c in eval_2026.columns]
+model_cols_disp = model_cols_disp[:len(model_cols_raw)]
+
+model_part = eval_2026[model_cols_raw].rename(
+    columns=dict(zip(model_cols_raw, model_cols_disp))
+)
+
+ticket_df = pd.concat([sql_part, csv_part, model_part], axis=1)
+
+# For zero-highlighting: flag rows where SQL expense columns are all zero/null
+SQL_EXPENSE_COLS = [c for c in sql_display_names
+                    if c in ('LodgingAndMeals', 'AirfareAndFees', 'Transportation')]
+FALLBACK_EXPENSE_COLS = ["Actual Total ($, 2025$)"]  # used when no SQL expense cols
 
 # Sheet 2: Error Summary — stacked sections
 def stacked_summary(eval_df, insample_df):
@@ -465,28 +604,35 @@ def stacked_summary(eval_df, insample_df):
 summary_df = stacked_summary(eval_2026, eval_insample)
 
 from openpyxl.styles import PatternFill
-ZERO_FILL = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")  # amber yellow
-ZERO_CELL_FILL = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")  # red for the zero cell itself
+ZERO_FILL      = PatternFill(start_color="FFEB9C", end_color="FFEB9C", fill_type="solid")  # amber
+ZERO_CELL_FILL = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")  # red
+GREEN_FILL     = PatternFill(start_color="C6EFCE", end_color="C6EFCE", fill_type="solid")  # green
 
 with pd.ExcelWriter(PROJECT / "model_eval_2026.xlsx", engine="openpyxl") as w:
     ticket_df.to_excel(w, sheet_name="Per Ticket 2026", index=False)
     summary_df.to_excel(w, sheet_name="Error Summary", index=False)
 
-    # Highlight rows with zero/missing expenses
+    # Highlight rows based on expense data completeness
     ws = w.sheets["Per Ticket 2026"]
     headers = [cell.value for cell in ws[1]]
-    exp_col_indices = [headers.index(c) + 1 for c in EXPENSE_COLS if c in headers]
+
+    # Use SQL expense columns if present; fall back to Actual Total
+    check_cols = SQL_EXPENSE_COLS if SQL_EXPENSE_COLS else FALLBACK_EXPENSE_COLS
+    exp_col_indices = [headers.index(c) + 1 for c in check_cols if c in headers]
 
     for row in ws.iter_rows(min_row=2, max_row=ws.max_row):
+        if not exp_col_indices:
+            break
         zero_cells = [row[i - 1] for i in exp_col_indices
                       if row[i - 1].value is None or row[i - 1].value == 0]
-        if zero_cells:
-            # Tint the entire row amber
+        if len(zero_cells) == len(exp_col_indices):   # all expense cells zero/null → yellow
             for cell in row:
                 cell.fill = ZERO_FILL
-            # Extra red on the specific zero cells
             for cell in zero_cells:
                 cell.fill = ZERO_CELL_FILL
+        elif len(zero_cells) == 0:                     # all three present and non-zero → green
+            for cell in row:
+                cell.fill = GREEN_FILL
 
 print("  Saved model_eval_2026.xlsx")
 

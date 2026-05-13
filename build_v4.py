@@ -503,6 +503,28 @@ for (state, band, mode), grp in on_state_df.groupby(["customer_state", "distance
 
 print(f"State-level overnight cells:    {len(on_state_grp):,} states")
 
+# by_state_only and by_state_season_only (N >= 10, pooled across distance + mode)
+# Hotel and meals costs are not causally driven by distance or travel mode —
+# app.py assembles a hybrid cell: hotel+meals from here, transport from by_state_distance_mode.
+on_state_only = {}
+on_state_season_only = {}
+
+for state_val, grp in on_state_df.groupby("customer_state"):
+    if len(grp) >= 10:
+        cell = build_cell(grp, _gmults(grp))
+        if cell:
+            on_state_only[str(state_val)] = cell
+
+for (state_val, seas_val), grp in on_state_df.groupby(["customer_state", "season"]):
+    if len(grp) >= 10:
+        cell = build_cell(grp, _gmults(grp))
+        if cell:
+            on_state_season_only.setdefault(str(state_val), {})[str(seas_val)] = cell
+
+print(f"State-only cells (N>=10):        {len(on_state_only):,} states")
+print(f"State+season cells (N>=10):      {sum(len(v) for v in on_state_season_only.values()):,} combos "
+      f"across {len(on_state_season_only):,} states")
+
 # ---------------------------------------------------------------------------
 # Fine sub-bands for Under 300 drive overnight (systematic overestimate fix)
 # "Under 100" and "100-300" replace the single "Under 300" bucket here.
@@ -826,6 +848,9 @@ rate_table_v4 = {
         "by_customer":             by_customer,
         "by_customer_season":      by_customer_season,
         "by_state_distance_mode":  on_state_grp,
+        # State-level hotel+meals (pooled distance+mode, N≥10) — more data, causally valid
+        "by_state_season_only":    on_state_season_only,
+        "by_state_only":           on_state_only,
         "by_distance_season_mode": on_by_dsm,
         "by_distance_mode":        on_by_dm,
         "by_distance":             on_by_dist,
