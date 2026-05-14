@@ -1180,15 +1180,17 @@ def _table_html(rows, header, conf_level=None):
     )
 
 
-def render_overnight_table(cell, dist_miles):
+def render_overnight_table(cell, dist_miles, is_fly=False):
     if not cell:
         st.error("No rate data available for this scenario.")
         return None
 
     hotel_r  = cell.get("hotel_rate", 0) or 0
     meals_r  = cell.get("meals_rate", 0) or 0
-    trans_r  = cell.get("transport_rate", 0) or 0
-    total_r  = cell.get("total_rate") or (hotel_r + meals_r + trans_r)
+    # Car overnight: IRS mileage fee covers all driving — no local transport at destination.
+    # Flight overnight: tech needs rental/Uber at destination, use historical rate.
+    trans_r  = (cell.get("transport_rate", 0) or 0) if is_fly else 0
+    total_r  = hotel_r + meals_r + trans_r
     basis    = cell.get("basis", "—")
     n        = cell.get("n", 0)
     hotel_n  = cell.get("hotel_n", n)
@@ -1199,9 +1201,12 @@ def render_overnight_table(cell, dist_miles):
     trans_med  = cell.get("transport_median")
     trans_mean = cell.get("transport_mean", trans_r)
 
-    trans_note = "local transport mean"
-    if trans_med is not None and trans_mean and trans_med < trans_mean * 0.5:
-        trans_note = f"mean used (median ${trans_med:,.0f} suppressed by $0 filings)"
+    if is_fly:
+        trans_note = "local transport mean"
+        if trans_med is not None and trans_mean and trans_med < trans_mean * 0.5:
+            trans_note = f"mean used (median ${trans_med:,.0f} suppressed by $0 filings)"
+    else:
+        trans_note = "included in IRS drive fee"
 
     # Hotel row note — shows whether GSA floor or historical data was used
     geo_label       = cell.get("hotel_geo_label", "")
@@ -1232,14 +1237,16 @@ def render_overnight_table(cell, dist_miles):
     return total_r
 
 
-def render_day_trip_table(cell, dist_miles):
+def render_day_trip_table(cell, dist_miles, is_fly=False):
     if not cell:
         st.error("No rate data available for this scenario.")
         return None
 
     meals_r = cell.get("meals_rate", 0) or 0
-    trans_r = cell.get("transport_rate", 0) or 0
-    total_r = cell.get("total_rate") or (meals_r + trans_r)
+    # Car day trips: local transport is $0 — IRS mileage fee covers all driving.
+    # Flight day trips: tech needs rental/Uber at destination, use historical rate.
+    trans_r = (cell.get("transport_rate", 0) or 0) if is_fly else 0
+    total_r = meals_r + trans_r
     basis   = cell.get("basis", "—")
     n       = cell.get("n", 0)
     meals_n = cell.get("meals_n", n)
@@ -1247,16 +1254,16 @@ def render_day_trip_table(cell, dist_miles):
     p25     = cell.get("total_p25")
     p75     = cell.get("total_p75")
 
-    irs_floor = (dist_miles * 2 * IRS_RATE) if dist_miles and dist_miles > 0 else 0
-    trans_note = (
-        f"IRS floor {_fmt(irs_floor)} ({dist_miles:.0f} mi × 2 × ${IRS_RATE}/mi)"
-        if irs_floor > 0 else f"N={trans_n}"
-    )
+    if is_fly:
+        trans_note = f"N={trans_n}"
+    else:
+        trans_note = "included in IRS drive fee"
+
     range_str = f"  ·  range {_fmt(p25)}–{_fmt(p75)}/day" if (p25 and p75) else ""
     rows = [
-        ("Meals",     f"{_fmt(meals_r)}/day", f"N={meals_n}"),
-        ("Transport", f"{_fmt(trans_r)}/day", trans_note),
-        ("TOTAL",     f"{_fmt(total_r)}/day", f"{basis}{range_str}"),
+        ("Meals",           f"{_fmt(meals_r)}/day", f"N={meals_n}"),
+        ("Local Transport", f"{_fmt(trans_r)}/day", trans_note),
+        ("TOTAL",           f"{_fmt(total_r)}/day", f"{basis}{range_str}"),
     ]
     conf = rate_confidence(cell)
     st.markdown(_table_html(rows, f"Day Trip Rate  ·  N={n} trips", conf), unsafe_allow_html=True)
@@ -1673,7 +1680,7 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
     _cust_name = cust_display.get("name", "this customer")
 
     def _overnight(cell, nd):
-        daily   = render_overnight_table(cell, dist_miles)
+        daily   = render_overnight_table(cell, dist_miles, is_fly=is_fly)
         fee     = render_trip_fee(af_cell, dr_cell, is_fly, dist_miles)
         fee_lbl = "airfare" if is_fly else "drive"
         bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
@@ -1681,7 +1688,7 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
         return daily, fee
 
     def _day_trip(cell, nd):
-        daily = render_day_trip_table(cell, dist_miles)
+        daily = render_day_trip_table(cell, dist_miles, is_fly=is_fly)
         if not is_fly:
             fee = render_trip_fee(None, dr_cell, is_fly=False, dist_miles=dist_miles)
         else:
