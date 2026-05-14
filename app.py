@@ -14,7 +14,7 @@ from math import radians, sin, cos, sqrt, atan2
 from datetime import date
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IRS_RATE = 0.67  # $/mile
+IRS_RATE = 0.725  # $/mile (IRS 2025 rate)
 
 CANADIAN_PROVINCES = {"ON","BC","AB","QC","MB","SK","NS","NB","PE","NL","NT","YT","NU"}
 
