@@ -1,12 +1,15 @@
 """
 build_geo_index.py
 ==================
-Downloads GSA FY2026 per diem lodging rates and builds geo_index.json.
+Downloads GSA FY2026 per diem lodging + M&IE rates and builds geo_index.json.
 
 geo_index.json maps customer locations to a hotel cost multiplier relative
 to the national average, so build_v4.py can geo-normalize hotel costs before
 fitting rate cells — and app.py can re-apply the destination's local cost
 level at prediction time.
+
+Also stores gsa_meals (M&IE rate) per location so app.py can apply
+max(historical_meals, gsa_meals) as a floor — same pattern as hotel.
 
 Usage:
     python build_geo_index.py [--api-key YOUR_KEY]
@@ -33,6 +36,10 @@ PROJECT = Path("G:/After Sales Team/PROJECTS/per-diem-model")
 # FY2026: $110/night.
 GSA_STANDARD_RATE = 110
 
+# GSA standard M&IE rate for all locations without a specific city listing.
+# FY2025: $68/day.
+GSA_STANDARD_MEALS = 68
+
 CANADIAN_PROVINCES = {
     "ON", "BC", "AB", "QC", "MB", "SK", "NS", "NB",
     "PE", "NL", "NT", "YT", "NU",
@@ -52,10 +59,12 @@ US_STATES = [
 
 def fetch_gsa_rates(api_key: str, year: int = 2025) -> pd.DataFrame:
     """
-    Fetch GSA per diem lodging rates for all 50 US states + DC by making
+    Fetch GSA per diem lodging + M&IE rates for all 50 US states + DC by making
     one request per state (the state/all endpoint is broken in the v2 API).
-    Returns a flat DataFrame: state, city, county, is_standard, avg_lodging.
+    Returns a flat DataFrame: state, city, county, is_standard, avg_lodging, meals.
     avg_lodging is the average of the 12 monthly lodging values.
+    meals is the GSA M&IE rate (single value per city, no monthly variation).
+    AK and HI return empty from the API — filled with standard rates.
     """
     base = "https://api.gsa.gov/travel/perdiem/v2/rates/state/{state}/year/{year}"
     print(f"Fetching GSA FY{year} per diem rates (one request per state) ...")
@@ -70,6 +79,16 @@ def fetch_gsa_rates(api_key: str, year: int = 2025) -> pd.DataFrame:
         data         = resp.json()
         state_blocks = data.get("rates", [])
         if not state_blocks:
+            # AK and HI return empty — add a standard-rate placeholder
+            rows.append({
+                "state":       state,
+                "city":        "Standard Rate",
+                "county":      "",
+                "is_standard": True,
+                "avg_lodging": GSA_STANDARD_RATE,
+                "meals":       GSA_STANDARD_MEALS,
+            })
+            print(f"  {state}: no city data — using standard rate")
             continue
         # Per-state call returns one block in rates[]
         for entry in state_blocks[0].get("rate", []):
@@ -83,12 +102,14 @@ def fetch_gsa_rates(api_key: str, year: int = 2025) -> pd.DataFrame:
                 avg_lodging = round(sum(vals) / len(vals), 2) if vals else GSA_STANDARD_RATE
             else:
                 avg_lodging = GSA_STANDARD_RATE
+            meals = int(entry.get("meals", GSA_STANDARD_MEALS) or GSA_STANDARD_MEALS)
             rows.append({
                 "state":       state,
                 "city":        city,
                 "county":      county,
                 "is_standard": is_standard,
                 "avg_lodging": avg_lodging,
+                "meals":       meals,
             })
 
     df = pd.DataFrame(rows)
@@ -96,6 +117,7 @@ def fetch_gsa_rates(api_key: str, year: int = 2025) -> pd.DataFrame:
     non_std = df[~df["is_standard"]]
     print(f"  Non-standard (city-specific) entries: {len(non_std):,}")
     print(f"  Lodging rate range: ${df['avg_lodging'].min():.0f} – ${df['avg_lodging'].max():.0f}/night")
+    print(f"  M&IE rate range:    ${df['meals'].min():.0f} – ${df['meals'].max():.0f}/day")
     return df
 
 
@@ -105,58 +127,65 @@ def fetch_gsa_rates(api_key: str, year: int = 2025) -> pd.DataFrame:
 
 def build_city_state_lookup(gsa_df: pd.DataFrame) -> dict:
     """
-    city+state key (lowercase) → avg_lodging.
+    city+state key (lowercase) → {"lodging": avg_lodging, "meals": meals}.
     Includes both city name and county name keys for broader matching.
     """
     lookup = {}
     for _, row in gsa_df[~gsa_df["is_standard"]].iterrows():
-        state = row["state"].upper()
-        rate  = row["avg_lodging"]
+        state  = row["state"].upper()
+        entry  = {"lodging": row["avg_lodging"], "meals": int(row.get("meals", GSA_STANDARD_MEALS) or GSA_STANDARD_MEALS)}
         # City key
         if row["city"]:
             key = f"{row['city'].lower().strip()}_{state}"
             if key not in lookup:
-                lookup[key] = rate
+                lookup[key] = entry
         # County key (county seat often listed by county name)
         if row["county"]:
             key2 = f"{row['county'].lower().strip()}_{state}"
             if key2 not in lookup:
-                lookup[key2] = rate
+                lookup[key2] = entry
     return lookup
 
 
 def build_state_avg(gsa_df: pd.DataFrame) -> dict:
-    """state → average lodging of all city-specific (non-standard) entries."""
+    """state → {"lodging": avg_lodging, "meals": avg_meals} of all city-specific entries."""
     avgs = {}
     for state, grp in gsa_df[~gsa_df["is_standard"]].groupby("state"):
-        avgs[str(state).upper()] = round(float(grp["avg_lodging"].mean()), 2)
+        avgs[str(state).upper()] = {
+            "lodging": round(float(grp["avg_lodging"].mean()), 2),
+            "meals":   round(float(grp["meals"].mean()), 2),
+        }
     return avgs
 
 
 def match_location(city: str, state: str,
                    city_state_lookup: dict,
                    state_avg: dict,
-                   national_avg: float) -> tuple[float, str]:
+                   national_avg: float) -> tuple[float, int, str]:
     """
-    Return (gsa_rate, source_label) for a given city + state.
+    Return (gsa_lodging, gsa_meals, source_label) for a given city + state.
     Source priority: exact city → partial city → state average → national average.
     """
+    national_meals = GSA_STANDARD_MEALS
+
     if city and state:
         state_up  = state.upper().strip()
         city_low  = city.lower().strip()
         # Exact match
         exact_key = f"{city_low}_{state_up}"
         if exact_key in city_state_lookup:
-            return city_state_lookup[exact_key], "city_exact"
+            entry = city_state_lookup[exact_key]
+            return entry["lodging"], entry["meals"], "city_exact"
         # Partial match (city name is a substring of a GSA entry key)
         for k, v in city_state_lookup.items():
             if k.endswith(f"_{state_up}") and city_low in k:
-                return v, "city_partial"
+                return v["lodging"], v["meals"], "city_partial"
 
     if state and state.upper() in state_avg:
-        return state_avg[state.upper()], "state_avg"
+        entry = state_avg[state.upper()]
+        return entry["lodging"], round(entry["meals"]), "state_avg"
 
-    return national_avg, "national_avg"
+    return national_avg, national_meals, "national_avg"
 
 
 # ---------------------------------------------------------------------------
@@ -191,12 +220,13 @@ def map_customers(cust_df: pd.DataFrame,
                 "city":       city,
                 "state":      state,
                 "gsa_rate":   national_avg,
+                "gsa_meals":  GSA_STANDARD_MEALS,
                 "source":     "international",
             }
             source_counts["international"] = source_counts.get("international", 0) + 1
             continue
 
-        gsa_rate, source = match_location(
+        gsa_rate, gsa_meals, source = match_location(
             city, state, city_state_lookup, state_avg, national_avg
         )
         multiplier = round(gsa_rate / national_avg, 6)
@@ -206,6 +236,7 @@ def map_customers(cust_df: pd.DataFrame,
             "city":       city,
             "state":      state,
             "gsa_rate":   gsa_rate,
+            "gsa_meals":  gsa_meals,
             "source":     source,
         }
         source_counts[source] = source_counts.get(source, 0) + 1
@@ -320,12 +351,20 @@ def main():
 
     # 6. Build city_state and state entries (for manual customer lookups in app.py)
     by_city_state = {
-        k: {"multiplier": round(rate / national_avg, 6), "gsa_rate": rate}
-        for k, rate in city_state_lookup.items()
+        k: {
+            "multiplier": round(v["lodging"] / national_avg, 6),
+            "gsa_rate":   v["lodging"],
+            "gsa_meals":  v["meals"],
+        }
+        for k, v in city_state_lookup.items()
     }
     by_state_entry = {
-        st: {"multiplier": round(avg / national_avg, 6), "avg_rate": avg}
-        for st, avg in state_avg.items()
+        st: {
+            "multiplier": round(v["lodging"] / national_avg, 6),
+            "avg_rate":   v["lodging"],
+            "gsa_meals":  round(v["meals"]),
+        }
+        for st, v in state_avg.items()
     }
 
     # 7. Save geo_index.json

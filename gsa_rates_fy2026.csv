@@ -1,347 +1,349 @@
-state,city,county,is_standard,avg_lodging
-AL,Birmingham,Jefferson,False,126.0
-AL,Gulf Shores,Baldwin,False,154.92
-AL,Huntsville,Madison,False,138.67
-AL,Mobile,Mobile,False,114.0
-AL,Standard Rate,None,False,110.0
-AZ,Grand Canyon / Flagstaff,Coconino / Yavapai less the city of Sedona,False,132.67
-AZ,Kayenta,Navajo,False,145.0
-AZ,Phoenix / Scottsdale,Maricopa,False,159.92
-AZ,Sedona,City Limits of Sedona,False,205.0
-AZ,Standard Rate,None,False,110.0
-AZ,Tucson,Pima,False,135.0
-AR,Hot Springs,Garland,False,114.0
-AR,Standard Rate,None,False,110.0
-CA,Antioch / Brentwood / Concord,Contra Costa,False,147.0
-CA,Bakersfield / Ridgecrest,Kern,False,132.0
-CA,Barstow / Ontario / Victorville,San Bernardino,False,124.0
-CA,Death Valley,Inyo / NAWS China Lake,False,142.0
-CA,Eureka / Arcata / McKinleyville,Humboldt,False,136.75
-CA,Fresno,Fresno,False,129.0
-CA,Los Angeles,Los Angeles / Orange / Ventura / Edwards AFB less the city of Santa Monica,False,191.0
-CA,Mammoth Lakes,Mono,False,157.67
-CA,Mill Valley / San Rafael / Novato,Marin,False,160.33
-CA,Monterey,Monterey,False,209.0
-CA,Napa,Napa,False,233.67
-CA,Oakhurst,Madera,False,135.0
-CA,Oakland,Alameda,False,145.0
-CA,Palm Springs,Riverside,False,167.25
-CA,Point Arena / Gualala,Mendocino,False,129.0
-CA,Sacramento,Sacramento,False,150.0
-CA,San Diego,San Diego,False,205.33
-CA,San Francisco,San Francisco,False,263.33
-CA,San Luis Obispo,San Luis Obispo,False,169.67
-CA,San Mateo / Foster City / Belmont,San Mateo,False,183.0
-CA,Santa Barbara,Santa Barbara,False,214.5
-CA,Santa Cruz,Santa Cruz,False,148.25
-CA,Santa Monica,City limits of Santa Monica,False,273.0
-CA,Santa Rosa,Sonoma,False,157.0
-CA,South Lake Tahoe,El Dorado,False,184.17
-CA,Standard Rate,None,False,110.0
-CA,Stockton,San Joaquin,False,132.0
-CA,Sunnyvale / Palo Alto / San Jose,Santa Clara,False,192.0
-CA,Tahoe City,Placer,False,131.0
-CA,Truckee,Nevada,False,157.5
-CA,Visalia,Tulare,False,131.0
-CA,West Sacramento / Davis,Yolo,False,142.0
-CA,Yosemite National Park,Mariposa,False,188.33
-CO,Aspen,Pitkin,False,273.67
-CO,Boulder / Broomfield,Boulder / Broomfield,False,149.0
-CO,Colorado Springs,El Paso,False,134.25
-CO,Cortez,Montezuma,False,121.5
-CO,Crested Butte / Gunnison,Gunnison,False,154.0
-CO,Denver / Aurora,Denver / Adams / Arapahoe / Jefferson,False,194.17
-CO,Douglas,Douglas,False,118.75
-CO,Durango,La Plata,False,142.0
-CO,Fort Collins / Loveland,Larimer,False,117.5
-CO,Grand Lake,Grand,False,150.5
-CO,Montrose,Montrose,False,156.42
-CO,Silverthorne / Breckenridge,Summit,False,202.0
-CO,Standard Rate,None,False,110.0
-CO,Steamboat Springs,Routt,False,198.17
-CO,Telluride,San Miguel,False,239.33
-CO,Vail,Eagle,False,266.33
-CT,Bridgeport / Danbury,Fairfield,False,146.0
-CT,Hartford,Hartford,False,138.0
-CT,New Haven,New Haven,False,130.0
-CT,New London / Groton,New London,False,124.0
-CT,Standard Rate,None,False,110.0
-DE,Lewes,Sussex,False,148.25
-DE,Standard Rate,None,False,110.0
-DE,Wilmington,New Castle,False,127.0
-FL,Boca Raton / Delray Beach / Jupiter,Palm Beach / Hendry,False,183.67
-FL,Bradenton,Manatee,False,160.33
-FL,Cocoa Beach,Brevard,False,173.0
-FL,Daytona Beach,Volusia,False,135.17
-FL,Fort Lauderdale,Broward,False,177.25
-FL,Fort Myers,Lee,False,158.25
-FL,Fort Walton Beach / De Funiak Springs,Okaloosa / Walton,False,167.0
-FL,Gulf Breeze,Santa Rosa,False,148.25
-FL,Key West,Monroe,False,322.33
-FL,Miami,Miami-Dade,False,176.5
-FL,Naples,Collier,False,217.0
-FL,Orlando,Orange,False,147.25
-FL,Panama City,Bay,False,133.25
-FL,Pensacola,Escambia,False,138.92
-FL,Punta Gorda,Charlotte,False,135.33
-FL,Sarasota,Sarasota,False,154.17
-FL,Sebring,Highlands,False,141.5
-FL,St. Augustine,St. Johns,False,157.33
-FL,Standard Rate,None,False,110.0
-FL,Stuart,Martin,False,143.17
-FL,Tallahassee,Leon,False,121.33
-FL,Tampa / St. Petersburg,Pinellas / Hillsborough,False,161.0
-FL,Vero Beach,Indian River,False,213.5
-GA,Athens,Clarke,False,136.0
-GA,Atlanta,Fulton / Dekalb,False,185.75
-GA,Augusta,Richmond,False,122.5
-GA,Jekyll Island / Brunswick,Glynn,False,193.25
-GA,Marietta,Cobb,False,126.0
-GA,Savannah,Chatham,False,151.83
-GA,Standard Rate,None,False,110.0
-ID,Boise,Ada,False,177.0
-ID,Coeur d'Alene,Kootenai,False,160.75
-ID,Standard Rate,None,False,110.0
-ID,Sun Valley / Ketchum,Blaine / Elmore,False,260.33
-IL,Bolingbrook / Romeoville / Lemont,Will,False,114.0
-IL,Chicago,Cook / Lake,False,195.25
-IL,East St. Louis / O'Fallon / Fairview Heights,St. Clair,False,150.0
-IL,Oak Brook Terrace,DuPage,False,115.0
-IL,Standard Rate,None,False,110.0
-IN,Bloomington,Monroe,False,119.67
-IN,Indianapolis / Carmel,Marion / Hamilton,False,133.0
-IN,Lafayette / West Lafayette,Tippecanoe,False,126.33
-IN,Standard Rate,None,False,110.0
-IA,Dallas,Dallas,False,115.0
-IA,Des Moines,Polk,False,121.0
-IA,Standard Rate,None,False,110.0
-KS,Kansas City / Overland Park,Wyandotte / Johnson / Leavenworth,False,135.0
-KS,Standard Rate,None,False,110.0
-KY,Boone,Boone,False,116.0
-KY,Kenton,Kenton,False,163.0
-KY,Lexington,Fayette,False,118.0
-KY,Louisville,Jefferson,False,142.5
-KY,Standard Rate,None,False,110.0
-LA,Alexandria / Leesville / Natchitoches,Allen / Jefferson Davis / Natchitoches / Rapides / Vernon Parishes,False,112.0
-LA,New Orleans,Orleans / Jefferson Parishes,False,158.33
-LA,Standard Rate,None,False,110.0
-ME,Bar Harbor / Rockport,Hancock / Knox,False,193.5
-ME,Kennebunk / Kittery / Sanford,York,False,138.33
-ME,Portland,Cumberland / Sagadahoc,False,152.42
-ME,Standard Rate,None,False,110.0
-MD,Aberdeen / Bel Air / Belcamp,Harford,False,113.0
-MD,Annapolis,Anne Arundel,False,143.0
-MD,Baltimore City,Baltimore City,False,150.0
-MD,Cambridge / St. Michaels,Dorchester / Talbot,False,155.25
-MD,Centreville,Queen Anne,False,137.5
-MD,Columbia,Howard,False,113.0
-MD,District of Columbia,"Washington DC (also the cities of Alexandria, Falls Church and Fairfax, and the counties of Arlington and Fairfax, in Virginia; and the counties of Montgomery and Prince George's in Maryland)",False,233.67
-MD,Ocean City,Worcester,False,160.0
-MD,Standard Rate,None,False,110.0
-MA,Andover,Essex,False,137.0
-MA,Boston / Cambridge,"Suffolk, city of Cambridge",False,273.33
-MA,Burlington / Woburn,Middlesex less the city of Cambridge,False,161.0
-MA,Falmouth,City limits of Falmouth,False,160.5
-MA,Hyannis,Barnstable less the city of Falmouth,False,144.0
-MA,Martha's Vineyard,Dukes,False,284.67
-MA,Nantucket,Nantucket,False,273.67
-MA,Northampton,Hampshire,False,157.0
-MA,Pittsfield,Berkshire,False,143.0
-MA,Plymouth / Taunton / New Bedford,Plymouth / Bristol,False,126.0
-MA,Quincy,Norfolk,False,157.0
-MA,Springfield,Hampden,False,128.0
-MA,Standard Rate,None,False,110.0
-MA,Worcester,Worcester,False,135.0
-MI,Ann Arbor,Washtenaw,False,133.75
-MI,Detroit,Wayne,False,152.0
-MI,Grand Rapids,Kent,False,119.0
-MI,Holland,Ottawa,False,129.67
-MI,Mackinac Island,Mackinac,False,132.5
-MI,Midland,Midland,False,120.0
-MI,Muskegon,Muskegon,False,119.75
-MI,Petoskey,Emmet,False,151.17
-MI,Pontiac / Auburn Hills,Oakland,False,116.0
-MI,South Haven,Van Buren,False,118.0
-MI,Standard Rate,None,False,110.0
-MI,Traverse City,Grand Traverse,False,150.83
-MN,Duluth,St. Louis,False,184.42
-MN,Minneapolis / St. Paul,Hennepin / Ramsey,False,148.0
-MN,Rochester,Olmsted,False,127.0
-MN,Standard Rate,None,False,110.0
-MS,Oxford,Lafayette,False,127.0
-MS,Southaven,Desoto,False,126.0
-MS,Standard Rate,None,False,110.0
-MS,Starkville,Oktibbeha,False,125.0
-MO,Kansas City,Jackson / Clay / Cass / Platte,False,135.0
-MO,St. Louis,St. Louis / St. Louis City / St. Charles,False,150.0
-MO,Standard Rate,None,False,110.0
-MT,Big Sky / West Yellowstone/Gardiner,Gallatin/Park,False,220.67
-MT,Helena,Lewis and Clark,False,132.0
-MT,Kalispell/Whitefish,Flathead,False,151.0
-MT,Missoula,Missoula,False,151.67
-MT,Standard Rate,None,False,110.0
-NE,Omaha,Douglas,False,122.0
-NE,Standard Rate,None,False,110.0
-NV,Incline Village / Reno / Sparks,Washoe,False,145.67
-NV,Las Vegas,Clark,False,134.25
-NV,Standard Rate,None,False,110.0
-NH,Concord,Merrimack,False,124.0
-NH,Conway,Caroll,False,138.17
-NH,Durham,Strafford,False,129.5
-NH,Laconia,Belknap,False,157.5
-NH,Lebanon / Lincoln / West Lebanon,Grafton,False,156.58
-NH,Manchester,Hillsborough,False,130.0
-NH,Portsmouth,Rockingham,False,146.5
-NH,Standard Rate,None,False,110.0
-NJ,Cherry Hill / Moorestown,Camden / Burlington,False,112.0
-NJ,Eatontown / Freehold,Monmouth,False,146.0
-NJ,Edison / Piscataway,Middlesex,False,122.0
-NJ,Flemington,Hunterdon,False,124.0
-NJ,Newark,Essex / Bergen / Hudson / Passaic,False,156.0
-NJ,Parsippany,Morris,False,143.0
-NJ,Princeton / Trenton,Mercer,False,138.0
-NJ,Somerset,Somerset,False,138.0
-NJ,Springfield / Cranford / New Providence,Union,False,139.0
-NJ,Standard Rate,None,False,110.0
-NJ,Toms River,Ocean,False,173.83
-NM,Albuquerque,Bernalillo,False,144.0
-NM,Carlsbad,Eddy,False,155.0
-NM,Santa Fe,Santa Fe,False,155.33
-NM,Standard Rate,None,False,110.0
-NM,Taos,Taos,False,128.0
-NY,Albany,Albany,False,117.0
-NY,Binghamton,Broome,False,117.0
-NY,Buffalo,Erie,False,128.17
-NY,Floral Park / Garden City / Great Neck,Nassau,False,164.0
-NY,Glens Falls,Warren,False,128.5
-NY,Ithaca,Tompkins,False,144.0
-NY,Kingston,Ulster,False,139.0
-NY,Lake Placid,Essex,False,170.17
-NY,New York City,Bronx / Kings / New York / Queens / Richmond,False,277.0
-NY,Niagara Falls,Niagara,False,118.0
-NY,Nyack / Palisades,Rockland,False,129.0
-NY,Poughkeepsie,Dutchess,False,115.0
-NY,Riverhead / Ronkonkoma / Melville,Suffolk,False,155.0
-NY,Rochester,Monroe,False,132.0
-NY,Saratoga Springs / Schenectady,Saratoga / Schenectady,False,140.67
-NY,Standard Rate,None,False,110.0
-NY,Syracuse / Oswego,Onondaga / Oswego,False,122.0
-NY,Tarrytown / White Plains / New Rochelle,Westchester,False,161.0
-NY,Troy,Rensselaer,False,121.0
-NY,West Point,Orange,False,123.0
-NC,Asheville,Buncombe,False,125.25
-NC,Atlantic Beach / Morehead City,Carteret,False,141.33
-NC,Chapel Hill,Orange,False,140.0
-NC,Charlotte,Mecklenburg,False,131.0
-NC,Durham,Durham,False,121.0
-NC,Fayetteville,Cumberland,False,124.0
-NC,Greensboro,Guilford,False,119.33
-NC,Kill Devil Hills,Dare,False,172.75
-NC,Raleigh,Wake,False,131.0
-NC,Standard Rate,None,False,110.0
-NC,Wilmington,New Hanover,False,134.67
-ND,Standard Rate,None,False,110.0
-OH,Cincinnati,Hamilton / Clermont,False,163.0
-OH,Cleveland,Cuyahoga,False,159.0
-OH,Columbus,Franklin,False,131.0
-OH,Dayton / Fairborn,Greene / Montgomery,False,115.0
-OH,Hamilton,Butler / Warren,False,124.0
-OH,Sandusky,Erie,False,137.0
-OH,Standard Rate,None,False,110.0
-OK,Oklahoma City,Oklahoma,False,116.0
-OK,Standard Rate,None,False,110.0
-OR,Beaverton,Washington,False,132.0
-OR,Bend,Deschutes,False,141.75
-OR,Clackamas,Clackamas,False,136.0
-OR,Eugene / Florence,Lane,False,147.0
-OR,Lincoln City,Lincoln,False,127.83
-OR,Portland,Multnomah,False,155.0
-OR,Seaside,Clatsop,False,156.83
-OR,Standard Rate,None,False,110.0
-PA,Allentown / Easton / Bethlehem,Lehigh / Northampton,False,115.0
-PA,Bucks,Bucks,False,119.0
-PA,Chester / Radnor / Essington,Delaware,False,127.0
-PA,Gettysburg,Adams,False,117.0
-PA,Harrisburg,Dauphin  excluding Hershey,False,124.0
-PA,Hershey,Hershey,False,157.75
-PA,Lancaster,Lancaster,False,123.0
-PA,Malvern / Frazer / Berwyn,Chester,False,118.0
-PA,Montgomery,Montgomery,False,126.0
-PA,Philadelphia,Philadelphia,False,184.42
-PA,Pittsburgh,Allegheny,False,138.0
-PA,Reading,Berks,False,117.0
-PA,Standard Rate,None,False,110.0
-PA,State College,Centre,False,124.0
-RI,Jamestown / Middletown / Newport,Newport,False,185.58
-RI,Providence / Bristol,Providence / Bristol,False,154.0
-RI,Standard Rate,None,False,110.0
-SC,Charleston,Charleston / Berkeley / Dorchester,False,246.33
-SC,Columbia,Richland / Lexington,False,115.0
-SC,Hilton Head,Beaufort,False,168.5
-SC,Myrtle Beach,Horry,False,131.67
-SC,Standard Rate,None,False,110.0
-SD,Deadwood / Spearfish,Lawrence,False,125.0
-SD,Hot Springs,Fall River / Custer,False,127.0
-SD,Rapid City,Pennington,False,122.0
-SD,Standard Rate,None,False,110.0
-TN,Brentwood / Franklin,Williamson,False,130.0
-TN,Chattanooga,Hamilton,False,117.0
-TN,Knoxville,Knox,False,119.0
-TN,Memphis,Shelby,False,129.0
-TN,Nashville,Davidson,False,222.17
-TN,Standard Rate,None,False,110.0
-TX,Arlington / Fort Worth / Grapevine,Tarrant  / City of Grapevine,False,181.0
-TX,Austin,Travis,False,176.5
-TX,Big Spring,Howard,False,114.0
-TX,Dallas,Dallas,False,175.25
-TX,Galveston,Galveston,False,116.83
-TX,Houston,Montgomery / Fort Bend / Harris,False,128.0
-TX,Midland / Odessa,Midland / Andrews / Ector / Martin,False,128.5
-TX,Pecos,Reeves,False,121.0
-TX,Plano,Collin,False,123.0
-TX,San Antonio,Bexar,False,141.0
-TX,South Padre Island,Cameron,False,127.17
-TX,Standard Rate,None,False,110.0
-UT,Moab,Grand,False,171.83
-UT,Park City,Summit,False,308.33
-UT,Provo,Utah,False,117.0
-UT,Salt Lake City,Salt Lake / Tooele,False,142.0
-UT,Standard Rate,None,False,110.0
-VT,Burlington,Chittenden,False,165.0
-VT,Manchester,Bennington,False,181.0
-VT,Montpelier,Washington,False,182.0
-VT,Standard Rate,None,False,110.0
-VT,Stowe,Lamoille,False,175.75
-VT,White River Junction,Windsor,False,144.0
-VA,Blacksburg,Montgomery,False,122.0
-VA,Charlottesville,City of Charlottesville / Albemarle,False,136.0
-VA,District of Columbia,"Washington DC (also the cities of Alexandria, Falls Church and Fairfax, and the counties of Arlington and Fairfax, in Virginia; and the counties of Montgomery and Prince George's in Maryland)",False,233.67
-VA,Loudoun,Loudoun,False,115.0
-VA,Lynchburg,Campbell / Lynchburg City,False,114.17
-VA,Richmond,City of Richmond,False,157.0
-VA,Roanoke,City limits of Roanoke,False,119.0
-VA,Standard Rate,None,False,110.0
-VA,Virginia Beach,City of Virginia Beach,False,145.5
-VA,Wallops Island,Accomack,False,150.5
-VA,Williamsburg / York,James City / York Counties / City of Williamsburg,False,121.67
-WA,Everett / Lynnwood,Snohomish,False,119.75
-WA,Ocean Shores,Grays Harbor,False,113.67
-WA,Olympia / Tumwater,Thurston,False,149.25
-WA,Port Angeles / Port Townsend,Clallam / Jefferson,False,153.33
-WA,Richland / Pasco,Benton / Franklin,False,130.0
-WA,Seattle,King,False,208.0
-WA,Spokane,Spokane,False,126.0
-WA,Standard Rate,None,False,110.0
-WA,Tacoma,Pierce,False,136.0
-WA,Vancouver,Clark / Cowlitz / Skamania,False,155.0
-WV,Charles Town,Jefferson,False,122.0
-WV,Charleston,Kanawha,False,115.0
-WV,Standard Rate,None,False,110.0
-WI,Madison,Dane,False,124.0
-WI,Milwaukee,Milwaukee,False,140.0
-WI,Standard Rate,None,False,110.0
-WI,Sturgeon Bay,Door,False,119.58
-WY,Cody,Park,False,148.0
-WY,Jackson / Pinedale,Teton / Sublette,False,281.33
-WY,Standard Rate,None,False,110.0
-DC,District of Columbia,"Washington DC (also the cities of Alexandria, Falls Church and Fairfax, and the counties of Arlington and Fairfax, in Virginia; and the counties of Montgomery and Prince George's in Maryland)",False,233.67
+state,city,county,is_standard,avg_lodging,meals
+AL,Birmingham,Jefferson,False,126.0,80
+AL,Gulf Shores,Baldwin,False,154.92,74
+AL,Huntsville,Madison,False,138.67,74
+AL,Mobile,Mobile,False,114.0,74
+AL,Standard Rate,None,False,110.0,68
+AK,Standard Rate,,True,110.0,68
+AZ,Grand Canyon / Flagstaff,Coconino / Yavapai less the city of Sedona,False,132.67,80
+AZ,Kayenta,Navajo,False,145.0,74
+AZ,Phoenix / Scottsdale,Maricopa,False,159.92,86
+AZ,Sedona,City Limits of Sedona,False,205.0,92
+AZ,Standard Rate,None,False,110.0,68
+AZ,Tucson,Pima,False,135.0,80
+AR,Hot Springs,Garland,False,114.0,68
+AR,Standard Rate,None,False,110.0,68
+CA,Antioch / Brentwood / Concord,Contra Costa,False,147.0,86
+CA,Bakersfield / Ridgecrest,Kern,False,132.0,74
+CA,Barstow / Ontario / Victorville,San Bernardino,False,124.0,86
+CA,Death Valley,Inyo / NAWS China Lake,False,142.0,80
+CA,Eureka / Arcata / McKinleyville,Humboldt,False,136.75,86
+CA,Fresno,Fresno,False,129.0,86
+CA,Los Angeles,Los Angeles / Orange / Ventura / Edwards AFB less the city of Santa Monica,False,191.0,86
+CA,Mammoth Lakes,Mono,False,157.67,86
+CA,Mill Valley / San Rafael / Novato,Marin,False,160.33,92
+CA,Monterey,Monterey,False,209.0,92
+CA,Napa,Napa,False,233.67,92
+CA,Oakhurst,Madera,False,135.0,80
+CA,Oakland,Alameda,False,145.0,92
+CA,Palm Springs,Riverside,False,167.25,86
+CA,Point Arena / Gualala,Mendocino,False,129.0,86
+CA,Sacramento,Sacramento,False,150.0,86
+CA,San Diego,San Diego,False,205.33,86
+CA,San Francisco,San Francisco,False,263.33,92
+CA,San Luis Obispo,San Luis Obispo,False,169.67,86
+CA,San Mateo / Foster City / Belmont,San Mateo,False,183.0,86
+CA,Santa Barbara,Santa Barbara,False,214.5,92
+CA,Santa Cruz,Santa Cruz,False,148.25,86
+CA,Santa Monica,City limits of Santa Monica,False,273.0,92
+CA,Santa Rosa,Sonoma,False,157.0,86
+CA,South Lake Tahoe,El Dorado,False,184.17,86
+CA,Standard Rate,None,False,110.0,68
+CA,Stockton,San Joaquin,False,132.0,74
+CA,Sunnyvale / Palo Alto / San Jose,Santa Clara,False,192.0,92
+CA,Tahoe City,Placer,False,131.0,86
+CA,Truckee,Nevada,False,157.5,86
+CA,Visalia,Tulare,False,131.0,80
+CA,West Sacramento / Davis,Yolo,False,142.0,80
+CA,Yosemite National Park,Mariposa,False,188.33,86
+CO,Aspen,Pitkin,False,273.67,92
+CO,Boulder / Broomfield,Boulder / Broomfield,False,149.0,80
+CO,Colorado Springs,El Paso,False,134.25,86
+CO,Cortez,Montezuma,False,121.5,74
+CO,Crested Butte / Gunnison,Gunnison,False,154.0,86
+CO,Denver / Aurora,Denver / Adams / Arapahoe / Jefferson,False,194.17,92
+CO,Douglas,Douglas,False,118.75,80
+CO,Durango,La Plata,False,142.0,80
+CO,Fort Collins / Loveland,Larimer,False,117.5,80
+CO,Grand Lake,Grand,False,150.5,86
+CO,Montrose,Montrose,False,156.42,74
+CO,Silverthorne / Breckenridge,Summit,False,202.0,92
+CO,Standard Rate,None,False,110.0,68
+CO,Steamboat Springs,Routt,False,198.17,92
+CO,Telluride,San Miguel,False,239.33,92
+CO,Vail,Eagle,False,266.33,92
+CT,Bridgeport / Danbury,Fairfield,False,146.0,86
+CT,Hartford,Hartford,False,138.0,80
+CT,New Haven,New Haven,False,130.0,80
+CT,New London / Groton,New London,False,124.0,86
+CT,Standard Rate,None,False,110.0,68
+DE,Lewes,Sussex,False,148.25,74
+DE,Standard Rate,None,False,110.0,68
+DE,Wilmington,New Castle,False,127.0,74
+FL,Boca Raton / Delray Beach / Jupiter,Palm Beach / Hendry,False,183.67,86
+FL,Bradenton,Manatee,False,160.33,80
+FL,Cocoa Beach,Brevard,False,173.0,74
+FL,Daytona Beach,Volusia,False,135.17,80
+FL,Fort Lauderdale,Broward,False,177.25,86
+FL,Fort Myers,Lee,False,158.25,80
+FL,Fort Walton Beach / De Funiak Springs,Okaloosa / Walton,False,167.0,86
+FL,Gulf Breeze,Santa Rosa,False,148.25,74
+FL,Key West,Monroe,False,322.33,86
+FL,Miami,Miami-Dade,False,176.5,92
+FL,Naples,Collier,False,217.0,80
+FL,Orlando,Orange,False,147.25,80
+FL,Panama City,Bay,False,133.25,80
+FL,Pensacola,Escambia,False,138.92,74
+FL,Punta Gorda,Charlotte,False,135.33,74
+FL,Sarasota,Sarasota,False,154.17,86
+FL,Sebring,Highlands,False,141.5,74
+FL,St. Augustine,St. Johns,False,157.33,80
+FL,Standard Rate,None,False,110.0,68
+FL,Stuart,Martin,False,143.17,80
+FL,Tallahassee,Leon,False,121.33,80
+FL,Tampa / St. Petersburg,Pinellas / Hillsborough,False,161.0,80
+FL,Vero Beach,Indian River,False,213.5,74
+GA,Athens,Clarke,False,136.0,74
+GA,Atlanta,Fulton / Dekalb,False,185.75,86
+GA,Augusta,Richmond,False,122.5,74
+GA,Jekyll Island / Brunswick,Glynn,False,193.25,86
+GA,Marietta,Cobb,False,126.0,74
+GA,Savannah,Chatham,False,151.83,80
+GA,Standard Rate,None,False,110.0,68
+HI,Standard Rate,,True,110.0,68
+ID,Boise,Ada,False,177.0,86
+ID,Coeur d'Alene,Kootenai,False,160.75,74
+ID,Standard Rate,None,False,110.0,68
+ID,Sun Valley / Ketchum,Blaine / Elmore,False,260.33,80
+IL,Bolingbrook / Romeoville / Lemont,Will,False,114.0,74
+IL,Chicago,Cook / Lake,False,195.25,92
+IL,East St. Louis / O'Fallon / Fairview Heights,St. Clair,False,150.0,86
+IL,Oak Brook Terrace,DuPage,False,115.0,80
+IL,Standard Rate,None,False,110.0,68
+IN,Bloomington,Monroe,False,119.67,74
+IN,Indianapolis / Carmel,Marion / Hamilton,False,133.0,80
+IN,Lafayette / West Lafayette,Tippecanoe,False,126.33,74
+IN,Standard Rate,None,False,110.0,68
+IA,Dallas,Dallas,False,115.0,80
+IA,Des Moines,Polk,False,121.0,80
+IA,Standard Rate,None,False,110.0,68
+KS,Kansas City / Overland Park,Wyandotte / Johnson / Leavenworth,False,135.0,80
+KS,Standard Rate,None,False,110.0,68
+KY,Boone,Boone,False,116.0,68
+KY,Kenton,Kenton,False,163.0,86
+KY,Lexington,Fayette,False,118.0,80
+KY,Louisville,Jefferson,False,142.5,80
+KY,Standard Rate,None,False,110.0,68
+LA,Alexandria / Leesville / Natchitoches,Allen / Jefferson Davis / Natchitoches / Rapides / Vernon Parishes,False,112.0,68
+LA,New Orleans,Orleans / Jefferson Parishes,False,158.33,80
+LA,Standard Rate,None,False,110.0,68
+ME,Bar Harbor / Rockport,Hancock / Knox,False,193.5,92
+ME,Kennebunk / Kittery / Sanford,York,False,138.33,86
+ME,Portland,Cumberland / Sagadahoc,False,152.42,80
+ME,Standard Rate,None,False,110.0,68
+MD,Aberdeen / Bel Air / Belcamp,Harford,False,113.0,74
+MD,Annapolis,Anne Arundel,False,143.0,80
+MD,Baltimore City,Baltimore City,False,150.0,86
+MD,Cambridge / St. Michaels,Dorchester / Talbot,False,155.25,80
+MD,Centreville,Queen Anne,False,137.5,74
+MD,Columbia,Howard,False,113.0,86
+MD,District of Columbia,"Washington DC (also the cities of Alexandria, Falls Church and Fairfax, and the counties of Arlington and Fairfax, in Virginia; and the counties of Montgomery and Prince George's in Maryland)",False,233.67,92
+MD,Ocean City,Worcester,False,160.0,80
+MD,Standard Rate,None,False,110.0,68
+MA,Andover,Essex,False,137.0,80
+MA,Boston / Cambridge,"Suffolk, city of Cambridge",False,273.33,92
+MA,Burlington / Woburn,Middlesex less the city of Cambridge,False,161.0,86
+MA,Falmouth,City limits of Falmouth,False,160.5,86
+MA,Hyannis,Barnstable less the city of Falmouth,False,144.0,92
+MA,Martha's Vineyard,Dukes,False,284.67,92
+MA,Nantucket,Nantucket,False,273.67,92
+MA,Northampton,Hampshire,False,157.0,80
+MA,Pittsfield,Berkshire,False,143.0,86
+MA,Plymouth / Taunton / New Bedford,Plymouth / Bristol,False,126.0,80
+MA,Quincy,Norfolk,False,157.0,80
+MA,Springfield,Hampden,False,128.0,74
+MA,Standard Rate,None,False,110.0,68
+MA,Worcester,Worcester,False,135.0,80
+MI,Ann Arbor,Washtenaw,False,133.75,80
+MI,Detroit,Wayne,False,152.0,74
+MI,Grand Rapids,Kent,False,119.0,80
+MI,Holland,Ottawa,False,129.67,74
+MI,Mackinac Island,Mackinac,False,132.5,86
+MI,Midland,Midland,False,120.0,74
+MI,Muskegon,Muskegon,False,119.75,68
+MI,Petoskey,Emmet,False,151.17,86
+MI,Pontiac / Auburn Hills,Oakland,False,116.0,80
+MI,South Haven,Van Buren,False,118.0,68
+MI,Standard Rate,None,False,110.0,68
+MI,Traverse City,Grand Traverse,False,150.83,80
+MN,Duluth,St. Louis,False,184.42,86
+MN,Minneapolis / St. Paul,Hennepin / Ramsey,False,148.0,92
+MN,Rochester,Olmsted,False,127.0,80
+MN,Standard Rate,None,False,110.0,68
+MS,Oxford,Lafayette,False,127.0,68
+MS,Southaven,Desoto,False,126.0,68
+MS,Standard Rate,None,False,110.0,68
+MS,Starkville,Oktibbeha,False,125.0,68
+MO,Kansas City,Jackson / Clay / Cass / Platte,False,135.0,80
+MO,St. Louis,St. Louis / St. Louis City / St. Charles,False,150.0,86
+MO,Standard Rate,None,False,110.0,68
+MT,Big Sky / West Yellowstone/Gardiner,Gallatin/Park,False,220.67,80
+MT,Helena,Lewis and Clark,False,132.0,74
+MT,Kalispell/Whitefish,Flathead,False,151.0,80
+MT,Missoula,Missoula,False,151.67,74
+MT,Standard Rate,None,False,110.0,68
+NE,Omaha,Douglas,False,122.0,80
+NE,Standard Rate,None,False,110.0,68
+NV,Incline Village / Reno / Sparks,Washoe,False,145.67,80
+NV,Las Vegas,Clark,False,134.25,86
+NV,Standard Rate,None,False,110.0,68
+NH,Concord,Merrimack,False,124.0,74
+NH,Conway,Caroll,False,138.17,80
+NH,Durham,Strafford,False,129.5,74
+NH,Laconia,Belknap,False,157.5,74
+NH,Lebanon / Lincoln / West Lebanon,Grafton,False,156.58,74
+NH,Manchester,Hillsborough,False,130.0,74
+NH,Portsmouth,Rockingham,False,146.5,74
+NH,Standard Rate,None,False,110.0,68
+NJ,Cherry Hill / Moorestown,Camden / Burlington,False,112.0,80
+NJ,Eatontown / Freehold,Monmouth,False,146.0,86
+NJ,Edison / Piscataway,Middlesex,False,122.0,80
+NJ,Flemington,Hunterdon,False,124.0,80
+NJ,Newark,Essex / Bergen / Hudson / Passaic,False,156.0,86
+NJ,Parsippany,Morris,False,143.0,80
+NJ,Princeton / Trenton,Mercer,False,138.0,86
+NJ,Somerset,Somerset,False,138.0,80
+NJ,Springfield / Cranford / New Providence,Union,False,139.0,80
+NJ,Standard Rate,None,False,110.0,68
+NJ,Toms River,Ocean,False,173.83,74
+NM,Albuquerque,Bernalillo,False,144.0,80
+NM,Carlsbad,Eddy,False,155.0,74
+NM,Santa Fe,Santa Fe,False,155.33,80
+NM,Standard Rate,None,False,110.0,68
+NM,Taos,Taos,False,128.0,74
+NY,Albany,Albany,False,117.0,86
+NY,Binghamton,Broome,False,117.0,74
+NY,Buffalo,Erie,False,128.17,80
+NY,Floral Park / Garden City / Great Neck,Nassau,False,164.0,86
+NY,Glens Falls,Warren,False,128.5,86
+NY,Ithaca,Tompkins,False,144.0,80
+NY,Kingston,Ulster,False,139.0,86
+NY,Lake Placid,Essex,False,170.17,86
+NY,New York City,Bronx / Kings / New York / Queens / Richmond,False,277.0,92
+NY,Niagara Falls,Niagara,False,118.0,80
+NY,Nyack / Palisades,Rockland,False,129.0,80
+NY,Poughkeepsie,Dutchess,False,115.0,80
+NY,Riverhead / Ronkonkoma / Melville,Suffolk,False,155.0,86
+NY,Rochester,Monroe,False,132.0,80
+NY,Saratoga Springs / Schenectady,Saratoga / Schenectady,False,140.67,80
+NY,Standard Rate,None,False,110.0,68
+NY,Syracuse / Oswego,Onondaga / Oswego,False,122.0,80
+NY,Tarrytown / White Plains / New Rochelle,Westchester,False,161.0,92
+NY,Troy,Rensselaer,False,121.0,80
+NY,West Point,Orange,False,123.0,80
+NC,Asheville,Buncombe,False,125.25,80
+NC,Atlantic Beach / Morehead City,Carteret,False,141.33,74
+NC,Chapel Hill,Orange,False,140.0,80
+NC,Charlotte,Mecklenburg,False,131.0,80
+NC,Durham,Durham,False,121.0,74
+NC,Fayetteville,Cumberland,False,124.0,68
+NC,Greensboro,Guilford,False,119.33,74
+NC,Kill Devil Hills,Dare,False,172.75,74
+NC,Raleigh,Wake,False,131.0,74
+NC,Standard Rate,None,False,110.0,68
+NC,Wilmington,New Hanover,False,134.67,74
+ND,Standard Rate,None,False,110.0,68
+OH,Cincinnati,Hamilton / Clermont,False,163.0,86
+OH,Cleveland,Cuyahoga,False,159.0,80
+OH,Columbus,Franklin,False,131.0,80
+OH,Dayton / Fairborn,Greene / Montgomery,False,115.0,74
+OH,Hamilton,Butler / Warren,False,124.0,74
+OH,Sandusky,Erie,False,137.0,68
+OH,Standard Rate,None,False,110.0,68
+OK,Oklahoma City,Oklahoma,False,116.0,80
+OK,Standard Rate,None,False,110.0,68
+OR,Beaverton,Washington,False,132.0,80
+OR,Bend,Deschutes,False,141.75,86
+OR,Clackamas,Clackamas,False,136.0,80
+OR,Eugene / Florence,Lane,False,147.0,80
+OR,Lincoln City,Lincoln,False,127.83,92
+OR,Portland,Multnomah,False,155.0,86
+OR,Seaside,Clatsop,False,156.83,86
+OR,Standard Rate,None,False,110.0,68
+PA,Allentown / Easton / Bethlehem,Lehigh / Northampton,False,115.0,74
+PA,Bucks,Bucks,False,119.0,80
+PA,Chester / Radnor / Essington,Delaware,False,127.0,80
+PA,Gettysburg,Adams,False,117.0,68
+PA,Harrisburg,Dauphin  excluding Hershey,False,124.0,74
+PA,Hershey,Hershey,False,157.75,80
+PA,Lancaster,Lancaster,False,123.0,74
+PA,Malvern / Frazer / Berwyn,Chester,False,118.0,80
+PA,Montgomery,Montgomery,False,126.0,80
+PA,Philadelphia,Philadelphia,False,184.42,92
+PA,Pittsburgh,Allegheny,False,138.0,80
+PA,Reading,Berks,False,117.0,74
+PA,Standard Rate,None,False,110.0,68
+PA,State College,Centre,False,124.0,74
+RI,Jamestown / Middletown / Newport,Newport,False,185.58,80
+RI,Providence / Bristol,Providence / Bristol,False,154.0,80
+RI,Standard Rate,None,False,110.0,68
+SC,Charleston,Charleston / Berkeley / Dorchester,False,246.33,92
+SC,Columbia,Richland / Lexington,False,115.0,74
+SC,Hilton Head,Beaufort,False,168.5,80
+SC,Myrtle Beach,Horry,False,131.67,74
+SC,Standard Rate,None,False,110.0,68
+SD,Deadwood / Spearfish,Lawrence,False,125.0,80
+SD,Hot Springs,Fall River / Custer,False,127.0,74
+SD,Rapid City,Pennington,False,122.0,74
+SD,Standard Rate,None,False,110.0,68
+TN,Brentwood / Franklin,Williamson,False,130.0,86
+TN,Chattanooga,Hamilton,False,117.0,74
+TN,Knoxville,Knox,False,119.0,74
+TN,Memphis,Shelby,False,129.0,74
+TN,Nashville,Davidson,False,222.17,86
+TN,Standard Rate,None,False,110.0,68
+TX,Arlington / Fort Worth / Grapevine,Tarrant  / City of Grapevine,False,181.0,80
+TX,Austin,Travis,False,176.5,80
+TX,Big Spring,Howard,False,114.0,68
+TX,Dallas,Dallas,False,175.25,80
+TX,Galveston,Galveston,False,116.83,74
+TX,Houston,Montgomery / Fort Bend / Harris,False,128.0,80
+TX,Midland / Odessa,Midland / Andrews / Ector / Martin,False,128.5,74
+TX,Pecos,Reeves,False,121.0,74
+TX,Plano,Collin,False,123.0,80
+TX,San Antonio,Bexar,False,141.0,74
+TX,South Padre Island,Cameron,False,127.17,74
+TX,Standard Rate,None,False,110.0,68
+UT,Moab,Grand,False,171.83,86
+UT,Park City,Summit,False,308.33,92
+UT,Provo,Utah,False,117.0,74
+UT,Salt Lake City,Salt Lake / Tooele,False,142.0,80
+UT,Standard Rate,None,False,110.0,68
+VT,Burlington,Chittenden,False,165.0,86
+VT,Manchester,Bennington,False,181.0,86
+VT,Montpelier,Washington,False,182.0,74
+VT,Standard Rate,None,False,110.0,68
+VT,Stowe,Lamoille,False,175.75,86
+VT,White River Junction,Windsor,False,144.0,86
+VA,Blacksburg,Montgomery,False,122.0,68
+VA,Charlottesville,City of Charlottesville / Albemarle,False,136.0,80
+VA,District of Columbia,"Washington DC (also the cities of Alexandria, Falls Church and Fairfax, and the counties of Arlington and Fairfax, in Virginia; and the counties of Montgomery and Prince George's in Maryland)",False,233.67,92
+VA,Loudoun,Loudoun,False,115.0,80
+VA,Lynchburg,Campbell / Lynchburg City,False,114.17,68
+VA,Richmond,City of Richmond,False,157.0,80
+VA,Roanoke,City limits of Roanoke,False,119.0,74
+VA,Standard Rate,None,False,110.0,68
+VA,Virginia Beach,City of Virginia Beach,False,145.5,74
+VA,Wallops Island,Accomack,False,150.5,68
+VA,Williamsburg / York,James City / York Counties / City of Williamsburg,False,121.67,80
+WA,Everett / Lynnwood,Snohomish,False,119.75,86
+WA,Ocean Shores,Grays Harbor,False,113.67,86
+WA,Olympia / Tumwater,Thurston,False,149.25,80
+WA,Port Angeles / Port Townsend,Clallam / Jefferson,False,153.33,92
+WA,Richland / Pasco,Benton / Franklin,False,130.0,86
+WA,Seattle,King,False,208.0,92
+WA,Spokane,Spokane,False,126.0,86
+WA,Standard Rate,None,False,110.0,68
+WA,Tacoma,Pierce,False,136.0,86
+WA,Vancouver,Clark / Cowlitz / Skamania,False,155.0,86
+WV,Charles Town,Jefferson,False,122.0,68
+WV,Charleston,Kanawha,False,115.0,68
+WV,Standard Rate,None,False,110.0,68
+WI,Madison,Dane,False,124.0,80
+WI,Milwaukee,Milwaukee,False,140.0,80
+WI,Standard Rate,None,False,110.0,68
+WI,Sturgeon Bay,Door,False,119.58,80
+WY,Cody,Park,False,148.0,74
+WY,Jackson / Pinedale,Teton / Sublette,False,281.33,92
+WY,Standard Rate,None,False,110.0,68
+DC,District of Columbia,"Washington DC (also the cities of Alexandria, Falls Church and Fairfax, and the counties of Arlington and Fairfax, in Virginia; and the counties of Montgomery and Prince George's in Maryland)",False,233.67,92

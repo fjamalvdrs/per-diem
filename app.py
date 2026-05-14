@@ -216,74 +216,81 @@ _GLOBAL_CSS = """
 
 def get_hotel_geo_mult(geo_index: dict, cust_id=None, city=None, state=None) -> tuple:
     """
-    Return (multiplier, display_label, gsa_rate) for a destination.
+    Return (multiplier, display_label, gsa_rate, gsa_meals) for a destination.
     multiplier > 1.0 = expensive area, < 1.0 = cheaper area.
-    gsa_rate = raw GSA lodging per diem for the destination (used as hotel floor).
+    gsa_rate  = raw GSA lodging per diem for the destination (used as hotel floor).
+    gsa_meals = GSA M&IE rate for the destination (used as meals floor).
     """
     CANADIAN_PROVINCES = {"ON","BC","AB","QC","MB","SK","NS","NB","PE","NL","NT","YT","NU"}
     if state and state.upper() in CANADIAN_PROVINCES:
-        return 1.0, "", None  # no GSA floor for international
+        return 1.0, "", None, None  # no GSA floor for international
 
     by_cust = geo_index.get("by_customer", {})
     if cust_id and str(cust_id) in by_cust:
-        entry    = by_cust[str(cust_id)]
-        mult     = float(entry.get("multiplier", 1.0))
-        gsa_rate = entry.get("gsa_rate")
-        src      = entry.get("source", "")
+        entry     = by_cust[str(cust_id)]
+        mult      = float(entry.get("multiplier", 1.0))
+        gsa_rate  = entry.get("gsa_rate")
+        gsa_meals = entry.get("gsa_meals")
+        src       = entry.get("source", "")
         if src in ("city_exact", "city_partial"):
             label = f"{entry.get('city','')}, {entry.get('state','')} · {mult:.2f}×"
         elif src == "state_avg":
             label = f"{entry.get('state','')} avg · {mult:.2f}×"
         else:
             label = ""
-        return mult, label, gsa_rate
+        return mult, label, gsa_rate, gsa_meals
 
     by_city = geo_index.get("by_city_state", {})
     if city and state:
         key = f"{city.lower().strip()}_{state.upper().strip()}"
         if key in by_city:
-            entry    = by_city[key]
-            mult     = float(entry["multiplier"])
-            gsa_rate = entry.get("gsa_rate")
-            return mult, f"{city}, {state} · {mult:.2f}×", gsa_rate
+            entry     = by_city[key]
+            mult      = float(entry["multiplier"])
+            gsa_rate  = entry.get("gsa_rate")
+            gsa_meals = entry.get("gsa_meals")
+            return mult, f"{city}, {state} · {mult:.2f}×", gsa_rate, gsa_meals
 
     by_state = geo_index.get("by_state", {})
     if state and state.upper() in by_state:
-        entry    = by_state[state.upper()]
-        mult     = float(entry["multiplier"])
-        gsa_rate = entry.get("avg_rate")
-        return mult, f"{state} avg · {mult:.2f}×", gsa_rate
+        entry     = by_state[state.upper()]
+        mult      = float(entry["multiplier"])
+        gsa_rate  = entry.get("avg_rate")
+        gsa_meals = entry.get("gsa_meals")
+        return mult, f"{state} avg · {mult:.2f}×", gsa_rate, gsa_meals
 
     # Unknown US location — floor at national average
     national_avg = geo_index.get("national_avg_lodging", 145.18)
-    return 1.0, "", national_avg
+    return 1.0, "", national_avg, None
 
 
 def apply_geo_correction(cell: dict, geo_mult: float, geo_label: str = "",
-                         gsa_rate: float = None) -> dict:
+                         gsa_rate: float = None, gsa_meals: float = None) -> dict:
     """
-    Return a new cell dict with hotel_rate adjusted for location and floored at GSA rate.
+    Return a new cell dict with hotel and meals adjusted for destination GSA rates.
 
-    Two adjustments applied in order:
+    Hotel:
       1. Geo-scale: hotel_base × geo_mult  (location cost adjustment)
-      2. GSA floor: max(geo-scaled, gsa_rate)  (guards against company-card data gap)
+      2. GSA floor: max(geo-scaled, gsa_rate)
 
-    Only hotel is adjusted — meals and transport are not location-sensitive enough.
+    Meals:
+      GSA floor: max(historical_meals, gsa_meals)
+      (M&IE rate varies by city — e.g. $68 standard, $92 in San Francisco)
     """
     if not cell:
         return cell
-    # Skip only when no geo data AND no GSA rate to floor against
-    if abs(geo_mult - 1.0) < 0.001 and not gsa_rate:
+    if abs(geo_mult - 1.0) < 0.001 and not gsa_rate and not gsa_meals:
         return cell
 
     c = dict(cell)
+
+    # ── Hotel correction ─────────────────────────────────────────────────────
     hotel_base = c.get("hotel_rate") or 0
-    hotel_hist = round(hotel_base * geo_mult, 2)      # geo-adjusted historical
+    hotel_hist = round(hotel_base * geo_mult, 2)
     gsa_floor  = round(float(gsa_rate), 2) if (gsa_rate and gsa_rate > 0) else 0
 
-    hotel_final      = max(hotel_hist, gsa_floor)
-    used_gsa_floor   = bool(gsa_floor > 0 and hotel_final > hotel_hist + 0.50)
-    delta            = hotel_final - hotel_base
+    hotel_final    = max(hotel_hist, gsa_floor)
+    used_gsa_floor = bool(gsa_floor > 0 and hotel_final > hotel_hist + 0.50)
+    hotel_delta    = hotel_final - hotel_base
 
     c["hotel_rate"]            = round(hotel_final, 2)
     c["hotel_rate_base"]       = round(hotel_base, 2)
@@ -292,17 +299,32 @@ def apply_geo_correction(cell: dict, geo_mult: float, geo_label: str = "",
     c["hotel_used_gsa_floor"]  = used_gsa_floor
     c["hotel_geo_mult"]        = round(geo_mult, 4)
     c["hotel_geo_label"]       = geo_label
-    c["total_rate"]            = round(
+
+    # ── Meals correction ─────────────────────────────────────────────────────
+    meals_base  = c.get("meals_rate") or 0
+    meals_floor = round(float(gsa_meals), 2) if (gsa_meals and gsa_meals > 0) else 0
+    meals_final = max(meals_base, meals_floor)
+    used_meals_floor = bool(meals_floor > 0 and meals_final > meals_base + 0.50)
+    meals_delta = meals_final - meals_base
+
+    c["meals_rate"]              = round(meals_final, 2)
+    c["meals_rate_historical"]   = round(meals_base, 2)
+    c["meals_rate_gsa"]          = meals_floor if meals_floor > 0 else None
+    c["meals_used_gsa_floor"]    = used_meals_floor
+
+    # ── Recompute total ───────────────────────────────────────────────────────
+    total_delta = hotel_delta + meals_delta
+    c["total_rate"] = round(
         hotel_final
-        + (c.get("meals_rate") or 0)
+        + meals_final
         + (c.get("transport_rate") or 0),
         2,
     )
-    # Shift p25/p75 by the full hotel delta (preserves width of range)
+    # Shift p25/p75 by the full delta (preserves width of range)
     if c.get("total_p25") is not None:
-        c["total_p25"] = round(c["total_p25"] + delta, 2)
+        c["total_p25"] = round(c["total_p25"] + total_delta, 2)
     if c.get("total_p75") is not None:
-        c["total_p75"] = round(c["total_p75"] + delta, 2)
+        c["total_p75"] = round(c["total_p75"] + total_delta, 2)
     return c
 
 
@@ -1208,6 +1230,15 @@ def render_overnight_table(cell, dist_miles, is_fly=False):
     else:
         trans_note = "included in IRS drive fee"
 
+    meals_hist = cell.get("meals_rate_historical")
+    meals_gsa  = cell.get("meals_rate_gsa")
+    if cell.get("meals_used_gsa_floor") and meals_gsa:
+        meals_note = f"GSA floor ${meals_gsa:,.0f}"
+        if meals_hist is not None:
+            meals_note += f" (hist. ${meals_hist:,.0f})"
+    else:
+        meals_note = f"N={meals_n}"
+
     # Hotel row note — shows whether GSA floor or historical data was used
     geo_label       = cell.get("hotel_geo_label", "")
     used_gsa_floor  = cell.get("hotel_used_gsa_floor", False)
@@ -1228,7 +1259,7 @@ def render_overnight_table(cell, dist_miles, is_fly=False):
     range_str = f"  ·  range {_fmt(p25)}–{_fmt(p75)}/day" if (p25 and p75) else ""
     rows = [
         ("Hotel",           f"{_fmt(hotel_r)}/day", hotel_note),
-        ("Meals",           f"{_fmt(meals_r)}/day", f"N={meals_n}"),
+        ("Meals",           f"{_fmt(meals_r)}/day", meals_note),
         ("Local Transport", f"{_fmt(trans_r)}/day", trans_note),
         ("TOTAL",           f"{_fmt(total_r)}/day", f"{basis}{range_str}"),
     ]
@@ -1259,9 +1290,18 @@ def render_day_trip_table(cell, dist_miles, is_fly=False):
     else:
         trans_note = "included in IRS drive fee"
 
+    meals_hist = cell.get("meals_rate_historical")
+    meals_gsa  = cell.get("meals_rate_gsa")
+    if cell.get("meals_used_gsa_floor") and meals_gsa:
+        meals_note = f"GSA floor ${meals_gsa:,.0f}"
+        if meals_hist is not None:
+            meals_note += f" (hist. ${meals_hist:,.0f})"
+    else:
+        meals_note = f"N={meals_n}"
+
     range_str = f"  ·  range {_fmt(p25)}–{_fmt(p75)}/day" if (p25 and p75) else ""
     rows = [
-        ("Meals",           f"{_fmt(meals_r)}/day", f"N={meals_n}"),
+        ("Meals",           f"{_fmt(meals_r)}/day", meals_note),
         ("Local Transport", f"{_fmt(trans_r)}/day", trans_note),
         ("TOTAL",           f"{_fmt(total_r)}/day", f"{basis}{range_str}"),
     ]
@@ -1668,13 +1708,16 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
     af_cell  = lookup_airfare(rates, band, seas) if is_fly else None
     dr_cell  = lookup_drive(rates, band)         if not is_fly else None
 
-    # Apply geographic hotel-cost correction (GSA-based multiplier for destination)
-    if geo_index and on_cell:
+    # Apply geographic GSA correction — hotel multiplier + meals/hotel floors
+    if geo_index:
         cust_city = cust_display.get("city", "")
-        geo_mult, geo_label, gsa_rate = get_hotel_geo_mult(
+        geo_mult, geo_label, gsa_rate, gsa_meals = get_hotel_geo_mult(
             geo_index, customer_id, cust_city, cust_state
         )
-        on_cell = apply_geo_correction(on_cell, geo_mult, geo_label, gsa_rate)
+        if on_cell:
+            on_cell  = apply_geo_correction(on_cell,  geo_mult, geo_label, gsa_rate, gsa_meals)
+        if day_cell:
+            day_cell = apply_geo_correction(day_cell, 1.0, geo_label, None, gsa_meals)
 
     daily_used = fee_used = None
     _cust_name = cust_display.get("name", "this customer")
