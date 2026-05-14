@@ -490,6 +490,21 @@ def load_master():
     df["trip_start_date"] = pd.to_datetime(df["trip_start_date"], errors="coerce")
     return df
 
+@st.cache_data
+def load_gsa_meals_by_state():
+    """State → avg GSA M&IE rate from gsa_rates_fy2026.csv.
+    Falls back to $68 (GSA standard) for unknown states."""
+    path = os.path.join(BASE_DIR, "gsa_rates_fy2026.csv")
+    if not os.path.exists(path):
+        return {}
+    df = pd.read_csv(path)
+    if "meals" not in df.columns:
+        return {}
+    result = {}
+    for state, grp in df[~df["is_standard"]].groupby("state"):
+        result[str(state).upper()] = int(round(grp["meals"].mean()))
+    return result
+
 
 def _ensure_rate_col(df):
     """
@@ -1708,16 +1723,29 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
     af_cell  = lookup_airfare(rates, band, seas) if is_fly else None
     dr_cell  = lookup_drive(rates, band)         if not is_fly else None
 
+    # GSA meals floor — loaded directly from CSV, independent of geo_index
+    # so it works even if geo_index is an older version without gsa_meals.
+    gsa_meals_by_state = load_gsa_meals_by_state()
+    gsa_meals_floor = gsa_meals_by_state.get(cust_state.upper(), 68) if cust_state else 68
+
     # Apply geographic GSA correction — hotel multiplier + meals/hotel floors
     if geo_index:
         cust_city = cust_display.get("city", "")
-        geo_mult, geo_label, gsa_rate, gsa_meals = get_hotel_geo_mult(
+        geo_mult, geo_label, gsa_rate, gsa_meals_geo = get_hotel_geo_mult(
             geo_index, customer_id, cust_city, cust_state
         )
+        # Use city-level gsa_meals from geo_index if available, else state-level from CSV
+        gsa_meals = gsa_meals_geo if gsa_meals_geo else gsa_meals_floor
         if on_cell:
             on_cell  = apply_geo_correction(on_cell,  geo_mult, geo_label, gsa_rate, gsa_meals)
         if day_cell:
             day_cell = apply_geo_correction(day_cell, 1.0, geo_label, None, gsa_meals)
+    else:
+        # No geo_index — still apply meals floor from CSV
+        if on_cell:
+            on_cell  = apply_geo_correction(on_cell,  1.0, "", None, gsa_meals_floor)
+        if day_cell:
+            day_cell = apply_geo_correction(day_cell, 1.0, "", None, gsa_meals_floor)
 
     daily_used = fee_used = None
     _cust_name = cust_display.get("name", "this customer")
