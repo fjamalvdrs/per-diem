@@ -1527,13 +1527,14 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
         }
 
     # ── International flag ───────────────────────────────────────────────────
-    is_intl = (
-        cust_state in CANADIAN_PROVINCES
-        or (not manual_mode and cust_row is not None
-            and pd.notna(cust_row.get("Country"))
-            and str(cust_row.get("Country","")).strip().upper()
-            not in ("US","USA","UNITED STATES",""))
-    )
+    # Based on job site state/province, not the customer's registered Country
+    # field (which reflects company nationality, not where the work happens).
+    US_STATES = {"AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID",
+                 "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS",
+                 "MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK",
+                 "OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV",
+                 "WI","WY","DC","PR","GU","VI"}
+    is_intl = cust_state not in US_STATES and cust_state != ""
     if is_intl:
         st.warning(
             f"**International destination ({cust_state}).**  "
