@@ -1326,25 +1326,57 @@ def render_day_trip_table(cell, dist_miles, is_fly=False):
     return total_r
 
 
-def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True, dist_miles=None):
+def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True, dist_miles=None,
+                    use_rental=False, rental_daily_rate=None, rental_days=None,
+                    commutes_daily=False, n_days=None,
+                    hotel_addon=False, hotel_rate=None):
     if is_fly and af_cell:
         fee = af_cell.get("model_rate") or af_cell.get("median") or af_cell.get("mean")
         n   = af_cell.get("n", 0)
         rows = [("Airfare", f"{_fmt(fee)}/trip", f"median of N={n} trips")]
         st.markdown(_table_html(rows, "One-Time Trip Fee"), unsafe_allow_html=True)
         return fee
-    elif not is_fly and dr_cell:
-        n = dr_cell.get("n", 0)
-        if dist_miles and dist_miles > 0:
-            road_miles = dist_miles * CIRCUITY_FACTOR
-            fee    = round(road_miles * 2 * IRS_RATE, 0)
-            detail = f"${IRS_RATE}/mi × {road_miles:,.0f} mi × 2 (round trip)  ·  N={n} trips"
+    elif not is_fly:
+        rows = []
+        fee  = 0
+        n    = dr_cell.get("n", 0) if dr_cell else 0
+
+        if use_rental:
+            if rental_daily_rate and rental_days:
+                r_fee  = round(rental_daily_rate * rental_days, 0)
+                detail = f"${rental_daily_rate}/day × {rental_days} days"
+                rows.append(("Rental Car", f"{_fmt(r_fee)}/trip", detail))
+                fee += r_fee
+            else:
+                rows.append(("Rental Car", "—", "Enter daily rate and days above"))
         else:
-            fee    = dr_cell.get("model_rate") or dr_cell.get("mean")
-            detail = f"IRS mileage  ·  N={n} trips"
-        rows = [("Drive Cost", f"{_fmt(fee)}/trip", detail)]
-        st.markdown(_table_html(rows, "One-Time Trip Fee"), unsafe_allow_html=True)
-        return fee
+            if dist_miles and dist_miles > 0:
+                road_miles = dist_miles * CIRCUITY_FACTOR
+                if commutes_daily and n_days:
+                    d_fee  = round(road_miles * 2 * IRS_RATE * n_days, 0)
+                    detail = (f"${IRS_RATE}/mi × {road_miles:,.0f} mi × 2 × {int(n_days)} days"
+                              f"  ·  N={n} trips")
+                    rows.append(("Drive Cost", f"{_fmt(d_fee)}/trip", detail))
+                    fee += d_fee
+                else:
+                    d_fee  = round(road_miles * 2 * IRS_RATE, 0)
+                    detail = (f"${IRS_RATE}/mi × {road_miles:,.0f} mi × 2 (round trip)"
+                              f"  ·  N={n} trips")
+                    rows.append(("Drive Cost", f"{_fmt(d_fee)}/trip", detail))
+                    fee += d_fee
+            else:
+                fallback = (dr_cell.get("model_rate") or dr_cell.get("mean") or 0) if dr_cell else 0
+                rows.append(("Drive Cost", f"{_fmt(fallback)}/trip", f"IRS mileage  ·  N={n} trips"))
+                fee += fallback
+
+        if hotel_addon and hotel_rate:
+            h_fee = round(hotel_rate, 0)
+            rows.append(("Hotel (1 night)", f"{_fmt(h_fee)}", "one-time add-on"))
+            fee += h_fee
+
+        if rows:
+            st.markdown(_table_html(rows, "One-Time Trip Fee"), unsafe_allow_html=True)
+        return fee or None
     return None
 
 
@@ -1717,6 +1749,69 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
 
     st.markdown(_route_card_html(dist_miles, band, seas, mode_label), unsafe_allow_html=True)
 
+    # ── CAR TRIP OPTIONS (drive trips only) ──────────────────────────────────
+    use_rental        = False
+    rental_daily_rate = None
+    rental_days_input = None
+    commutes_daily    = False
+    long_day_hotel    = False
+
+    if not is_fly:
+        _section_label("Car Trip Options")
+        col_veh, col_acc = st.columns(2)
+
+        with col_veh:
+            st.caption("Vehicle")
+            vehicle_type = st.radio(
+                "Vehicle",
+                options=["Personal car", "Rental car"],
+                index=0,
+                horizontal=True,
+                key="vehicle_type",
+                label_visibility="collapsed",
+            )
+            use_rental = (vehicle_type == "Rental car")
+            if use_rental:
+                rental_daily_rate = st.number_input(
+                    "Daily rental rate ($)",
+                    min_value=1,
+                    max_value=1000,
+                    value=None,
+                    step=5,
+                    key="rental_daily_rate",
+                )
+                r_default = int(n_days) if n_days else 1
+                rental_days_input = st.number_input(
+                    "Rental days",
+                    min_value=1,
+                    max_value=60,
+                    value=r_default,
+                    step=1,
+                    key="rental_days_input",
+                )
+
+        with col_acc:
+            st.caption("Accommodation")
+            if final_trip == "overnight":
+                default_acc_idx = 0 if dist_miles >= 100 else 1  # 0=Hotel, 1=Commutes
+                accommodation = st.radio(
+                    "Accommodation",
+                    options=["Hotel each night", "Drives home each night"],
+                    index=default_acc_idx,
+                    key="car_accommodation",
+                    label_visibility="collapsed",
+                )
+                commutes_daily = (accommodation == "Drives home each night")
+                if commutes_daily and not n_days:
+                    st.caption("Enter total days above to compute full commute cost.")
+            else:
+                default_hotel = dist_miles >= 100
+                long_day_hotel = st.checkbox(
+                    "Add hotel night (long day trip)",
+                    value=default_hotel,
+                    key="long_day_hotel",
+                )
+
     # ── STEP 3 — Estimate ────────────────────────────────────────────────────
     _section_label("Step 3 — Estimate")
 
@@ -1752,23 +1847,46 @@ def render_estimate_tab(customers, techs, rates, classifier, master_df, geo_inde
     daily_used = fee_used = None
     _cust_name = cust_display.get("name", "this customer")
 
+    # Hotel rate for potential day-trip add-on (from corrected on_cell, or fallback)
+    hotel_addon_rate = (on_cell.get("hotel_rate") if on_cell else None) or 150
+
     def _overnight(cell, nd):
-        daily   = render_overnight_table(cell, dist_miles, is_fly=is_fly)
-        fee     = render_trip_fee(af_cell, dr_cell, is_fly, dist_miles)
-        fee_lbl = "airfare" if is_fly else "drive"
-        bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
-        render_total_box(daily, fee, fee_lbl, nd, rate_cell=cell, basis_text=bt)
+        if commutes_daily:
+            # Tech drives home each night — day trip rate (meals, no hotel) + drive × n_days
+            daily   = render_day_trip_table(day_cell, dist_miles, is_fly=False)
+            fee     = render_trip_fee(None, dr_cell, is_fly=False, dist_miles=dist_miles,
+                                      use_rental=use_rental, rental_daily_rate=rental_daily_rate,
+                                      rental_days=rental_days_input,
+                                      commutes_daily=True, n_days=nd)
+            fee_lbl = "rental (daily)" if use_rental else "drive (daily)"
+            bt      = _basis_plain(day_cell, _cust_name, band, seas, False)
+            render_total_box(daily, fee, fee_lbl, nd, rate_cell=day_cell, basis_text=bt)
+        else:
+            daily   = render_overnight_table(cell, dist_miles, is_fly=is_fly)
+            fee     = render_trip_fee(af_cell, dr_cell, is_fly, dist_miles,
+                                      use_rental=use_rental, rental_daily_rate=rental_daily_rate,
+                                      rental_days=rental_days_input)
+            fee_lbl = "airfare" if is_fly else ("rental" if use_rental else "drive")
+            bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
+            render_total_box(daily, fee, fee_lbl, nd, rate_cell=cell, basis_text=bt)
         return daily, fee
 
     def _day_trip(cell, nd):
         daily = render_day_trip_table(cell, dist_miles, is_fly=is_fly)
         if not is_fly:
-            fee = render_trip_fee(None, dr_cell, is_fly=False, dist_miles=dist_miles)
+            fee = render_trip_fee(None, dr_cell, is_fly=False, dist_miles=dist_miles,
+                                  use_rental=use_rental, rental_daily_rate=rental_daily_rate,
+                                  rental_days=rental_days_input,
+                                  hotel_addon=long_day_hotel, hotel_rate=hotel_addon_rate)
+            fee_parts = ["rental"] if use_rental else ["drive"]
+            if long_day_hotel:
+                fee_parts.append("hotel")
+            fee_lbl = " + ".join(fee_parts)
         else:
             fee = None
             st.caption("Note: flying for a day trip is unusual — confirm with ops.")
-        fee_lbl = "drive" if not is_fly else ""
-        bt      = _basis_plain(cell, _cust_name, band, seas, is_fly)
+            fee_lbl = ""
+        bt = _basis_plain(cell, _cust_name, band, seas, is_fly)
         render_total_box(daily, fee if not is_fly else None, fee_lbl, nd, rate_cell=cell, basis_text=bt)
         return daily, fee
 
