@@ -14,7 +14,8 @@ from math import radians, sin, cos, sqrt, atan2
 from datetime import date
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IRS_RATE = 0.725  # $/mile (IRS 2025 rate)
+IRS_RATE       = 0.725  # $/mile (IRS 2025 rate)
+CIRCUITY_FACTOR = 1.3   # straight-line → road distance adjustment
 
 CANADIAN_PROVINCES = {"ON","BC","AB","QC","MB","SK","NS","NB","PE","NL","NT","YT","NU"}
 
@@ -858,7 +859,7 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
         trip_fee_val = af_cell.get("model_rate") or af_cell.get("median", 0)
         fee_label_str = "airfare"
     elif not is_fly and dr_cell:
-        trip_fee_val = round(dist_miles * 2 * IRS_RATE, 0) if dist_miles else (dr_cell.get("model_rate") or dr_cell.get("mean", 0))
+        trip_fee_val = round(dist_miles * CIRCUITY_FACTOR * 2 * IRS_RATE, 0) if dist_miles else (dr_cell.get("model_rate") or dr_cell.get("mean", 0))
         fee_label_str = "drive"
     else:
         trip_fee_val  = 0
@@ -995,10 +996,10 @@ def explain_modal(cell_type, cell, af_cell, dr_cell, is_fly,
         n_dr = dr_cell.get("n", 0)
         st.markdown(
             f'<p style="font-size:13px;color:#d1d5db;margin:0 0 2px 0;">'
-            f'${IRS_RATE}/mi × <strong>{dist_miles:,.0f} mi</strong> × 2 (round trip) = '
+            f'${IRS_RATE}/mi × <strong>{dist_miles * CIRCUITY_FACTOR:,.0f} mi</strong> × 2 (round trip) = '
             f'<strong style="color:#93c5fd;">${trip_fee_val:,.0f}</strong>. '
             f'Cross-checked against <strong>{n_dr} similar drive trips</strong>. '
-            f'Note: distance is straight-line — actual road miles are typically 15–25% longer.</p>',
+            f'Straight-line {dist_miles:,.0f} mi × {CIRCUITY_FACTOR} road factor = {dist_miles * CIRCUITY_FACTOR:,.0f} mi.</p>',
             unsafe_allow_html=True,
         )
     else:
@@ -1335,8 +1336,9 @@ def render_trip_fee(af_cell=None, dr_cell=None, is_fly=True, dist_miles=None):
     elif not is_fly and dr_cell:
         n = dr_cell.get("n", 0)
         if dist_miles and dist_miles > 0:
-            fee    = round(dist_miles * 2 * IRS_RATE, 0)
-            detail = f"${IRS_RATE}/mi × {dist_miles:,.0f} mi × 2 (round trip)  ·  N={n} trips"
+            road_miles = dist_miles * CIRCUITY_FACTOR
+            fee    = round(road_miles * 2 * IRS_RATE, 0)
+            detail = f"${IRS_RATE}/mi × {road_miles:,.0f} mi × 2 (round trip)  ·  N={n} trips"
         else:
             fee    = dr_cell.get("model_rate") or dr_cell.get("mean")
             detail = f"IRS mileage  ·  N={n} trips"
